@@ -35,20 +35,29 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
         return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
     }
 
+    $query = "SELECT * FROM select_active_transactions()";
+
     if (isset($_POST['get_all_button'])) {
       $pg_conn = pg_connect(pg_connection_string_from_database_url())
           or die('Could not connect:' . pg_last_error());
       $query = "SELECT * FROM select_active_transactions()";
       pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
       $result = pg_get_result($pg_conn);
-      
+
+      echo $result;
+
       if ($result) {
           $state = pg_result_error_field($result, PGSQL_DIAG_SQLSTATE);
       }
     }
 ?>
+<script type="text/javascript">
+      var test = "<?php echo $result ?>"
+      console.log(test);
+      var query = "<?php echo $query ?>"
+      console.log(query);
+</script>
 <h1 class="w3-text-teal">Search</h1>
-      
  <form action="search.php" method="GET">
     <button type="submit" name="get_all_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
       Get All</button>
