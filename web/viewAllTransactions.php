@@ -1,8 +1,7 @@
+<!DOCTYPE html>
 <?php
     session_start();
 ?>
-<!DOCTYPE html>
-
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -14,6 +13,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 </style>
 <body>
 <div>
+<?php
+    include 'navbar.php';
+?>
+</div>
+
+<div style=margin-top:43px>
+    <div class="w3-container">
+        <h1 class="w3-text-teal">Heading</h1>
+    </div>
 <?php
     include 'navbar.php';
     function pg_connection_string_from_database_url() {
@@ -32,5 +40,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     }
 ?>
 </div>
+
+<script>
+var overlayBg = document.getElementById("myOverlay");
+
+</script>
+
 </body>
 </html>
