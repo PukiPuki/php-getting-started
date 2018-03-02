@@ -121,7 +121,7 @@ span.psw {
     }
     if (isset($_POST['remove_user'])) {
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
-        $query = "SELECT * FROM admin_edit_user('$_POST[username]')";
+        $query = "SELECT * FROM admin_remove_user('$_POST[username]')";
         pg_send_query($pg_conn, $query);
         $result = pg_get_result($pg_conn);
 
@@ -158,6 +158,9 @@ span.psw {
   </div>
 </div>
 </form> 
+<?php
+    echo $message;
+?>
 <div>
  <form action="admin.php" method="POST">
 
