@@ -6,6 +6,11 @@
     <div class="w3-right w3-hide-small">
     <a href="search.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Search</a>
     <?php
+        if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
+            echo '<a href="admin.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Admin Panel</a>';
+        } else {
+
+        }
         if (!isset($_SESSION['user'])) {
             echo '<a href="login.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Login</a>
     <a href="signup.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Sign Up</a>';
