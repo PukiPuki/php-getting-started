@@ -32,10 +32,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $query = "SELECT * FROM select_active_transactions()";
     $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
     if (!$result) {
-        echo '<p>There are no transactions in the database!</p> </div> </div> </div>';
+        $message = ' <p>There are no transactions in the database!</p> </div> </div> </div>';
+        echo "<script type='text/javascript'>alert('$message');</script>";
     } else {
         $row = pg_fetch_assoc($result);
-        echo "$row[tid]";
+        $message = "$row[tid]";
+        echo "<script type='text/javascript'>alert('$message');</script>";
          $index = 1;
               echo '
             <table style = "width:100%">
