@@ -105,9 +105,9 @@ span.psw {
 
             if (password_verify($_POST[psw], $data[0])) {
                 if ($data[1]) {
-                    $_SESSION[isAdmin] = True;
+                    $_SESSION[isAdmin] = "True";
                 } else {
-                    $_SESSION[isAdmin] = False;    
+                    $_SESSION[isAdmin] = "False";    
                 }
                 $_SESSION[user] = $_POST[uname];
                 header("Location: index.php");
