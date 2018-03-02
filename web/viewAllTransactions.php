@@ -50,8 +50,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                     <th>Minimum Bid</th>
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
-                    </tr>
-                    <tr>
+                    <th>HELP</th>
+                    </tr>';
+                    echo '<tr>
                     <th>S/N</th>
                     <th>tID</th>
                     <th>Item</th>
@@ -63,7 +64,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                     <th>Minimum Bid</th>
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
-                    </tr>';
+                    <th>HELP</th>
+                    </tr>' ;
             while($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr>
                 <td>'.$index.'</td>
