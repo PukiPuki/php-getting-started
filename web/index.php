@@ -28,17 +28,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 <?php
     function pg_connection_string_from_database_url() {
         extract(parse_url($_ENV["DATABASE_URL"]));
-        return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . "sslmode=require"; # <- you may want to add sslmode=require there too
+        return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
     }
     echo "yo";
     $pg_conn = pg_connect(pg_connection_string_from_database_url());
     $result = pg_query($pgconn, "SELECT username from auth_user");
     $data = pg_fetch_assoc($result);
-    print "Tables in your database:\n";
-  while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
-    if (isset($_SESSION['user'])) {
-
-    }
+    echo $data["username"];
 
 ?>
 </div>
