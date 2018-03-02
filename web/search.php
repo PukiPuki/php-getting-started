@@ -25,7 +25,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 <div style=margin-top:43px>
     <div class="w3-container">
-        <h1 class="w3-text-teal">Heading</h1>
+        <h1 class="w3-text-teal">Search</h1>
     </div>
 <?php
     function pg_connection_string_from_database_url() {
@@ -39,6 +39,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $data = pg_fetch_assoc($result);
     echo $data[username];
 ?>
+        <h1 class="w3-text-teal">Search</h1>
 </div>
 
 <script>
@@ -47,4 +48,3 @@ var overlayBg = document.getElementById("myOverlay");
 </script>
 </body>
 </html>
-

@@ -20,12 +20,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 ?>
 </div>
 
-<div style=margin-top:43px>
-    <div class="w3-container">
-        <h1 class="w3-text-teal">Welcome</h1>
-    </div>
-
-<div>
 
 <?php
     function pg_connection_string_from_database_url() {
@@ -34,7 +28,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     }
     $pg_conn = pg_connect(pg_connection_string_from_database_url())
         or die('Could not connect:' . pg_last_error());
-    echo $_SESSION[user];
+    echo " <div style=margin-top:43px>
+    <div class=\"w3-container\">
+        <h1 class=\"w3-text-teal\">Welcome {$_SESSION[user]}</h1>
+    </div>";
 ?>
 </div>
 </div>
