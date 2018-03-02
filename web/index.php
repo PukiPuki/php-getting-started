@@ -36,7 +36,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $data = pg_fetch_assoc($result);
     print "Tables in your database:\n";
   while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
-    }
     if (isset($_SESSION['user'])) {
 
     }
