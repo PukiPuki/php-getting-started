@@ -101,7 +101,7 @@ span.psw {
 
     if (isset($_POST['edit_user'])) {
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
-        $query = "SELECT admin_edit_user('$_POST[username]', '$_POST[newphone]', $_POST[isAdmin]'";
+        $query = "SELECT admin_edit_user('$_POST[username]', '$_POST[newphone]', '$_POST[isAdmin]'";
         $result = pg_query($pg_conn, $query);
 
         if ($result) {
@@ -128,7 +128,7 @@ span.psw {
     <label for="newphone"><b>New Phone Number</b></label>
     <input type="text" placeholder="Enter New Phone Number" name="newphone" required>
 
-    <label for="isAdmin?"><b>Admin Privileges</b></label>
+    <label for="isAdmin"><b>Admin Privileges</b></label>
     <input type="checkbox" name="isAdmin"> Admin </input>
     <button type="submit" name= "edit_user">Edit</button>
   </div>
