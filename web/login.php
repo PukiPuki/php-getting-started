@@ -104,7 +104,7 @@ span.psw {
             $data = pg_fetch_row($check);
 
             if (password_verify($_POST[psw], $data[0])) {
-                if ($data[1] == True) {
+                if ($data[1]) {
                     $_SESSION[isAdmin] = True;
                 } else {
                     $_SESSION[isAdmin] = False;    
