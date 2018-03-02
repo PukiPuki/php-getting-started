@@ -101,7 +101,6 @@ span.psw {
         $valid = pg_num_rows($check);
 
         if ($valid > 0) {
-        echo "<script type='text/javascript'>alert('HERE');</script>";
             $data = pg_fetch_row($check);
 
             if (password_verify($_POST[psw], $data[0])) {
@@ -115,10 +114,10 @@ span.psw {
                 exit();
             } else {
                 $message = '<p> Wrong username/password!';
+        echo "<script type='text/javascript'>alert('$message');</script>";
             }
         } else {
            $message = '<p> Wrong username/password!';
-        echo "<script type='text/javascript'>alert('$message');</script>";
         }
     } 
 ?>
