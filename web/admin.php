@@ -116,10 +116,7 @@ span.psw {
               alert('Update failed!');
             </script>"; 
         }
-    } else {
-
-    }
-    if (isset($_POST['remove_user'])) {
+    } else if (isset($_POST['remove_user'])) {
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
         $query = "SELECT * FROM admin_remove_user('$_POST[username]')";
         pg_send_query($pg_conn, $query);
@@ -129,8 +126,6 @@ span.psw {
             echo "<script type='text/javascript'>
               alert('User removed!');
             </script>"; 
-            header("Location:admin.php");
-            exit();
         } else {
             echo "<script>
               alert('User removal failed!');
