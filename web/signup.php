@@ -89,7 +89,7 @@ span.psw {
     include 'navbar.php';
 ?>
 
-<div>
+<div style="margin-top:43px">
  <form action="signup.php" method="POST">
 
   <div class="container">
