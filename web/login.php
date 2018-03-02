@@ -83,14 +83,11 @@ span.psw {
 </head>
 <body>
 <?php
-    include "navbar.php";
+    include 'navbar.php';
 ?>
 
 <div>
- <form action="action_page.php">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
+ <form action="login.php" method="POST">
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
