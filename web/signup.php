@@ -112,7 +112,7 @@ span.psw {
             } else if ($state  == 23505) {
                 $message = "Your username has already been taken!";
             } else if ($state == 23502) {
-                $message = "You have somehow entered a null value!"
+                $message = "You have somehow entered a null value!";
             } else
                 echo $state;
             }
