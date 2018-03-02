@@ -44,8 +44,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
       $result = pg_get_result($pg_conn);
 
-      echo "<script> alert(\"yourmother\") </script>";
-      echo "<script> console.log(\"yourmother\") </script>";
+      echo "<script> alert(\"yourmother\"); </script>";
+      echo "<script> console.log(\"yourmother\"); </script>";
 
       if ($result) {
           $state = pg_result_error_field($result, PGSQL_DIAG_SQLSTATE);
