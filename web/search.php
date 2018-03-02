@@ -46,6 +46,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       echo "<script> alert(\"yourmother\"); </script>";
       echo "<script> console.log(\"yourmother\"); </script>";
 
+
       if ($result) {
           $state = pg_result_error_field($result, PGSQL_DIAG_SQLSTATE);
       }
