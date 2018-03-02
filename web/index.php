@@ -34,15 +34,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
         or die('Could not connect:' . pg_last_error());
     $query = 'SELECT * FROM auth_user';
     $result = pg_query($pgconn, $query) or die('Query failed: '. pg_last_error());
-    echo "<table>\n";
-while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-    echo "\t<tr>\n";
-    foreach ($line as $col_value) {
-        echo "\t\t<td>$col_value</td>\n";
-    }
-    echo "\t</tr>\n";
-}
-echo "</table>\n";
+    $data = pg_fetch_assoc($result);
+    echo $data[username];
 ?>
 </div>
 
