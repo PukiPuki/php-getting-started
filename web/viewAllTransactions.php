@@ -30,13 +30,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $pg_conn = pg_connect(pg_connection_string_from_database_url())
         or die('Could not connect:' . pg_last_error());
     $query = "SELECT * FROM select_active_transactions()";
-    pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
-    $result = pg_get_result($pg_conn);
+    $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
+    
     if (!$result) {
         echo '<p>There are no transactions in the database!</p> </div> </div> </div>';
     } else {
+            echo "test";
+            $row = pg_fetch_assoc($result);
+            echo $row[tid];
          $index = 1;
-              echo '
+            echo '$result ''
             <table style = "width:100%">
                     <tr>
                     <th>S/N</th>
