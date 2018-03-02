@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     session_start();
-    $username = $_SESSION['user'];
+    //$username = $_SESSION['user'];
 ?>
 <html>
 <title>Stuff Sharing (CS2102 Project)</title>
