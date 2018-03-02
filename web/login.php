@@ -104,10 +104,11 @@ span.psw {
             $data = pg_fetch_row($check);
 
             if (password_verify($_POST[psw], $data[0])) {
+        echo "<script type='text/javascript'>alert('$data[1]');</script>";
                 if ($data[1]) {
-                    $_SESSION[isAdmin] = "True";
+                    $_SESSION[isAdmin] = True;
                 } else {
-                    $_SESSION[isAdmin] = "False";    
+                    $_SESSION[isAdmin] = False;    
                 }
                 $_SESSION[user] = $_POST[uname];
                 header("Location: index.php");
