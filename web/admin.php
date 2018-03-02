@@ -100,11 +100,10 @@ span.psw {
 
 
     if (isset($_POST['edit_user'])) {
-        echo "<script type='text/javascript'>alert('{$POST[isAdmin]}');</script>";
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
-        $query = "SELECT admin_edit_user('$_POST[username]', '$_POST[newphone]', 'True'";
-        $result = pg_query($pg_conn, $query) or die('Query Failed' . pg_last_error());
-        echo "<script type='text/javascript'>alert('{$result}');</script>";
+        $query = "SELECT * FROM admin_edit_user('$_POST[username]', '$_POST[newphone]', 'True')";
+        pg_send_query($pg_conn, $query);
+        $result = pg_get_result($pg_conn);
 
         if ($result) {
             echo "<script type='text/javascript'>
