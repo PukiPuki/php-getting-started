@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     session_start();
-    $db = pg_connect("host=localhost port=5432 dbname=CS2102 user=postgres password=root");
+    $db = pg_connect("host=localhost port=5432 dbname=daq5hqoilto32t user=nnjquhqhcsmbzg password=ee407a056d0aa6ed4587a1aabee57672261bb4bc55addf7d78c018ca4dc133ee");
     $result = pg_query($db, "SELECT * FROM admin_select_transaction()");
 ?>
 
