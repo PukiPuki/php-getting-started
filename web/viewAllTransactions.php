@@ -23,20 +23,19 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
         <h1 class="w3-text-teal">Heading</h1>
     </div>
 <?php
-    include 'navbar.php';
     function pg_connection_string_from_database_url() {
         extract(parse_url($_ENV["DATABASE_URL"]));
         return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
     }
     $pg_conn = pg_connect(pg_connection_string_from_database_url())
-                or die('Could not connect:' . pg_last_error());
+        or die('Could not connect:' . pg_last_error());
     $query = "SELECT * FROM admin_select_transaction()";
     pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
-            $result = pg_get_result($pg_conn);
+    $result = pg_get_result($pg_conn);
     if(!$result) {
         echo '<p>There is no transaction in the database!</p>';
     } else {
-        echo $db;
+        echo $result;
     }
 ?>
 </div>
