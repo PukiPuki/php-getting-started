@@ -40,7 +40,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     }
     while($data = pg_fetch_assoc($result)) {
     	echo '<div class="panel panel-info">
-    			<div class="panel-heading"><b>'Your Loans'</b></div>
+    			<div class="panel-heading"><b>'.Your Loans.'</b></div>
     			<div class="panel-body">
     				Item: '.$data["itemName"].'</b>
     				BidderName: '.$data["bidderName"].'</b>
