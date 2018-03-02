@@ -30,11 +30,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
         extract(parse_url($_ENV["DATABASE_URL"]));
         return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
     }
-    echo "yo";
     $pg_conn = pg_connect(pg_connection_string_from_database_url());
     echo $pg_conn;
     $result = pg_query($pgconn, "SELECT username from auth_user");
-    echo $pg_query;
+    echo $result;
     $data = pg_fetch_assoc($result);
     echo $data["username"];
 
