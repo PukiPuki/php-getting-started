@@ -30,12 +30,19 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
         extract(parse_url($_ENV["DATABASE_URL"]));
         return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
     }
-    $pg_conn = pg_connect(pg_connection_string_from_database_url());
-    echo $pg_conn;
-    $result = pg_query($pgconn, "SELECT * from auth_user WHERE username='limys'");
-    $data = pg_fetch_assoc($result);
-    echo $data["username"];
-
+    $pg_conn = pg_connect(pg_connection_string_from_database_url())
+        or die('Could not connect:' . pg_last_error());
+    $query = 'SELECT * FROM auth_user';
+    $result = pg_query($pgconn, $query) or die('Query failed: '. pg_last_error());
+    echo "<table>\n";
+while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td>$col_value</td>\n";
+    }
+    echo "\t</tr>\n";
+}
+echo "</table>\n";
 ?>
 </div>
 
