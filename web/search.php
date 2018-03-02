@@ -41,8 +41,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       $pg_conn = pg_connect(pg_connection_string_from_database_url())
           or die('Could not connect:' . pg_last_error());
       $query = "SELECT * FROM select_active_transactions()";
-      pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
-      $result = pg_get_result($pg_conn);
+      $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
 
       echo "<script> alert(\"yourmother\"); </script>";
       echo "<script> console.log(\"yourmother\"); </script>";
