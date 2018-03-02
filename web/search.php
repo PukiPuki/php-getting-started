@@ -28,18 +28,51 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
         <h1 class="w3-text-teal">Search</h1>
     </div>
 <?php
+    include 'navbar.php';
+
     function pg_connection_string_from_database_url() {
         extract(parse_url($_ENV["DATABASE_URL"]));
         return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
     }
-    $pg_conn = pg_connect(pg_connection_string_from_database_url())
-        or die('Could not connect:' . pg_last_error());
-    $query = 'SELECT * FROM auth_user';
-    $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
-    $data = pg_fetch_assoc($result);
-    echo $data[username];
+
+    if (isset($_POST['signup'])) {
+
+        if ($_POST[psw] == $_POST[cfmpsw]) {
+            $pg_conn = pg_connect(pg_connection_string_from_database_url())
+                or die('Could not connect:' . pg_last_error());
+            $password = password_hash($_POST[psw],PASSWORD_DEFAULT);
+            $query = "SELECT * FROM admin_add_user('$_POST[uname]', '$password', '$_POST[phn]', 'False')";
+            pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
+            $result = pg_get_result($pg_conn);
+            
+            if ($result) {
+                $state = pg_result_error_field($result,PGSQL_DIAG_SQLSTATE);
+
+                if ($state == 0) {
+	    				$_SESSION['user'] = $_POST[uname];
+	    				$_SESSION['phone'] = $_POST[phn];
+	    				$_SESSION["isAdmin"] = "False";
+	    				header("Location: index.php");
+	    				exit();
+                } else if ($state  == 23505) {
+                    $message = "Your username has already been taken!";
+                } else if ($state == 23502) {
+                    $message = "You have somehow entered a null value!";
+                } else
+                    echo $state;
+                }
+        } else {
+            $message = '<p> Passwords do not match!</p>';
+        }
+    }
 ?>
-        <h1 class="w3-text-teal">Search</h1>
+<h1 class="w3-text-teal">Search</h1>
+      
+ <form action="search.php" method="GET">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+      Get All</button>
+ </form>
+
 </div>
 
 <script>
