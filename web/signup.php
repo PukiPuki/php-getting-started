@@ -94,6 +94,7 @@ span.psw {
     }
 
     if (isset($_POST['signup'])) {
+        echo "<script type='text/javascript'>alert('TRYING');</script>";
 
         if ($_POST[psw] == $_POST[cfmpsw]) {
             $pg_conn = pg_connect(pg_connection_string_from_database_url())
@@ -136,10 +137,10 @@ span.psw {
     <label for="cfmpsw"><b>Confirm Password</b></label>
     <input type="password" placeholder="Confirm Password" name="cfmpsw" required>
 
-    <label for="psw"><b> Phone Number</b></label>
+    <label for="phn"><b> Phone Number</b></label>
     <input type="text" placeholder="Enter Phone Number" name="phn" required>
 
-    <button type="submit">Signup</button>
+    <button type="submit" name="signup">Signup</button>
     <label>
     </label>
   </div>
