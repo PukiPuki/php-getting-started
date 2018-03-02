@@ -32,11 +32,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $query = "SELECT * FROM admin_select_transaction()";
     pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
     $result = pg_get_result($pg_conn);
-    if(!$result) {
-        echo '<p>There is no transaction in the database!</p>';
-    } else {
-        echo $result;
-    }
+    echo $result;
 ?>
 </div>
 
