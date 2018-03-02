@@ -23,7 +23,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 <div style=margin-top:43px>
     <div class="w3-container">
-        <h1 class="w3-text-teal">Heading</h1>
+        <h1 class="w3-text-teal">Your Loan</h1>
     </div>
 
 <?php
@@ -43,11 +43,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     while($row = pg_fetch_assoc($result)) {
     	//echo '<p>1</p>';
     	echo '<div class="panel panel-info">
-    			<div class="panel-heading"><b>Your Loan</b></div>
     			<div class="panel-body">
-    				Item: '.$row["itemName"].'</br>
-    				BidderName: '.$row["bidderName"].'</br>
-    				ReturnDate: '.$row["returnDate"].'</br>
+    				Item: '.$row["itemname"].'</br>
+    				BidderName: '.$row["biddername"].'</br>
+    				ReturnDate: '.$row["returndate"].'</br>
     			</div>
     		</div>';
     }
