@@ -50,6 +50,19 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                     <th>Minimum Bid</th>
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
+                    </tr>
+                    <tr>
+                    <th>S/N</th>
+                    <th>tID</th>
+                    <th>Item</th>
+                    <th>Location</th>
+                    <th>Loan Date</th>
+                    <th>Return Date</th>
+                    <th>Owner</th>
+                    <th>Category</th>
+                    <th>Minimum Bid</th>
+                    <th>Automatic Bid</th>
+                    <th>Current Bid</th>
                     </tr>';
             while($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr>
