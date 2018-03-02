@@ -20,7 +20,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
 <div style=margin-top:43px>
     <div class="w3-container">
-        <h1 class="w3-text-teal">Heading</h1>
+        <h1 class="w3-text-teal">List of all transactions</h1>
     </div>
 <?php
     function pg_connection_string_from_database_url() {
@@ -29,10 +29,46 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     }
     $pg_conn = pg_connect(pg_connection_string_from_database_url())
         or die('Could not connect:' . pg_last_error());
-    $query = "SELECT * FROM admin_select_transaction()";
+    $query = "SELECT * FROM select_active_transactions()";
     pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
     $result = pg_get_result($pg_conn);
-    echo $result[0];
+    if (!$result) {
+        echo '<p>There are no transactions in the database!</p> </div> </div> </div>';
+    } else {
+         $index = 1;
+              echo '
+            <table style = "width:100%">
+                    <tr>
+                    <th>S/N</th>
+                    <th>tID</th>
+                    <th>Item</th>
+                    <th>Location</th>
+                    <th>Loan Date</th>
+                    <th>Return Date</th>
+                    <th>Owner</th>
+                    <th>Category</th>
+                    <th>Minimum Bid</th>
+                    <th>Automatic Bid</th>
+                    <th>Current Bid</th>
+                    </tr>';
+            while($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                echo '<tr>
+                <th>'.$index.'</th>
+                <th>'.$row["tid"].'</th>
+                <th>'.$row["itemName"].'</th>
+                <th>'.$row["location"].'</th>
+                <th>'.$row["pickupDate"].'</th>
+                <th>'.$row["returnDate"].'</th>
+                <th>'.$row["owner"].'</th>
+                <th>'.$row["category"].'</th>
+                <th>'.$row["minBid"].'</th>
+                <th>'.$row["autobuy"].'</th>
+                <th>'.$row["highBid"].'</th>
+                </tr>';
+                $index++;
+          }
+          echo '</table>';
+    }
 ?>
 </div>
 
