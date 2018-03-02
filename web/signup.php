@@ -99,7 +99,7 @@ span.psw {
             $pg_conn = pg_connect(pg_connection_string_from_database_url())
                 or die('Could not connect:' . pg_last_error());
             $password = password_hash($_POST[psw],PASSWORD_DEFAULT);
-            $query = "SELECT admin_add_user('$_POST[uname]', $psw, '$_POST[phn]', 'False')";
+            $query = "SELECT * FROM admin_add_user('$_POST[uname]', $psw, '$_POST[phn]', 'False')";
             $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
             
             if ($result) {
@@ -121,7 +121,6 @@ span.psw {
                 }
         } else {
             $message = '<p> Passwords do not match!</p>';
-        echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }
 ?>
