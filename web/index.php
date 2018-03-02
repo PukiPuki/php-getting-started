@@ -30,7 +30,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 <div class="container">
 
 <?php
-    echo "HELLO";
     function pg_connection_string_from_database_url() {
         extract(parse_url($_ENV["DATABASE_URL"]));
         return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . "sslmode=require"; # <- you may want to add sslmode=require there too
