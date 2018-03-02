@@ -14,9 +14,11 @@
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 </style>
 <body>
+<div>
 <?php
     include 'navbar.php';
 ?>
+<div>
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-text-black" style="padding:48px">
