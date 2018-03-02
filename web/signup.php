@@ -93,31 +93,34 @@ span.psw {
         return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
     }
 
-    if ($_POST[psw] == $_POST[cfmpsw]) {
-        $pg_conn = pg_connect(pg_connection_string_from_database_url())
-            or die('Could not connect:' . pg_last_error());
-        $password = password_hash($_POST[psw],PASSWORD_DEFAULT);
-        $query = "SELECT admin_add_user('$_POST[uname]', $psw, '$_POST[phn]', 'False')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
-        
-        if ($result) {
-            $state = pg_result_error_field($result,PGSQL_DIAG_SQLSTATE);
+    if (isset($_POST['signup'])) {
 
-            if ($state == 0) {
-					$_SESSION['user'] = $_POST[uname];
-					$_SESSION['phone'] = $_POST[phn];
-					$_SESSION["isAdmin"] = "False";
-					header("Location: index.php");
-					exit();
-            } else if ($state  == 23505) {
-                $message = "Your username has already been taken!";
-            } else if ($state == 23502) {
-                $message = "You have somehow entered a null value!";
-            } else
-                echo $state;
-            }
-    } else {
-        $message = '<p> Passwords do not match!</p>';
+        if ($_POST[psw] == $_POST[cfmpsw]) {
+            $pg_conn = pg_connect(pg_connection_string_from_database_url())
+                or die('Could not connect:' . pg_last_error());
+            $password = password_hash($_POST[psw],PASSWORD_DEFAULT);
+            $query = "SELECT admin_add_user('$_POST[uname]', $psw, '$_POST[phn]', 'False')";
+            $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
+            
+            if ($result) {
+                $state = pg_result_error_field($result,PGSQL_DIAG_SQLSTATE);
+
+                if ($state == 0) {
+	    				$_SESSION['user'] = $_POST[uname];
+	    				$_SESSION['phone'] = $_POST[phn];
+	    				$_SESSION["isAdmin"] = "False";
+	    				header("Location: index.php");
+	    				exit();
+                } else if ($state  == 23505) {
+                    $message = "Your username has already been taken!";
+                } else if ($state == 23502) {
+                    $message = "You have somehow entered a null value!";
+                } else
+                    echo $state;
+                }
+        } else {
+            $message = '<p> Passwords do not match!</p>';
+        }
     }
 ?>
 
