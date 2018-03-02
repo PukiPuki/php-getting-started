@@ -39,7 +39,7 @@ button:hover {
         echo '<p>There is no task in the database!</p> </div> </div> </div>';
     } else {
         $index = 1;
-        echo '1';
+        echo $db;
     }
 ?>
 
