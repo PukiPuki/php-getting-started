@@ -102,7 +102,7 @@ span.psw {
     if (isset($_POST['edit_user'])) {
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
         $query = "SELECT admin_edit_user('$_POST[username]', '$_POST[newphone]', '$_POST[isAdmin]'";
-        $result = pg_query($pg_conn, $query);
+        $result = pg_query($pg_conn, $query) or die (pg_last_error());
 
         if ($result) {
             echo "<script type='text/javascript'>
