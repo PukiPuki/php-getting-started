@@ -101,17 +101,39 @@ span.psw {
 
     if (isset($_POST['edit_user'])) {
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
-        $query = "SELECT * FROM admin_edit_user('$_POST[username]', '$_POST[newphone]', 'True')";
+        $query = "SELECT * FROM admin_edit_user('$_POST[username]', '$_POST[newphone]', '$_POST[isAdmin]')";
         pg_send_query($pg_conn, $query);
         $result = pg_get_result($pg_conn);
 
         if ($result) {
             echo "<script type='text/javascript'>
-              alert('User updated!');
+              alert('User edited!');
             </script>"; 
+            header("Location:admin.php");
+            exit();
         } else {
             echo "<script>
               alert('Update failed!');
+            </script>"; 
+        }
+    } else {
+
+    }
+    if (isset($_POST['remove_user'])) {
+        $pg_conn = pg_connect(pg_connection_string_from_database_url());
+        $query = "SELECT * FROM admin_edit_user('$_POST[username]')";
+        pg_send_query($pg_conn, $query);
+        $result = pg_get_result($pg_conn);
+
+        if ($result) {
+            echo "<script type='text/javascript'>
+              alert('User removed!');
+            </script>"; 
+            header("Location:admin.php");
+            exit();
+        } else {
+            echo "<script>
+              alert('User removal failed!');
             </script>"; 
         }
     } else {
@@ -130,10 +152,20 @@ span.psw {
     <input type="text" placeholder="Enter New Phone Number" name="newphone" required>
 
     <label for="isAdmin"><b>Admin Privileges</b></label>
-    <input type="checkbox" name="isAdmin"> Admin </input>
+    <input type="hidden" name="isAdmin" value="0"> </input>
+    <input type="checkbox" name="isAdmin" value="1"> Admin </input>
     <button type="submit" name= "edit_user">Edit</button>
   </div>
+</div>
+</form> 
+<div>
+ <form action="admin.php" method="POST">
 
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter User to Remove" name="username" required>
+    <button type="submit" name= "remove_user">Remove</button>
+  </div>
 </div>
 </form> 
 <?php
