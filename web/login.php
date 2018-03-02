@@ -102,7 +102,8 @@ span.psw {
 
         if ($valid > 0) {
             $data = pg_fetch_row($check);
-        echo "<script type='text/javascript'>alert('$_POST[psw]');</script>";
+        echo "<script type='text/javascript'>alert('$data[0]');</script>";
+        echo "<script type='text/javascript'>alert('password_verify($_POST[psw],$data[0])');</script>";
 
             if (password_verify($_POST[psw], $data[0])) {
                 if ($data[1] == True) {
