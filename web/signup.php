@@ -99,7 +99,7 @@ span.psw {
             $pg_conn = pg_connect(pg_connection_string_from_database_url())
                 or die('Could not connect:' . pg_last_error());
             $password = password_hash($_POST[psw],PASSWORD_DEFAULT);
-            $query = "SELECT * FROM admin_add_user('$_POST[uname]', '$passsword', '$_POST[phn]', 'False')";
+            $query = "SELECT * FROM admin_add_user('$_POST[uname]', '$password', '$_POST[phn]', 'False')";
             pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
             $result = pg_get_result($pg_conn);
             
