@@ -105,7 +105,6 @@ span.psw {
             
             if ($result) {
                 $state = pg_result_error_field($result,PGSQL_DIAG_SQLSTATE);
-        echo "<script type='text/javascript'>alert('$state');</script>";
 
                 if ($state == 0) {
 	    				$_SESSION['user'] = $_POST[uname];
