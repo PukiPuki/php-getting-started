@@ -41,7 +41,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       $query = "SELECT * FROM select_active_transactions()";
       pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
       $result = pg_get_result($pg_conn);
-      
+
       echo $result;
 
       if ($result) {
@@ -49,8 +49,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       }
     }
 ?>
+<script type="text/javascript">
+      var test = "<?php echo $result ?>"
+      console.log(test);
+      var query = "<?php echo $query ?>"
+      console.log(query);
+</script>
 <h1 class="w3-text-teal">Search</h1>
-
  <form action="search.php" method="GET">
     <button type="submit" name="get_all_button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
       Get All</button>
