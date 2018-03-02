@@ -107,7 +107,7 @@ span.psw {
                 if ($data[1] == True) {
                     $_SESSION[isAdmin] = True;
                 } else {
-                    
+                    $_SESSION[isAdmin] = False;    
                 }
                 $_SESSION[user] = $_POST[uname];
                 header("Location: index.php");

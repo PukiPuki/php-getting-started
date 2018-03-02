@@ -105,13 +105,13 @@ span.psw {
         $result = pg_query($pg_conn, $query);
 
         if ($result) {
-            echo '<script>
-              alert(User updated!");
-            </script>'; 
+            echo "<script type='text/javascript'>
+              alert('User updated!');
+            </script>"; 
         } else {
-            echo '<script>
-              alert(Update failed!");
-            </script>'; 
+            echo "<script>
+              alert('Update failed!');
+            </script>"; 
         }
     } else {
 
@@ -125,7 +125,7 @@ span.psw {
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter User to Edit" name="username" required>
 
-    <label for="newphone"><b>Password</b></label>
+    <label for="newphone"><b>New Phone Number</b></label>
     <input type="text" placeholder="Enter New Phone Number" name="newphone" required>
 
     <label for="isAdmin?"><b>Admin Privileges</b></label>
