@@ -17,11 +17,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 <?php
     include 'navbar.php';
 ?>
-<header>
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-left w3-text-black" style="padding:48px">
     <span class="w3-jumbo w3-hide-small">Start something that matters!</span><br>
+YO WADDDUPPABDIHA SJKAS ANIAS
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
     <span class="w3-large">Stop doing everything yourself and get help from others.</span>
     <p><a href="Registration.php" class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Register now and start today</a></p>
@@ -29,6 +29,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 <?php
     echo "Test";
 ?>
+WADHDAHDIASHJASLDJ
 </header>
 
 <div class="container">
