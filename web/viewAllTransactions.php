@@ -30,11 +30,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $pg_conn = pg_connect(pg_connection_string_from_database_url())
         or die('Could not connect:' . pg_last_error());
     $query = "SELECT * FROM select_active_transactions()";
-    pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
-    $result = pg_get_result($pg_conn);
+    $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
     if (!$result) {
         echo '<p>There are no transactions in the database!</p> </div> </div> </div>';
     } else {
+        $row = pg_fetch_assoc($result);
+        echo "$row[tid]";
          $index = 1;
               echo '
             <table style = "width:100%">
@@ -51,7 +52,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
                     </tr>';
-            while($row = pg_fetch_assoc(pg_query($pg_conn, "SELECT * FROM select_active_transactions()"))) {   //Creates a loop to loop through results
+            while($row = pg_fetch_array(pg_query($pg_conn, "SELECT * FROM select_active_transactions()"))) {   //Creates a loop to loop through results
                 echo '<tr>
                 <td>'.$index.'</td>
                 <td>'.$row["tid"].'</td>
