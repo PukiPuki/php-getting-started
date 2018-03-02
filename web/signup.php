@@ -102,7 +102,7 @@ span.psw {
     <input type="password" placeholder="Confirm Password" name="cfmpsw" required>
 
     <label for="psw"><b> Phone Number</b></label>
-    <input type="number" placeholder="Enter Phone Number" name="phn" required>
+    <input type="text" placeholder="Enter Phone Number" name="phn" required>
 
     <button type="submit">Signup</button>
     <label>
