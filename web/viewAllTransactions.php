@@ -47,8 +47,5 @@ button:hover {
     }
 ?>
 
-<?php
-    echo $message;
-?>
 </body>
 </html>
