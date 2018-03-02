@@ -50,20 +50,35 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                     <th>Minimum Bid</th>
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
+                    <th>HELP</th>
                     </tr>';
+                    echo '<tr>
+                    <th>S/N</th>
+                    <th>tID</th>
+                    <th>Item</th>
+                    <th>Location</th>
+                    <th>Loan Date</th>
+                    <th>Return Date</th>
+                    <th>Owner</th>
+                    <th>Category</th>
+                    <th>Minimum Bid</th>
+                    <th>Automatic Bid</th>
+                    <th>Current Bid</th>
+                    <th>HELP</th>
+                    </tr>' ;
             while($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr>
-                <th>'.$index.'</th>
-                <th>'.$row["tid"].'</th>
-                <th>'.$row["itemName"].'</th>
-                <th>'.$row["location"].'</th>
-                <th>'.$row["pickupDate"].'</th>
-                <th>'.$row["returnDate"].'</th>
-                <th>'.$row["owner"].'</th>
-                <th>'.$row["category"].'</th>
-                <th>'.$row["minBid"].'</th>
-                <th>'.$row["autobuy"].'</th>
-                <th>'.$row["highBid"].'</th>
+                <td>'.$index.'</td>
+                <td>'.$row["tid"].'</td>
+                <td>'.$row["itemName"].'</td>
+                <td>'.$row["location"].'</td>
+                <td>'.$row["pickupDate"].'</td>
+                <td>'.$row["returnDate"].'</td>
+                <td>'.$row["owner"].'</td>
+                <td>'.$row["category"].'</td>
+                <td>'.$row["minBid"].'</td>
+                <td>'.$row["autobuy"].'</td>
+                <td>'.$row["highBid"].'</td>
                 </tr>';
                 $index++;
           }

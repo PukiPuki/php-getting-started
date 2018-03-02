@@ -109,7 +109,7 @@ span.psw {
                 if ($state == 0) {
 	    				$_SESSION['user'] = $_POST[uname];
 	    				$_SESSION['phone'] = $_POST[phn];
-	    				$_SESSION["isAdmin"] = "False";
+	    				$_SESSION["isAdmin"] = False;
 	    				header("Location: index.php");
 	    				exit();
                 } else if ($state  == 23505) {
