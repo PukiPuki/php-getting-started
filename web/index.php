@@ -24,27 +24,21 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $result = pg_query($pgconn, "SELECT name from auth_user");
     $data = pg_fetch_assoc($result);
     echo $data["username"];
+    print "<pre>\n";
+if (!pg_num_rows($result)) {
+  print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
+} else {
+  print "Tables in your database:\n";
+  while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
+}
+print "\n";
+
 ?>
 
-  /* <!-- Pagination --> */
-  /* <div class="w3-center w3-padding-32"> */
-  /*   <div class="w3-bar"> */
-  /*     <a class="w3-button w3-black" href="#">1</a> */
-  /*     <a class="w3-button w3-hover-black" href="#">2</a> */
-  /*     <a class="w3-button w3-hover-black" href="#">3</a> */
-  /*     <a class="w3-button w3-hover-black" href="#">4</a> */
-  /*     <a class="w3-button w3-hover-black" href="#">5</a> */
-  /*     <a class="w3-button w3-hover-black" href="#">»</a> */
-  /*   </div> */
-  /* </div> */
     if (isset($_SESSION['user'])) {
 
     }
 
-
-
-<!-- END MAIN -->
-</div>
 
 <script>
 
