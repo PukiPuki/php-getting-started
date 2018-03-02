@@ -103,7 +103,8 @@ span.psw {
         echo "<script type='text/javascript'>alert('{$POST[isAdmin]}');</script>";
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
         $query = "SELECT admin_edit_user('$_POST[username]', '$_POST[newphone]', 'True'";
-        $result = pg_query($pg_conn, $query) or die('Query Failed'.pg_last_error());
+        $result = pg_query($pg_conn, $query) or die('Query Failed' . pg_last_error());
+        echo "<script type='text/javascript'>alert('{$result}');</script>";
 
         if ($result) {
             echo "<script type='text/javascript'>
@@ -123,7 +124,7 @@ span.psw {
  <form action="admin.php" method="POST">
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
+    <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Enter User to Edit" name="username" required>
 
     <label for="newphone"><b>New Phone Number</b></label>
