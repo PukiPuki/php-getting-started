@@ -87,6 +87,38 @@ span.psw {
 <body>
 <?php
     include 'navbar.php';
+    function pg_connection_string_from_database_url() {
+        extract(parse_url($_ENV["DATABASE_URL"]));
+        return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
+    }
+
+    if (isset($_POST['login'])) {
+        $pg_conn = pg_connect(pg_connection_string_from_database_url());
+        $query = "SELECT password, isAdmin 
+                    FROM users
+                    WHERE username='$_POST[uname]'";
+        $check = pg_query($pg_conn, $query);
+        $valid = pg_num_rows($check);
+
+        if ($valid > 0) {
+            $data = pg_fetch_row($check);
+
+            if (password_verify($_POST[psw], data[0])) {
+                if (data[1] == True) {
+                    $_SESSION[isAdmin] = True;
+                } else {
+                    
+                }
+                $_SESSION[user] = $_POST[uname];
+                header("Location: index.php");
+                exit();
+            } else {
+                $message = '<p> Wrong username/password!';
+            }
+        } else {
+           $message = '<p> Wrong username/password!';
+        }
+    } 
 ?>
 
 <div style="margin-top:43px">
@@ -111,5 +143,8 @@ span.psw {
   </div>
 </div>
 </form> 
+<?php
+    echo $message;
+?>
 </body>
 </html>
