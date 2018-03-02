@@ -101,10 +101,11 @@ span.psw {
         $valid = pg_num_rows($check);
 
         if ($valid > 0) {
+        echo "<script type='text/javascript'>alert('HERE');</script>";
             $data = pg_fetch_row($check);
 
-            if (password_verify($_POST[psw], data[0])) {
-                if (data[1] == True) {
+            if (password_verify($_POST[psw], $data[0])) {
+                if ($data[1] == True) {
                     $_SESSION[isAdmin] = True;
                 } else {
                     
@@ -117,6 +118,7 @@ span.psw {
             }
         } else {
            $message = '<p> Wrong username/password!';
+        echo "<script type='text/javascript'>alert('$message');</script>";
         }
     } 
 ?>
@@ -131,7 +133,7 @@ span.psw {
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <button type="submit">Login</button>
+    <button type="submit" name= "login">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
