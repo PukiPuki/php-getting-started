@@ -116,7 +116,6 @@ span.psw {
             } else
                 echo $state;
             }
-        }
     } else {
         $message = '<p> Passwords do not match!</p>';
     }
