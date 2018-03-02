@@ -102,6 +102,7 @@ span.psw {
 
         if ($valid > 0) {
             $data = pg_fetch_row($check);
+        echo "<script type='text/javascript'>alert('$data');</script>";
 
             if (password_verify($_POST[psw], $data[0])) {
                 if ($data[1] == True) {
@@ -113,11 +114,11 @@ span.psw {
                 header("Location: index.php");
                 exit();
             } else {
-                $message = '<p> Wrong username/password!';
+                $message = '<p> Wrong username/password!</p>';
         echo "<script type='text/javascript'>alert('$message');</script>";
             }
         } else {
-           $message = '<p> Wrong username/password!';
+           $message = '<p> Wrong username/password!</p>';
         }
     } 
 ?>
