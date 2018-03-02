@@ -39,15 +39,14 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     	$message = '<p>You have nothing loaned out!</p>';
     }
     while($row = pg_fetch_assoc($result)) {
-    	echo '<p>1</p>';
-    	/*echo '<div class="panel panel-info">
+    	echo '<div class="panel panel-info">
     			<div class="panel-heading"><b>'.Your Loans.'</b></div>
     			<div class="panel-body">
     				Item: '.$data["itemName"].'</b>
     				BidderName: '.$data["bidderName"].'</b>
     				ReturnDate: '.$data["returnDate"].'</b>
     			</div>
-    		</div>';*/
+    		</div>';
     }
 ?>
 </div>
