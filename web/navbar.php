@@ -5,6 +5,7 @@
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
     <a href="login.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Login</a>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
     <a href="search.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Search</a>
     </div>
   </div>
