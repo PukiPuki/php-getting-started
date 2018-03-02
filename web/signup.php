@@ -94,7 +94,6 @@ span.psw {
     }
 
     if (isset($_POST['signup'])) {
-        echo "<script type='text/javascript'>alert('TRYING');</script>";
 
         if ($_POST[psw] == $_POST[cfmpsw]) {
             $pg_conn = pg_connect(pg_connection_string_from_database_url())
@@ -105,6 +104,7 @@ span.psw {
             
             if ($result) {
                 $state = pg_result_error_field($result,PGSQL_DIAG_SQLSTATE);
+        echo "<script type='text/javascript'>alert('$state');</script>";
 
                 if ($state == 0) {
 	    				$_SESSION['user'] = $_POST[uname];
@@ -121,6 +121,7 @@ span.psw {
                 }
         } else {
             $message = '<p> Passwords do not match!</p>';
+        echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }
 ?>
