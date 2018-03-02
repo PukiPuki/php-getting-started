@@ -35,6 +35,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
         return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
     }
 
+    $query = "SELECT * FROM select_active_transactions()";
+
     if (isset($_POST['get_all_button'])) {
       $pg_conn = pg_connect(pg_connection_string_from_database_url())
           or die('Could not connect:' . pg_last_error());
