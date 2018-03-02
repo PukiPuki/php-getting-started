@@ -101,7 +101,7 @@ span.psw {
 
     if (isset($_POST['edit_user'])) {
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
-        $query = "SELECT * FROM admin_edit_user('$_POST[username]', '$_POST[newphone]', 'True'";
+        $query = "SELECT * FROM admin_edit_user('$_POST[username]', '$_POST[newphone]', 'True')";
         pg_send_query($pg_conn, $query);
         $result = pg_get_result($pg_conn);
 
