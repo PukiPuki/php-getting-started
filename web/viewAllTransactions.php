@@ -51,7 +51,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
                     </tr>';
-            while($row = pg_fetch_array($result)) {   //Creates a loop to loop through results
+            while($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr>
                 <td>'.$index.'</td>
                 <td>'.$row["tid"].'</td>
