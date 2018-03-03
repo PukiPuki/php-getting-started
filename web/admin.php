@@ -98,7 +98,7 @@ span.psw {
 
     }
 
-
+    #TODO: Add checking of valid username, etc
     if (isset($_POST['add_user'])) {
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
         $password = password_hash($_POST[password],PASSWORD_DEFAULT);
@@ -107,9 +107,18 @@ span.psw {
         $result = pg_get_result($pg_conn);
 
         if ($result) {
-            echo "<script type='text/javascript'>
-              alert('User added!');
-            </script>"; 
+                $state = pg_result_error_field($result,PGSQL_DIAG_SQLSTATE);
+
+                if ($state == 0) {
+                    echo "<script type='text/javascript'>
+                    alert('User added!');
+                    </script>"; 
+                } else if ($state  == 23505) {
+                    $message = "User already exists";
+                } else if ($state == 23502) {
+                    $message = "You have somehow entered a null value!";
+                } else
+                    echo $state;
         } else {
             echo "<script>
               alert('Update failed!');
@@ -122,9 +131,18 @@ span.psw {
         $result = pg_get_result($pg_conn);
 
         if ($result) {
-            echo "<script type='text/javascript'>
-              alert('User edited!');
-            </script>"; 
+                $state = pg_result_error_field($result,PGSQL_DIAG_SQLSTATE);
+
+                if ($state == 0) {
+                    echo "<script type='text/javascript'>
+                    alert('User edited!');
+                    </script>"; 
+                } else if ($state  == 23505) {
+                    $message = "No user found";
+                } else if ($state == 23502) {
+                    $message = "You have somehow entered a null value!";
+                } else
+                    echo $state;
         } else {
             echo "<script>
               alert('Update failed!');
