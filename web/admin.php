@@ -137,9 +137,12 @@ span.psw {
 ?>
 
 <div style="margin-top:43px">
+ <div>
+ <h1 class="w3-text-teal"> User Control </h1>
  <form action="admin.php" method="POST">
 
   <div class="container">
+    <h2 class="w3-text-teal"> Edit User </h2>
     <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Enter User to Edit" name="username" required>
 
@@ -157,6 +160,7 @@ span.psw {
     echo $message;
 ?>
 <div>
+  <h2 class="w3-text-teal"> Remove User </h2>
  <form action="admin.php" method="POST">
 
   <div class="container">
