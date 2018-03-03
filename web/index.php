@@ -6,12 +6,12 @@
 <title>Stuff Sharing (CS2102 Project)</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 </style>
@@ -22,7 +22,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 ?>
 </div>
 
-<div class="container">
+<div class="container" style="width:100%">
 <?php
     function pg_connection_string_from_database_url() {
         extract(parse_url($_ENV["DATABASE_URL"]));
@@ -31,13 +31,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $pg_conn = pg_connect(pg_connection_string_from_database_url())
         or die('Could not connect:' . pg_last_error());
     echo " <div style=margin-top:43px>
-    <div class=\"w3-container\">
+    <div>
         <h1 class=\"w3-text-teal\">Welcome {$_SESSION[user]}</h1>
     </div>";
     
     if (isset($_SESSION[user])) {
     echo '<div>
-    <div>
+    <div class="w3-container">
         <h2 class="w3-text-teal">Active transactions</h2>
     </div>';
         $query = "SELECT * FROM select_active_transactions()";
