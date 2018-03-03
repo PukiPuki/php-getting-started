@@ -99,7 +99,22 @@ span.psw {
     }
 
 
-    if (isset($_POST['edit_user'])) {
+    if (isset($_POST['add_user'])) {
+        $pg_conn = pg_connect(pg_connection_string_from_database_url());
+        $query = "SELECT * FROM admin_add_user('$_POST[username]', '$_POST[phone]', '$_POST[isAdmin]')";
+        pg_send_query($pg_conn, $query);
+        $result = pg_get_result($pg_conn);
+
+        if ($result) {
+            echo "<script type='text/javascript'>
+              alert('User added!');
+            </script>"; 
+        } else {
+            echo "<script>
+              alert('Update failed!');
+            </script>"; 
+        }
+    } else if (isset($_POST['edit_user'])) {
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
         $query = "SELECT * FROM admin_edit_user('$_POST[username]', '$_POST[newphone]', '$_POST[isAdmin]')";
         pg_send_query($pg_conn, $query);
@@ -109,8 +124,6 @@ span.psw {
             echo "<script type='text/javascript'>
               alert('User edited!');
             </script>"; 
-            header("Location:admin.php");
-            exit();
         } else {
             echo "<script>
               alert('Update failed!');
@@ -139,6 +152,28 @@ span.psw {
 <div style="margin-top:43px">
  <div>
  <h1 class="w3-text-teal"> User Control </h1>
+ <div class="container">
+  <h2 class="w3-text-teal"> Add User </h2>
+  <form action="admin.php" method="POST">
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+    <label for="password"><b>Password</b></label>
+    <input type="text" placeholder="Enter Password" name="password" required>
+    <label for="phone"><b>Phone Number</b></label>
+    <input type="text" placeholder="Enter Phone Number" name="phone" required>
+    <label for="isAdmin"><b>Admin Privileges</b></label>
+    <input type="hidden" name="isAdmin" value="0"> </input>
+    <input type="checkbox" name="isAdmin" value="1"> Admin </input>
+    <button type="submit" name= "add_user">Add User</button>
+  </div>
+</div>
+</form> 
+<?php
+    echo $message;
+?>
+</body>
+</html>
  <form action="admin.php" method="POST">
 
   <div class="container">
@@ -152,21 +187,21 @@ span.psw {
     <label for="isAdmin"><b>Admin Privileges</b></label>
     <input type="hidden" name="isAdmin" value="0"> </input>
     <input type="checkbox" name="isAdmin" value="1"> Admin </input>
-    <button type="submit" name= "edit_user">Edit</button>
+    <button type="submit" name= "edit_user">Edit User</button>
   </div>
 </div>
 </form> 
 <?php
     echo $message;
 ?>
-<div>
+ <div class="container">
   <h2 class="w3-text-teal"> Remove User </h2>
  <form action="admin.php" method="POST">
 
   <div class="container">
     <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Enter User to Remove" name="username" required>
-    <button type="submit" name= "remove_user">Remove</button>
+    <button type="submit" name= "remove_user">Remove User</button>
   </div>
 </div>
 </form> 
