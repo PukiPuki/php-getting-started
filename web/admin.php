@@ -115,8 +115,14 @@ span.psw {
                     </script>"; 
                 } else if ($state  == 23505) {
                     $message = "User already exists";
+                    echo "<script type='text/javascript'>
+                    alert('$message');
+                    </script>"; 
                 } else if ($state == 23502) {
                     $message = "You have somehow entered a null value!";
+                    echo "<script type='text/javascript'>
+                    alert('$message');
+                    </script>"; 
                 } else
                     echo $state;
         } else {
@@ -139,10 +145,16 @@ span.psw {
                     </script>"; 
                 } else if ($state  == 23505) {
                     $message = "No user found";
+                    echo "<script type='text/javascript'>
+                    alert('$message');
+                    </script>"; 
                 } else if ($state == 23502) {
                     $message = "You have somehow entered a null value!";
+                    echo "<script type='text/javascript'>
+                    alert('$message');
+                    </script>"; 
                 } else
-                    echo $state;
+                    echo "Error Code: " . $state;
         } else {
             echo "<script>
               alert('Update failed!');
@@ -188,9 +200,6 @@ span.psw {
   </div>
 </div>
 </form> 
-<?php
-    echo $message;
-?>
 </body>
 </html>
  <form action="admin.php" method="POST">
@@ -210,9 +219,6 @@ span.psw {
   </div>
 </div>
 </form> 
-<?php
-    echo $message;
-?>
  <div class="container">
   <h2 class="w3-text-teal"> Remove User </h2>
  <form action="admin.php" method="POST">
@@ -224,8 +230,5 @@ span.psw {
   </div>
 </div>
 </form> 
-<?php
-    echo $message;
-?>
 </body>
 </html>
