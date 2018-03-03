@@ -34,9 +34,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     </div>";
     
     if (isset($_SESSION[user])) {
-    echo '<div style=margin-top:43px>
+    echo '<div>
     <div class="w3-container">
-        <h1 class="w3-text-teal">List of all transactions</h1>
+        <h2 class="w3-text-teal">Active transactions</h2>
     </div>';
         $query = "SELECT * FROM select_active_transactions()";
         $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
