@@ -48,7 +48,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
         } else {
              $index = 1;
                   echo '
-                <table class="striped responsive-table centered highlight" style="width:100%">
+                <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
                         <th>tID</th>
