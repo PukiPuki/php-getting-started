@@ -55,15 +55,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                 echo '<tr>
                 <td>'.$index.'</td>
                 <td>'.$row["tid"].'</td>
-                <td>'.$row["itemName"].'</td>
+                <td>'.$row["itemname"].'</td>
                 <td>'.$row["location"].'</td>
-                <td>'.$row["pickupDate"].'</td>
-                <td>'.$row["returnDate"].'</td>
+                <td>'.$row["pickupdate"].'</td>
+                <td>'.$row["returndate"].'</td>
                 <td>'.$row["owner"].'</td>
                 <td>'.$row["category"].'</td>
-                <td>'.$row["minBid"].'</td>
+                <td>'.$row["minbid"].'</td>
                 <td>'.$row["autobuy"].'</td>
-                <td>'.$row["highBid"].'</td>
+                <td>'.$row["highbid"].'</td>
                 </tr>';
                 $index++;
           }
