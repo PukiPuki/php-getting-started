@@ -101,7 +101,7 @@ span.psw {
 
     if (isset($_POST['add_user'])) {
         $pg_conn = pg_connect(pg_connection_string_from_database_url());
-        $query = "SELECT * FROM admin_add_user('$_POST[username]', '$_POST[phone]', '$_POST[isAdmin]')";
+        $query = "SELECT * FROM admin_add_user('$_POST[username]', '$_POST[password]', '$_POST[phone]', '$_POST[isAdmin]')";
         pg_send_query($pg_conn, $query);
         $result = pg_get_result($pg_conn);
 
@@ -159,7 +159,7 @@ span.psw {
     <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="username" required>
     <label for="password"><b>Password</b></label>
-    <input type="text" placeholder="Enter Password" name="password" required>
+    <input type="password" placeholder="Enter Password" name="password" required>
     <label for="phone"><b>Phone Number</b></label>
     <input type="text" placeholder="Enter Phone Number" name="phone" required>
     <label for="isAdmin"><b>Admin Privileges</b></label>
