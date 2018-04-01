@@ -88,7 +88,6 @@ $username = $_SESSION[user];
             <table class="striped responsive-table centered highlight", style="width:100%">
             <tr>
             <th>S/N</th>
-            <th>TransactionID</th>
             <th>ItemID</th>
             <th>Item Name</th>
             <th>Category</th>
@@ -125,7 +124,7 @@ $username = $_SESSION[user];
     }
 
     if (isset($_POST['itemid'])) {
-        $query = "SELECT * FROM edit_transactions('$_POST[newtransactionid]', '$_POST[newpickupdate]', '$_POST[newreturndate]')";
+        $query = "SELECT * FROM edit_transactions('$_POST[newtransactionid]', '$_POST[newlocation]','$_POST[newpickupdate]', '$_POST[newreturndate]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
 
         $query = "SELECT * FROM edit_items('$_POST[itemid]', '$_POST[newcategory]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]')";
