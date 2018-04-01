@@ -108,7 +108,7 @@ $username = $_SESSION[user];
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["location"] . '</td>
                 <td>' . $row["pickupdate"] . '</td>
-                <td>' . $row["returndate"]'</td>
+                <td>' . $row["returndate"] . '</td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
                 </tr>';
