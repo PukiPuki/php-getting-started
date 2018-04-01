@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
+include 'pgconnect.php';
 ?>
 <html>
 <title>Stuff Sharing (CS2102 Project)</title>
@@ -17,10 +18,6 @@ session_start();
         font-family: "Roboto", sans-serif;
     }
 </style>
-<?php
-$DEBUG = false;
-?>
-
 
 <body>
 
@@ -30,30 +27,8 @@ $DEBUG = false;
     ?>
 </div>
 
-<div>
-    <?php
-
-    function sex()
-    {
-        echo '<h1>sex</h1>';
-    }
-
-    if ($DEBUG) {
-        echo '<h1>sex</h1><h1>asd</h1>' . sex();
-    }
-    ?>
-</div>
-
 <div class="container" style="width:100%">
     <?php
-    function pg_connection_string_from_database_url()
-    {
-        extract(parse_url($_ENV["DATABASE_URL"]));
-        return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
-    }
-
-    $pg_conn = pg_connect(pg_connection_string_from_database_url())
-    or die('Could not connect:' . pg_last_error());
     echo " <div style=margin-top:43px>
     <div class=\"w3-container\">
     <h1 class=\"w3-text-teal\">Welcome {$_SESSION[user]}</h1>
