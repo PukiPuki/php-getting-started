@@ -130,7 +130,7 @@ echo '<div>
     }
 
     if (isset($_POST['biddername'])) {
-        $query = 'SELECT * FROM accept_loan('.$_POST['newtransactionid'].','.$_POST['biddername'].')';
+        $query = 'SELECT * FROM accept_loan('.$_POST['newtransactionid'].','.$_POST['newtransactionid'].')';
         $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
