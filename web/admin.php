@@ -231,7 +231,8 @@ if (isset($_POST['add_user'])) {
         <h1 class="w3-text-teal"> Bids </h1>
      
         <div class="container">
-
+    
+            <div>
             <?php 
                 $query = "SELECT * FROM bids";
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
@@ -239,6 +240,7 @@ if (isset($_POST['add_user'])) {
                 echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
+                        <th>Index</th>
                         <th>tID</th>
                         <th>Bidder Name</th>
                         <th>Bid Price</th>
@@ -255,7 +257,9 @@ if (isset($_POST['add_user'])) {
                     $index++;
             }
 
-            ?>
+?>
+
+            </div>
             
             <h2 class="w3-text-teal"> Add Bid </h2>
             <form action="admin.php" method="POST">
@@ -306,7 +310,6 @@ if (isset($_POST['add_user'])) {
 
         ?>
 
-        <form action="admin.php" method="POST">
         </div>
     </div>
 </div>
