@@ -85,17 +85,32 @@ include 'makebids.php';
             echo '</table>';
         }
     }
+
+    addBidUI();
     ?>
 </div>
 
 <?php
 function retractBid($string)
 {
-    return '<form action="bids.php" method="POST">
-                     <button type="submit" name="retract" value="'.$string.'">Retract</button>
-             </form>';
+    return '
+        <form action="bids.php" method="POST">
+            <button type="submit" name="retract" value="' . $string . '">Retract</button>
+        </form>';
+}
+?>
+
+<?php
+function addBid($string) {
+
 }
 
+function addBidUI() {
+    return <<<END
+        <h1>clap for the queen</h1>
+    END;
+
+}
 ?>
 </div>
 
