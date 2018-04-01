@@ -121,7 +121,7 @@ $username = $_SESSION[user];
             $index++;
         }
 
-        echo addBidUI();
+        echo addBidUI($index);
 
         echo '</table>';
     }
@@ -146,7 +146,7 @@ $username = $_SESSION[user];
 function addBid($string) {
 
 }
-function addBidUI() {
+function addBidUI($index) {
     return <<<END
         <tr align = "center">
             <form name="display" action="userloanout.php" method="POST">
