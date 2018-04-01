@@ -80,7 +80,6 @@ session_start();
                     <td>' . $row["minbid"] . '</td>
                     <td>' . $row["autobuy"] . '</td>
                     <td>' . $row["highbid"] . '</td>
-                    <td>' . $sex() .'</td>
                     </tr>';
                 $index++;
             }
