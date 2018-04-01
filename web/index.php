@@ -169,7 +169,7 @@ if (isset($_POST['new_bid'])) {
     }
     header("Refresh: 0");
 
-    echo "<script>window.location.reload(true)</script>"
+    echo "<script>window.location.reload(true)</script>";
 }
 
 ?>
