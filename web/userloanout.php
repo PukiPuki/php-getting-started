@@ -81,6 +81,7 @@ echo '<div>
             <table class="striped responsive-table centered highlight", style="width:100%">
             <tr>
             <th>S/N</th>
+            <th>tID</th>
             <th>ItemID</th>
             <th>Item Name</th>
             <th>Category</th>
@@ -97,7 +98,7 @@ echo '<div>
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
                 <form name="display" action="userloanout.php" method="POST">
-                <input type="hidden" name="newtransactionid" value="' . $row["transactionid"] . '">
+                <input type="text" name="newtransactionid" value="' . $row["transactionid"] . '">
                 <td>' . $index . '</td>
                 <td>' . $row["itemid"] . '</td>
                 <td><input type="text" name = "newitemname" value="' . $row["itemname"] . '"/></td>
