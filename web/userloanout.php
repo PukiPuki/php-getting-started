@@ -98,7 +98,6 @@ echo '<div>
             echo '<tr align = "center">
                 <form name="display" action="userloanout.php" method="POST">
                 <input type="hidden" name="newtransactionid" value="' . $row["transactionid"] . '">
-                <input type="hidden" name="biddername" value="' . $row["biddername"] . '">
                 <td>' . $index . '</td>
                 <td>' . $row["itemid"] . '</td>
                 <td><input type="text" name = "newitemname" value="' . $row["itemname"] . '"/></td>
@@ -110,8 +109,8 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="itemid" value=" '. $row["itemid"]. '">Update</button></td>
-                <td><button type="submit" name="accept" value=" '. $row["biddername"]. '">Accept</button></td>
+                <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>
+                <td><button type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>
                 </form>
                 </tr>';
         $index++;
@@ -130,7 +129,7 @@ echo '<div>
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
     }
 
-    if (isset($_POST['accept'])) {
+    if (isset($_POST['biddername'])) {
         $query = 'SELECT * FROM accept_loan('.$_POST['newtransactionid'].',\''.$_POST['biddername'].'\')';
         $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
