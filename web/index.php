@@ -170,6 +170,7 @@ if (isset($_POST['new_bid'])) {
         echo "<script>window.location.reload()</script>";
         unset($_POST['new_bid']);
     }
+    unset($_POST['new_bid']);
 }
 
 ?>
