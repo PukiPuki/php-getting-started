@@ -83,7 +83,7 @@ session_start();
                     <td>' . $row["userbiddingprice"] . '</td>
                     <td>' . $row["maxbiddingprice"] . '</td>
                     <td>' . $row["biddingstatus"] . '</td>
-                    <td>' . retractBid('$row["tid"]') . '</td>
+                    <td>' . retractBid($row["tid"]) . '</td>
                     </tr>';
                 $index++;
             }
