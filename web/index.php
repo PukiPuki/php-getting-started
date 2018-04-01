@@ -80,7 +80,7 @@ session_start();
                     <td>' . $row["minbid"] . '</td>
                     <td>' . $row["autobuy"] . '</td>
                     <td>' . $row["highbid"] . '</td>
-                    <td>some magick</td>
+                    <td>' . $sex .'</td>
                     </tr>';
                 $index++;
             }
@@ -89,6 +89,12 @@ session_start();
     }
     ?>
 </div>
+
+<?php
+function sex() {
+    return "sex";
+}
+?>
 
 
 <script>
