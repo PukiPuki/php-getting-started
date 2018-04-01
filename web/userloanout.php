@@ -127,10 +127,10 @@ $username = $_SESSION[user];
         $query = "SELECT * FROM edit_transactions('$_POST[itemid]', '$_POST[newpickupdate]', '$_POST[newreturndate]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
 
+        echo "<script type='text/javascript'>alert('$_POST[itemid]');</script>";
         $query = "SELECT * FROM edit_items('$_POST[itemid]', '$_POST[newcategory]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
 
-        header("Location: userloanout.php");
     }
 
     ?>
