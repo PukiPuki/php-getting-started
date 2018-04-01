@@ -48,6 +48,7 @@ session_start();
         } else if (isset($_POST['retract'])) {
             $query = "SELECT * FROM retract_bid('$_SESSION[user]','$_POST[retract]')";
             $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+            header('Location:bids.php');
         } else {
             $index = 1;
             echo '
