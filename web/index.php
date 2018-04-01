@@ -18,42 +18,43 @@ session_start();
     }
 </style>
 <?php
-$DEBUG = true;
+$DEBUG = false;
 ?>
 
 
 <body>
 
 <div>
-<?php
-include 'navbar.php';
-?>
+    <?php
+    include 'navbar.php';
+    ?>
 </div>
 
 <div>
-<?php
+    <?php
 
-function sex() {
-    echo '<h1>sex</h1>';
-}
+    function sex()
+    {
+        echo '<h1>sex</h1>';
+    }
 
-if ($DEBUG) {
-    echo '<h1>sex</h1><h1>asd</h1>' . sex();
-}
-?>
+    if ($DEBUG) {
+        echo '<h1>sex</h1><h1>asd</h1>' . sex();
+    }
+    ?>
 </div>
 
 <div class="container" style="width:100%">
-<?php
-function pg_connection_string_from_database_url()
-{
-    extract(parse_url($_ENV["DATABASE_URL"]));
-    return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
-}
+    <?php
+    function pg_connection_string_from_database_url()
+    {
+        extract(parse_url($_ENV["DATABASE_URL"]));
+        return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
+    }
 
-$pg_conn = pg_connect(pg_connection_string_from_database_url())
+    $pg_conn = pg_connect(pg_connection_string_from_database_url())
     or die('Could not connect:' . pg_last_error());
-echo " <div style=margin-top:43px>
+    echo " <div style=margin-top:43px>
     <div class=\"w3-container\">
     <h1 class=\"w3-text-teal\">Welcome {$_SESSION[user]}</h1>
     </div>";
@@ -63,28 +64,28 @@ echo " <div style=margin-top:43px>
             <div class="w3-container">
             <h2 class="w3-text-teal">Active transactions</h2>
             </div>';
-$query = "SELECT * FROM select_active_transactions()";
-$result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
-if (!$result) {
-    $message = ' <p>There are no transactions in the database!</p> </div> </div> </div>';
-    echo "<script type='text/javascript'>alert('$message');</script>";
-} else if (isset($_POST['filter'])) {
-    $query = "SELECT * FROM filter_transactions('$_POST[category]')";
-    $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
-    if (!$result) {
-        $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
-        echo "<script type='text/javascript'>alert('$message');</script>";
+        $query = "SELECT * FROM select_active_transactions()";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if (!$result) {
+            $message = ' <p>There are no transactions in the database!</p> </div> </div> </div>';
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        } else if (isset($_POST['filter'])) {
+            $query = "SELECT * FROM filter_transactions('$_POST[category]')";
+            $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+            if (!$result) {
+                $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
+                echo "<script type='text/javascript'>alert('$message');</script>";
 
-    } else {
-        $index = 1;
-        echo '<div> 
+            } else {
+                $index = 1;
+                echo '<div> 
             <form action="index.php" method="POST">
             <label for"filter"><b> Filter: </b></label>
             <input type="text" placeholder="Category" name=
             "category" required> 
             <button type="submit" name="filter">Filter</button>
             </form>';
-        echo '
+                echo '
             <table style = "width:100%", align="center">
                     <tr>
                     <th>S/N</th>
@@ -99,27 +100,27 @@ if (!$result) {
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
                     </tr>';
-        while($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
-            echo '<tr align = "center">
-                <td>'.$index.'</td>
-                <td>'.$row["tid"].'</td>
-                <td>'.$row["itemname"].'</td>
-                <td>'.$row["location"].'</td>
-                <td>'.$row["pickupdate"].'</td>
-                <td>'.$row["returndate"].'</td>
-                <td>'.$row["owner"].'</td>
-                <td>'.$row["category"].'</td>
-                <td>'.$row["minbid"].'</td>
-                <td>'.$row["autobuy"].'</td>
-                <td>'.$row["highbid"].'</td>
+                while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                    echo '<tr align = "center">
+                <td>' . $index . '</td>
+                <td>' . $row["tid"] . '</td>
+                <td>' . $row["itemname"] . '</td>
+                <td>' . $row["location"] . '</td>
+                <td>' . $row["pickupdate"] . '</td>
+                <td>' . $row["returndate"] . '</td>
+                <td>' . $row["owner"] . '</td>
+                <td>' . $row["category"] . '</td>
+                <td>' . $row["minbid"] . '</td>
+                <td>' . $row["autobuy"] . '</td>
+                <td>' . $row["highbid"] . '</td>
                 </tr>';
-        $index++;
-        }
-        echo '</table>';
-    }
-} else {
-    $index = 1;
-    echo '<div> 
+                    $index++;
+                }
+                echo '</table>';
+            }
+        } else {
+            $index = 1;
+            echo '<div> 
         <form action="index.php" method="POST">
         <label for"filter"><b> Filter: </b></label>
         <input type="text" placeholder="Category" name=
@@ -127,7 +128,7 @@ if (!$result) {
         <button type="submit" name="filter">Filter</button>
         </form>
         </div>';
-        echo '
+            echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -143,8 +144,8 @@ if (!$result) {
                         <th>Current Bid</th>
                         <th>Make Bid</th>
                         </tr>';
-        while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
-            echo '<tr align = "center">
+            while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                echo '<tr align = "center">
                 <td>' . $index . '</td>
                 <td>' . $row["tid"] . '</td>
                 <td>' . $row["itemname"] . '</td>
@@ -158,33 +159,33 @@ if (!$result) {
                 <td>' . $row["highbid"] . '</td>
                 <td>' . makeBidInput() . '</td>
                 </tr>';
-        $index++;
+                $index++;
+            }
+            echo '</table>';
         }
-        echo '</table>';
-}
     }
-?>
+    ?>
 </div>
 
 <?php
-    function makeBidInput()
-    {
-        echo '
+function makeBidInput()
+{
+    echo '
              <form action="index.php" method="POST">
                      <input type="text" placeholder="99" name="bid" required>
                      <button type="submit" name="bid">Bid</button>
              </form>
     ';
-    }
+}
 
 ?>
 </div>
 
 
-    <script>
+<script>
     // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
-    </script>
+</script>
 
 </body>
 </html>
