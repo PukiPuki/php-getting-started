@@ -137,6 +137,9 @@ $username = $_SESSION[user];
     }
 
     if (isset($_POST['biddername'])){
+        echo "<script type='text/javascript'>
+              alert('Accepted Loan!');
+            </script>";
         $query = "SELECT * FROM accept_loan('$_POST[newtransactionid]', '$_POST[biddername]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
     }
