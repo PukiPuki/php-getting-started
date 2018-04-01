@@ -86,7 +86,7 @@ include 'makebids.php';
         }
     }
 
-    addBidUI();
+    echo addBidUI();
     ?>
 </div>
 
