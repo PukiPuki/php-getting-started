@@ -112,7 +112,7 @@ session_start();
 <?php
 function makeBidInput()
 {
-    echo "<h1>bid</h1>";
+    echo "bid";
     /*
     echo '
         <div>
