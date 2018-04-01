@@ -154,7 +154,7 @@ include 'makebids.php';
 #$pg_conn = pg_connect(pg_connection_string_from_database_url())
 #or die('Could not connect:' . pg_last_error());
 
-if (isset($_POST['bid'])) {
+if (isset($_POST['new_bid'])) {
     echo "<script type='text/javascript'>alert('$_POST[tid]');</script>";
     echo "<script type='text/javascript'>alert('$_POST[new_bid]');</script>";
     echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
