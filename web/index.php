@@ -2,7 +2,7 @@
 <?php
 session_start();
 include 'pgconnect.php';
-include 'makebid.php'
+include 'makebids.php';
 ?>
 <html>
 <title>Stuff Sharing (CS2102 Project)</title>
@@ -30,8 +30,6 @@ include 'makebid.php'
 
 <div class="container" style="width:100%">
     <?php
-    $pg_conn = pg_connect(pg_connection_string_from_database_url())
-    or die('Could not connect:' . pg_last_error());
     echo " <div style=margin-top:43px>
     <div class=\"w3-container\">
     <h1 class=\"w3-text-teal\">Welcome {$_SESSION[user]}</h1>
@@ -77,6 +75,7 @@ include 'makebid.php'
                     <th>Minimum Bid</th>
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
+                    <th>Make Bid</th>
                     </tr>';
                 while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                     echo '<tr align = "center">
@@ -91,6 +90,7 @@ include 'makebid.php'
                 <td>' . $row["minbid"] . '</td>
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["highbid"] . '</td>
+                <td>' . makeBidInput($row["tid"]) . '</td>
                 </tr>';
                     $index++;
                 }
