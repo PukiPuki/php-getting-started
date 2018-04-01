@@ -123,6 +123,8 @@ $username = $_SESSION[user];
             $index++;
         }
 
+        echo addBidUI($index);
+
         echo '</table>';
     }
 
@@ -152,24 +154,23 @@ $username = $_SESSION[user];
 function addBid($string) {
 
 }
-function addBidUI() {
+function addBidUI($index) {
     return <<<END
         <tr align = "center">
-        <form name="display" action="userloanout.php" method="POST">
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        </form>
+            <form name="display" action="userloanout.php" method="POST">
+                <td>$index</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+            </form>
         </tr>;
 END;
 
