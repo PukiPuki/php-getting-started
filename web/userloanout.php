@@ -121,6 +121,8 @@ $username = $_SESSION[user];
             $index++;
         }
 
+        echo addBidUI();
+
         echo '</table>';
     }
 
@@ -132,7 +134,6 @@ $username = $_SESSION[user];
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
     }
 
-    echo addBidUI();
 
     ?>
 
@@ -148,21 +149,21 @@ function addBid($string) {
 function addBidUI() {
     return <<<END
         <tr align = "center">
-        <form name="display" action="userloanout.php" method="POST">
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        <td>clap</td>
-        </form>
+            <form name="display" action="userloanout.php" method="POST">
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+                <td>clap</td>
+            </form>
         </tr>;
 END;
 
