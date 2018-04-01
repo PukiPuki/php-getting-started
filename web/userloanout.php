@@ -142,6 +142,9 @@ $username = $_SESSION[user];
             </script>";
         $query = "SELECT * FROM accept_loan('$_POST[newtransactionid]', '$_POST[biddername]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        echo "<script type='text/javascript'>
+              alert('Loan status modified successfully');
+            </script>";
     }
 
         echo addBidUI();
