@@ -170,14 +170,10 @@ if (!$result) {
     function makeBidInput()
     {
         echo '
-        <div>
              <form action="index.php" method="POST">
-                 <div>
                      <input type="text" placeholder="99" name="bid" required>
-                     <button type="submit" name="bid">bid</button>
-                 </div>
+                     <button type="submit" name="bid">Bid</button>
              </form>
-        </div>
     ';
     }
 
