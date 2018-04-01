@@ -11,6 +11,7 @@ $username = $_SESSION[user];
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./style/css/materialize.css">
 <style>
     html, body, h1, h2, h3, h4, h5, h6 {
         font-family: "Roboto", sans-serif;
@@ -112,7 +113,7 @@ $username = $_SESSION[user];
                 <td><input type="text" name = "newreturndate"/>' . $row["returndate"] . '</td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="submit">' .Update. '</button> </td>
+                <td><button type="submit" name="submit">' . Update . '</button> </td>
                 </form>
                 </tr>';
             $index++;
