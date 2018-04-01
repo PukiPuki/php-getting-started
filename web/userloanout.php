@@ -100,17 +100,20 @@ $username = $_SESSION[user];
             </tr>';
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
+                <form name="display" action="userloanout.php" method="POST">
                 <td>' . $index . '</td>
                 <td>' . $row["itemid"] . '</td>
-                <td>' . $row["itemname"] . '</td>
-                <td>' . $row["category"] . '</td>
-                <td>' . $row["minbid"] . '</td>
-                <td>' . $row["autobuy"] . '</td>
-                <td>' . $row["location"] . '</td>
-                <td>' . $row["pickupdate"] . '</td>
-                <td>' . $row["returndate"] . '</td>
+                <td><input type="text" name = "newitemname"/>' . $row["itemname"] . '</td>
+                <td><input type="text" name = "newcategory"/>' . $row["category"] . '</td>
+                <td><input type="text" name = "newminbid"/>' . $row["minbid"] . '</td>
+                <td><input type="text" name = "newautobuy"/>' . $row["autobuy"] . '</td>
+                <td><input type="text" name = "newlocation"/>' . $row["location"] . '</td>
+                <td><input type="text" name = "newpickupdate"/>' . $row["pickupdate"] . '</td>
+                <td><input type="text" name = "newreturndate"/>' . $row["returndate"] . '</td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
+                <td><button type="submit" name="submit">' .Update. '</button> </td>
+                </form>
                 </tr>';
             $index++;
         }
