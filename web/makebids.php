@@ -1,6 +1,4 @@
 <?php
-include 'pgconnect.php';
-
 function makeBidInput($string) {
     return
         '
