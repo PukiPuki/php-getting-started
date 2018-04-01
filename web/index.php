@@ -167,7 +167,8 @@ if (isset($_POST['new_bid'])) {
         echo "<script type='text/javascript'>alert('$_POST[new_bid]');</script>";
         echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
     } else {
-        #echo "<script>window.location.reload()</script>";
+        echo "<script>window.location.reload()</script>";
+        unset($_POST['value']);
     }
 }
 
