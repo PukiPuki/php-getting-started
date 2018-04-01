@@ -53,6 +53,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
             </tr>';
         while($row = pg_fetch_assoc($result)) {
     	   echo '<tr align = "center">
+                <td>'.$index.'</td>
     			<td>'.$row["itemname"].'</td>
                 <td>'.$row["biddername"].'</td>
                 <td>'.$row["returndate"].'</td>
