@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
+include 'pgconnect.php';
 ?>
 
 <html>
@@ -89,12 +90,6 @@ session_start();
 <?php
 include 'navbar.php';
 
-function pg_connection_string_from_database_url()
-{
-    extract(parse_url($_ENV["DATABASE_URL"]));
-    return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
-}
-
 if (!$_SESSION[isAdmin]) {
     header('Location:index.php');
 } else {
@@ -103,7 +98,6 @@ if (!$_SESSION[isAdmin]) {
 
 #TODO: Add checking of valid username, etc
 if (isset($_POST['add_user'])) {
-    $pg_conn = pg_connect(pg_connection_string_from_database_url());
     $password = password_hash($_POST[password], PASSWORD_DEFAULT);
     $query = "SELECT * FROM admin_add_user('$_POST[username]', '$password', '$_POST[phone]', '$_POST[isAdmin]')";
     pg_send_query($pg_conn, $query);

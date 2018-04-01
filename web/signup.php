@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
     session_start();
+    include 'pgconnect.php';
 ?>
 
 <html>
@@ -88,16 +89,10 @@ span.psw {
 <?php
     include 'navbar.php';
 
-    function pg_connection_string_from_database_url() {
-        extract(parse_url($_ENV["DATABASE_URL"]));
-        return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
-    }
 
     if (isset($_POST['signup'])) {
 
         if ($_POST[psw] == $_POST[cfmpsw]) {
-            $pg_conn = pg_connect(pg_connection_string_from_database_url())
-                or die('Could not connect:' . pg_last_error());
             $password = password_hash($_POST[psw],PASSWORD_DEFAULT);
             $query = "SELECT * FROM admin_add_user('$_POST[uname]', '$password', '$_POST[phn]', 'False')";
             pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());

@@ -2,6 +2,7 @@
 <?php
 session_start();
 include 'pgconnect.php';
+include 'makebid.php'
 ?>
 <html>
 <title>Stuff Sharing (CS2102 Project)</title>
@@ -161,16 +162,6 @@ if (isset($_POST['bid'])) {
         echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
         echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
     }
-}
-
-function makeBidInput($string) {
-    return
-        '
-            <form action="index.php" method="POST">
-                 <input type="text" placeholder="' . $string . '" name="bid" required>
-                 <button type="submit" name="bid" value="' . $string . '">Bid</button>
-            </form>
-        ';
 }
 
 ?>
