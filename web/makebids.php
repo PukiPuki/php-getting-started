@@ -8,5 +8,4 @@ function makeBidInput($string) {
             </form>
         ';
 }
-
 ?>

@@ -91,12 +91,14 @@ include 'makebids.php';
 <?php
 function retractBid($string)
 {
-    return '<form action="bids.php" method="POST">
-                     <button type="submit" name="retract" value="'.$string.'">Retract</button>
-             </form>';
+    return '
+        <form action="bids.php" method="POST">
+            <button type="submit" name="retract" value="' . $string . '">Retract</button>
+        </form>';
 }
-
 ?>
+
+
 </div>
 
 <script>

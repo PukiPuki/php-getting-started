@@ -131,6 +131,10 @@ $username = $_SESSION[user];
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
     }
 
+    noEcho();
+    echo addBidUI();
+    echo endArrow();
+
     ?>
 
     <script type="text/javascript">
@@ -138,6 +142,23 @@ $username = $_SESSION[user];
     </script>
 
 </div>
+<?php
+function addBid($string) {
+
+}
+function noEcho() {
+    return '<h1>no echo</h1>';
+}
+function addBidUI() {
+    return '<h1>clap for the queen</h1>';
+}
+function endArrow() {
+    return <<<END
+        <h1> ARROW TRIBE </h1>
+END;
+
+}
+?>
 
 
 <script>
