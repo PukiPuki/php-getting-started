@@ -98,6 +98,7 @@ $username = $_SESSION[user];
             <th>Return Date</th>
             <th>Bidder Name</th>
             <th>Current Bid</th>
+            <th>Update</th>
             </tr>';
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
@@ -105,12 +106,12 @@ $username = $_SESSION[user];
                 <td>' . $index . '</td>
                 <td>' . $row["itemid"] . '</td>
                 <td><input type="text" name = "newitemname" value="' . $row["itemname"] . '"/></td>
-                <td><input type="text" name = "newcategory"/>' . $row["category"] . '</td>
-                <td><input type="text" name = "newminbid"/>' . $row["minbid"] . '</td>
-                <td><input type="text" name = "newautobuy"/>' . $row["autobuy"] . '</td>
-                <td><input type="text" name = "newlocation"/>' . $row["location"] . '</td>
-                <td><input type="text" name = "newpickupdate"/>' . $row["pickupdate"] . '</td>
-                <td><input type="text" name = "newreturndate"/>' . $row["returndate"] . '</td>
+                <td><input type="text" name = "newcategory" value="' . $row["category"] . '"/></td>
+                <td><input type="text" name = "newminbid" value="' . $row["minbid"] . '"/></td>
+                <td><input type="text" name = "newautobuy" value="' . $row["autobuy"] . '"/></td>
+                <td><input type="text" name = "newlocation" value="' . $row["location"] . '"/></td>
+                <td><input type="text" name = "newpickupdate" value="' . $row["pickupdate"] . '"/></td>
+                <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
                 <td><button type="submit" name="submit">' . Update . '</button> </td>
