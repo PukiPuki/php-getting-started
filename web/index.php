@@ -113,12 +113,14 @@ session_start();
 function makeBidInput()
 {
     echo '
-        <form action="index.php" method="POST">
-            <div class="input-field col s6">
-                <input type="text" placeholder="99" name="bid" required>
-                <button type="submit" name="bid">bid</button>
-            </div>
-        </form>
+        <div>
+             <form action="index.php" method="POST">
+                 <div class="input-field col s6">
+                     <input type="text" placeholder="99" name="bid" required>
+                     <button type="submit" name="bid">bid</button>
+                 </div>
+             </form>
+        </div>
     ';
 }
 
