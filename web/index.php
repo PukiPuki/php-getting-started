@@ -168,22 +168,22 @@ $DEBUG = false;
 </div>
 
 <?php
-    function pg_connection_string_from_database_url() {
-        extract(parse_url($_ENV["DATABASE_URL"]));
-        return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
-    }
+    #function pg_connection_string_from_database_url() {
+    #    extract(parse_url($_ENV["DATABASE_URL"]));
+    #    return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
+    #}
 
-    $pg_conn = pg_connect(pg_connection_string_from_database_url())
-    or die('Could not connect:' . pg_last_error());
+    #$pg_conn = pg_connect(pg_connection_string_from_database_url())
+    #or die('Could not connect:' . pg_last_error());
 
-    if (isset($_POST['bid'])) {
-        $query = "SELECT * FROM filter_transactions('$_POST[category]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
-        if (!$result) {
-            $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        }
-    }
+    #if (isset($_POST['bid'])) {
+    #    $query = "SELECT * FROM filter_transactions('$_POST[category]')";
+    #    $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+    #    if (!$result) {
+    #        $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
+    #        echo "<script type='text/javascript'>alert('$message');</script>";
+    #    }
+    #}
 
     function makeBidInput() {
         return
