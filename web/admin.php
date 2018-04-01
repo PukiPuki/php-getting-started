@@ -240,19 +240,27 @@ if (isset($_POST['add_user'])) {
                 echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
-                        <th>Index</th>
+                        <th>S/N</th>
                         <th>tID</th>
                         <th>Bidder Name</th>
                         <th>Bid Price</th>
                         <th>Bidding status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                         </tr>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
+                    <form action="admin.php" method="POST">
+                    <input type="hidden" name="tid" value="'.$row["tid"].'">
+                    <input type="hidden" name="biddername" value="'.$row["biddername"].'">
                     <td>'.$index.'</td>
                     <td>'.$row["tid"].'</td>
                     <td>'.$row["biddername"].'</td>
-                    <td>'.$row["biddingprice"].'</td>
-                    <td>'.$row["biddingstatus"].'</td>
+                    <td><input type="text" name="bidprice" value="'.$row["biddingprice"].'"/></td>
+                    <td><input type="text" name="bidstatus" value="'.$row["biddingstatus"].'"></td>
+                    <td><button type="submit" name="edit_bid" >Edit</button></td>
+                    <td><button type="submit" name="delete_bid" >Delete</button></td>
+ 
                     </tr>';
                     $index++;
             }
@@ -306,12 +314,38 @@ if (isset($_POST['add_user'])) {
                     alert('Update failed!');
                   </script>";
           }
+        } 
+        if (isset($_POST['edit_bid'])) {
+            $query = 'SELECT * FROM admin_edit_bids('.$_POST["tid"].','.$POST_["bidstatus"].",".$_POST["bidprice"].",".$_POST["biddername"].')';
+            $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if (!$result) {
+            echo "<script type='text/javascript'>
+                alert('Error in editing bid!');
+            </script>";
+        } else {
+        echo "<script type='text/javascript'>
+                alert('Bid modified!');
+            </script>";
+
+        }
+
+        if (isset($_POST['delete_bid'])) {
+            $query = 'SELECT * FROM admin_remove_bids('.$_POST["bidstatus"].','.$_POST["bidprice"].','.$_POST["biddername"].')';
+            $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+                    if (!$result) {
+            echo "<script type='text/javascript'>
+                alert('Error in deleting bid!');
+            </script>";
+        } else {
+        echo "<script type='text/javascript'>
+                alert('Bid deleted!');
+            </script>";
+
         }
 
         ?>
 
         </div>
-    </div>
 </div>
 </body>
 </html>
