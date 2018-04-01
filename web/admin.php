@@ -251,16 +251,16 @@ if (isset($_POST['add_user'])) {
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
                     <form action="admin.php" method="POST">
-                    <input type="hidden" name="tid" value="'.$row["tid"].'">
-                    <input type="hidden" name="biddername" value="'.$row["biddername"].'">
+                    <input type="hidden" name="tid" value="'.$row["tid"].'"/>
+                    <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
                     <td>'.$index.'</td>
                     <td>'.$row["tid"].'</td>
                     <td>'.$row["biddername"].'</td>
                     <td><input type="text" name="bidprice" value="'.$row["biddingprice"].'"/></td>
-                    <td><input type="text" name="bidstatus" value="'.$row["biddingstatus"].'"></td>
+                    <td><input type="text" name="bidstatus" value="'.$row["biddingstatus"].'"/></td>
                     <td><button type="submit" name="edit_bid" >Edit</button></td>
                     <td><button type="submit" name="delete_bid" >Delete</button></td>
- 
+                    </form>
                     </tr>';
                     $index++;
             }
@@ -328,6 +328,7 @@ if (isset($_POST['add_user'])) {
             </script>";
 
         }
+        }
 
         if (isset($_POST['delete_bid'])) {
             $query = 'SELECT * FROM admin_remove_bids('.$_POST["bidstatus"].','.$_POST["bidprice"].','.$_POST["biddername"].')';
@@ -341,6 +342,7 @@ if (isset($_POST['add_user'])) {
                 alert('Bid deleted!');
             </script>";
 
+        }
         }
 
         ?>
