@@ -112,6 +112,8 @@ session_start();
 <?php
 function makeBidInput()
 {
+    echo "<h1>bid</h1>";
+    /*
     echo '
         <div>
              <form action="index.php" method="POST">
@@ -122,6 +124,7 @@ function makeBidInput()
              </form>
         </div>
     ';
+    */
 }
 
 ?>
