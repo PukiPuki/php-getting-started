@@ -85,8 +85,6 @@ include 'makebids.php';
             echo '</table>';
         }
     }
-
-    echo addBidUI();
     ?>
 </div>
 
@@ -100,15 +98,7 @@ function retractBid($string)
 }
 ?>
 
-<?php
-function addBid($string) {
 
-}
-
-function addBidUI() {
-    return '<h1>clap for the queen</h1>';
-}
-?>
 </div>
 
 <script>
