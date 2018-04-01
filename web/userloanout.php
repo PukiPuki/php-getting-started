@@ -116,7 +116,6 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="itemid" value=" '. $row["itemid"]. '">Update</button></td>
                 <td><button type="submit" name="biddername" value=" '. $row["biddername"]. '">Accept</button></td>
                 </form>
                 </tr>';
