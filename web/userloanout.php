@@ -104,7 +104,7 @@ $username = $_SESSION[user];
                 <form name="display" action="userloanout.php" method="POST">
                 <td>' . $index . '</td>
                 <td>' . $row["itemid"] . '</td>
-                <td><input type="text" name = "newitemname"/>' . $row["itemname"] . '</td>
+                <td><input type="text" name = "newitemname" value="' . $row["itemname"] . '"/></td>
                 <td><input type="text" name = "newcategory"/>' . $row["category"] . '</td>
                 <td><input type="text" name = "newminbid"/>' . $row["minbid"] . '</td>
                 <td><input type="text" name = "newautobuy"/>' . $row["autobuy"] . '</td>
