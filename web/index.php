@@ -176,24 +176,26 @@ $DEBUG = false;
 #$pg_conn = pg_connect(pg_connection_string_from_database_url())
 #or die('Could not connect:' . pg_last_error());
 
-#if (isset($_POST['bid'])) {
-#    $query = "SELECT * FROM filter_transactions('$_POST[category]')";
-#    $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
-#    if (!$result) {
-#        $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
-#        echo "<script type='text/javascript'>alert('$message');</script>";
-#    }
-#}
+if (isset($_POST['bid'])) {
+    echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
+    echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
+    $query = "SELECT * FROM filter_transactions('$_POST[category]')";
+    $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+    if (!$result) {
+        $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
+        echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
+        echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
+    }
+}
 
-function makeBidInput($string)
-{
+function makeBidInput($string) {
     return
         '
             <form action="index.php" method="POST">
-                     <input type="text" placeholder="' . $string . '" name="bid" required>
-                     <button type="submit" name="bid" value="' . $string . '">Bid</button>
-                </form>
-            ';
+                 <input type="text" placeholder="' . $string . '" name="bid" required>
+                 <button type="submit" name="bid" value="' . $string . '">Bid</button>
+            </form>
+        ';
 }
 
 ?>
