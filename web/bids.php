@@ -106,10 +106,7 @@ function addBid($string) {
 }
 
 function addBidUI() {
-    return <<<END
-        <h1>clap for the queen</h1>
-    END;
-
+    return '<h1>clap for the queen</h1>';
 }
 ?>
 </div>
