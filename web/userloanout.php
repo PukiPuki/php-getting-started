@@ -132,7 +132,7 @@ $username = $_SESSION[user];
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
     }
 
-    echo endArrow();
+    echo addBidUI();
 
     ?>
 
