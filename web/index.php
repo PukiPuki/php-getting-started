@@ -11,7 +11,7 @@ session_start();
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+<link rel="stylesheet" href="./style/css/materialize.css"
 <style>
     html, body, h1, h2, h3, h4, h5, h6 {
         font-family: "Roboto", sans-serif;
@@ -38,7 +38,7 @@ session_start();
         }
 
         if ($DEBUG) {
-            echo '<h1>sex</h1>' . $sex();
+            echo '<h1>sex</h1><h1>asd</h1>' . sex();
         }
     ?>
 </div>
@@ -99,7 +99,7 @@ session_start();
                     <td>' . $row["minbid"] . '</td>
                     <td>' . $row["autobuy"] . '</td>
                     <td>' . $row["highbid"] . '</td>
-                    <td>' . $makeBidInput() . '</td>
+                    <td>' . makeBidInput() . '</td>
                     </tr>';
                 $index++;
             }
@@ -112,24 +112,27 @@ session_start();
 <?php
 function makeBidInput()
 {
+    echo "<h1>bid</h1>";
+    /*
     echo '
-        <form action="index.php" method="POST">
-            <div class="container">
-                <input type="text" placeholder="99" name="bid" required>
-                <button type="submit" name="bid">bid</button>
-            </div>
-        </form>
+        <div>
+             <form action="index.php" method="POST">
+                 <div>
+                     <input type="text" placeholder="99" name="bid" required>
+                     <button type="submit" name="bid">bid</button>
+                 </div>
+             </form>
+        </div>
     ';
+    */
 }
 
 ?>
 
 
 <script>
-
     // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
-
 </script>
 
 </body>
