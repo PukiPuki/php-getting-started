@@ -94,15 +94,15 @@ session_start();
 <?php
 function makeBidInput()
 {
-    echo "
-        <form action='index.php' method='POST'>
-            <div class='container'>
-                <label for='bid'><b>Bid</b></label>
-                <input type='text' placeholder='$99' name='bid' required>
-                <button type='submit' name='bid'>bid</button>
+    echo '
+        <form action="index.php" method="POST">
+            <div class="container">
+                <label for="bid"><b>Bid</b></label>
+                <input type="text" placeholder="$99" name="bid" required>
+                <button type="submit" name="bid">bid</button>
             </div>
         </form>
-    ";
+    ';
 }
 
 ?>
