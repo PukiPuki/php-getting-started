@@ -99,6 +99,7 @@ $username = $_SESSION[user];
             <th>Bidder Name</th>
             <th>Current Bid</th>
             <th>Update</th>
+            <th>Accept</th>
             </tr>';
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
@@ -115,7 +116,8 @@ $username = $_SESSION[user];
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="itemid" value=" '. $row["itemid"]. '">Update</button> </td>
+                <td><button type="submit" name="itemid" value=" '. $row["itemid"]. '">Update</button></td>
+                <td><button type="submit" name="biddername" value=" '. $row["biddername"]. '">Accept</button></td>
                 </form>
                 </tr>';
             $index++;
@@ -134,6 +136,12 @@ $username = $_SESSION[user];
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
     }
 
+    if (isset($_POST['biddername'])){
+        $query = "SELECT * FROM accept_loan('$_POST[newtransactionid]', '$_POST[biddername]');"
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+    }
+
+        echo addBidUI();
 
     ?>
 
