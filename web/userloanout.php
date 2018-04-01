@@ -138,7 +138,7 @@ echo '<div>
             </script>";
         } else {
         echo "<script type='text/javascript'>
-                alert('$query');
+                alert('$result' + '$query');
             </script>";
         }
     }
