@@ -159,7 +159,7 @@ $DEBUG = false;
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["highbid"] . '</td>
                 <td>' . makeBidInput() . '</td>
-                <td>rubbish</td>
+                <td><form><input type="text" placeholder="test" name="test"></form></td>
                 </tr>';
                 $index++;
             }
