@@ -121,6 +121,7 @@ $username = $_SESSION[user];
                 </tr>';
             $index++;
         }
+
         echo '</table>';
     }
 
@@ -132,8 +133,6 @@ $username = $_SESSION[user];
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
     }
 
-    noEcho();
-    echo addBidUI();
     echo endArrow();
 
     ?>
@@ -147,15 +146,25 @@ $username = $_SESSION[user];
 function addBid($string) {
 
 }
-function noEcho() {
-    return '<h1>no echo</h1>';
-}
 function addBidUI() {
-    return '<h1>clap for the queen</h1>';
-}
-function endArrow() {
     return <<<END
-        <h1> ARROW TRIBE </h1>
+        <tr align = "center">
+        <form name="display" action="userloanout.php" method="POST">
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        <td>clap</td>
+        </form>
+        </tr>;
 END;
 
 }
