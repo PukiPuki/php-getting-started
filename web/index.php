@@ -155,9 +155,9 @@ include 'makebids.php';
 #or die('Could not connect:' . pg_last_error());
 
 if (isset($_POST['new_bid'])) {
-    echo "<script type='text/javascript'>alert('$_POST[tid]');</script>";
-    echo "<script type='text/javascript'>alert('$_POST[new_bid]');</script>";
-    echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
+    #echo "<script type='text/javascript'>alert('$_POST[tid]');</script>";
+    #echo "<script type='text/javascript'>alert('$_POST[new_bid]');</script>";
+    #echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
 
     $query = "SELECT * FROM make_bid('$_POST[new_bid]', '$_POST[tid]', '$_SESSION[user]')";
     $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
@@ -166,10 +166,9 @@ if (isset($_POST['new_bid'])) {
         echo "<script type='text/javascript'>alert('$_POST[tid]');</script>";
         echo "<script type='text/javascript'>alert('$_POST[new_bid]');</script>";
         echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
+    } else {
+        echo "<script>window.location.reload(true)</script>";
     }
-    header("Refresh: 0");
-
-    echo "<script>window.location.reload(true)</script>";
 }
 
 ?>
