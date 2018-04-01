@@ -152,17 +152,17 @@ include 'pgconnect.php';
 #or die('Could not connect:' . pg_last_error());
 
 if (isset($_POST['bid'])) {
-    echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
+    echo "<script type='text/javascript'>alert('$_POST[tid]');</script>";
     echo "<script type='text/javascript'>alert('$_POST[new_bid]');</script>";
     echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
 
-    #$query = "SELECT * FROM make_bid('$_POST[bid]', '$_SESSION.[user]')";
-    #$result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
-    #if (!$result) {
-    #    $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
-    #    echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
-    #    echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
-    #}
+    $query = "SELECT * FROM make_bid('$_POST[new_bid]', $_POST[tid], '$_SESSION.[user]')";
+    $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+    if (!$result) {
+        $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
+        echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
+        echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
+    }
 }
 
 function makeBidInput($string) {
@@ -170,7 +170,7 @@ function makeBidInput($string) {
         '
             <form action="index.php" method="POST">
                  <input type="text" placeholder="' . $string . '" name="new_bid" required>
-                 <button type="submit" name="bid" value="' . $string . '">Bid</button>
+                 <button type="submit" name="tid" value="' . $string . '">Bid</button>
             </form>
         ';
 }
