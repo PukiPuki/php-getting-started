@@ -159,17 +159,17 @@ function addBidUI($index) {
         <tr align = "center">
             <form name="display" action="userloanout.php" method="POST">
                 <td>$index</td>
-                <td>clap</td>
-                <td>clap</td>
-                <td>clap</td>
-                <td>clap</td>
-                <td>clap</td>
-                <td>clap</td>
-                <td>clap</td>
-                <td>clap</td>
-                <td>clap</td>
-                <td>clap</td>
-                <td>clap</td>
+                <td></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td><input type="text" name="newstuff" placeholder="clap"></td>
             </form>
         </tr>;
 END;
