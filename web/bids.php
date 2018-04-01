@@ -34,10 +34,6 @@ session_start();
 
     $pg_conn = pg_connect(pg_connection_string_from_database_url())
     or die('Could not connect:' . pg_last_error());
-    echo " <div style=margin-top:43px>
-    <div class=\"w3-container\">
-        <h1 class=\"w3-text-teal\">Welcome {$_SESSION[user]}</h1>
-    </div>";
 
     if (isset($_SESSION[user])) {
         echo '<div>
