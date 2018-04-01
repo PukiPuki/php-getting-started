@@ -18,6 +18,7 @@ session_start();
     }
 </style>
 <body>
+
 <div>
     <?php
     include 'navbar.php';
@@ -80,6 +81,7 @@ session_start();
                     <td>' . $row["minbid"] . '</td>
                     <td>' . $row["autobuy"] . '</td>
                     <td>' . $row["highbid"] . '</td>
+                    <td>' . $makeBidInput . '</td>
                     </tr>';
                 $index++;
             }
@@ -90,9 +92,19 @@ session_start();
 </div>
 
 <?php
-function sex() {
-    return "sex";
+function makeBidInput()
+{
+    echo "
+        <form action='index.php' method='POST'>
+            <div class='container'>
+                <label for='bid'><b>Bid</b></label>
+                <input type='text' placeholder='$99' name='bid' required>
+                <button type='submit' name='bid'>bid</button>
+            </div>
+        </form>
+    ";
 }
+
 ?>
 
 

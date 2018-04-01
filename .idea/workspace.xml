@@ -19,8 +19,8 @@
       <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
+            <state relative-caret-position="403">
+              <caret line="225" selection-start-line="225" selection-end-line="225" />
             </state>
           </provider>
         </entry>
@@ -28,8 +28,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
+            <state relative-caret-position="225">
+              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -147,12 +147,12 @@
       <option name="presentableId" value="Default" />
       <updated>1522556265786</updated>
       <workItem from="1522556268416" duration="168000" />
-      <workItem from="1522556455867" duration="888000" />
+      <workItem from="1522556455867" duration="1450000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1056000" />
+    <option name="totallyTimeSpent" value="1618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="4" width="681" height="764" extended-state="0" />
@@ -209,15 +209,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
+        <state relative-caret-position="403">
+          <caret line="225" selection-start-line="225" selection-end-line="225" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
+        <state relative-caret-position="225">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
         </state>
       </provider>
     </entry>
