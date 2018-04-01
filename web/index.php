@@ -143,6 +143,7 @@ $DEBUG = false;
                         <th>Automatic Bid</th>
                         <th>Current Bid</th>
                         <th>Make Bid</th>
+                        <th>test rubbish</th>
                         </tr>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
@@ -158,6 +159,7 @@ $DEBUG = false;
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["highbid"] . '</td>
                 <td>' . makeBidInput() . '</td>
+                <td>rubbish</td>
                 </tr>';
                 $index++;
             }
