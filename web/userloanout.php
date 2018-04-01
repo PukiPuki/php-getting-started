@@ -19,9 +19,9 @@ $username = $_SESSION[user];
 </style>
 <body>
 <div>
-    <?php
-    include 'navbar.php';
-    ?>
+<?php
+include 'navbar.php';
+?>
 </div>
 
 <div style=margin-top:43px>
@@ -29,29 +29,29 @@ $username = $_SESSION[user];
         <h1 class="w3-text-teal">Your Loan</h1>
     </div>
 
-    <?php
-    function pg_connection_string_from_database_url()
-    {
-        extract(parse_url($_ENV["DATABASE_URL"]));
-        return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
-    }
+<?php
+function pg_connection_string_from_database_url()
+{
+    extract(parse_url($_ENV["DATABASE_URL"]));
+    return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . " sslmode=require"; # <- you may want to add sslmode=require there too
+}
 
-    $pg_conn = pg_connect(pg_connection_string_from_database_url())
+$pg_conn = pg_connect(pg_connection_string_from_database_url())
     or die('Could not connect:' . pg_last_error());
-    $query = "SELECT * FROM all_current_loans_accepted('$username')";
-    $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+$query = "SELECT * FROM all_current_loans_accepted('$username')";
+$result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
 
-    echo '<div>
+echo '<div>
     <div class="w3-container">
-        <h2 class="w3-text-teal">Successful Loans</h2>
+    <h2 class="w3-text-teal">Successful Loans</h2>
     </div>';
 
-    if (!$result) {
-        $message = '<p>You have nothing loaned out!</p>';
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    } else {
-        $index = 1;
-        echo '
+if (!$result) {
+    $message = '<p>You have nothing loaned out!</p>';
+    echo "<script type='text/javascript'>alert('$message');</script>";
+} else {
+    $index = 1;
+    echo '
             <table class="striped responsive-table centered highlight", style="width:100%">
             <tr>
             <th>S/N</th>
@@ -59,21 +59,21 @@ $username = $_SESSION[user];
             <th>Bidder</th>
             <th>Return Date</th>
             </tr>';
-        while ($row = pg_fetch_assoc($result)) {
-            echo '<tr align = "center">
-                <td>' . $index . '</td>
-    			<td>' . $row["itemname"] . '</td>
-                <td>' . $row["biddername"] . '</td>
-                <td>' . $row["returndate"] . '</td>
-    		    </tr>';
-            $index++;
-        }
-        echo '</table>';
+    while ($row = pg_fetch_assoc($result)) {
+        echo '<tr align = "center">
+            <td>' . $index . '</td>
+            <td>' . $row["itemname"] . '</td>
+            <td>' . $row["biddername"] . '</td>
+            <td>' . $row["returndate"] . '</td>
+            </tr>';
+    $index++;
     }
+    echo '</table>';
+}
 
-    echo '<div>
+echo '<div>
     <div class="w3-container">
-        <h2 class="w3-text-teal">Pending Loans</h2>
+    <h2 class="w3-text-teal">Pending Loans</h2>
     </div>';
 
     $query = "SELECT * FROM all_current_loans_pending('$username')";
@@ -120,7 +120,7 @@ $username = $_SESSION[user];
                 <td><button type="submit" name="biddername" value=" '. $row["biddername"]. '">Accept</button></td>
                 </form>
                 </tr>';
-            $index++;
+        $index++;
         }
 
         echo addBidUI($index);
@@ -138,34 +138,15 @@ $username = $_SESSION[user];
 
     if (isset($_POST['biddername'])){
         $query = "SELECT * FROM accept_loan('$_POST[newtransactionid]', '$_POST[biddername]')";
-        pg_send_query($pg_conn, $query);
-        $result = pg_get_result($pg_conn);
-        if ($result) {
-                $state = pg_result_error_field($result, PGSQL_DIAG_SQLSTATE);
-
-                  if ($state == 0) {
-                      echo "<script type='text/javascript'>
-                          alert('Loan accepted!' + '$_POST[newtransactionid]' + '$_POST[biddername]');
-                          </script>";
-                  } else if ($state == 23505) {
-                      $message = "Loan already exists";
-                      echo "<script type='text/javascript'>
-                          alert('$message');
-                          </script>";
-                  } else if ($state == 23502) {
-                      $message = "You have somehow entered a null value!";
-                      echo "<script type='text/javascript'>
-                          alert('$message');
-                          </script>";
-                  } else
-                      echo "<script type='text/javascript'>
-                            alert('$state');
-                          </script>";
-          } else {
-
-             echo "<script type='text/javascript'>
-              alert('Accept failed!');
+        $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if (!$result) {
+            echo "<script type='text/javascript'>
+                alert('Error in accepting loan!');
             </script>";
+        } else {
+        echo "<script type='text/javascript'>
+            alert('Loan status modified successfully');
+        </script>";
         }
     }
 
@@ -174,13 +155,13 @@ $username = $_SESSION[user];
     ?>
 
     <script type="text/javascript">
-        var query = "<?php echo $query ?>"
-    </script>
+    var query = "<?php echo $query ?>"
+        </script>
 
 </div>
 <?php
-function addBidUI($index) {
-    return <<<END
+    function addBidUI($index) {
+        return <<<END
         <tr align = "center">
             <form name="display" action="userloanout.php" method="POST">
                 <td>$index</td>
@@ -199,16 +180,16 @@ function addBidUI($index) {
         </tr>;
 END;
 
-}
+    }
 ?>
 
 
-<script>
+    <script>
 
     // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
 
-</script>
+    </script>
 </body>
 </html>
 
