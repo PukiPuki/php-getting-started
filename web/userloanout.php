@@ -144,9 +144,6 @@ echo '<div>
         echo "<script type='text/javascript'>
                 alert('$query');
             </script>";
-        echo "<script type='text/javascript'>
-                alert('$query2');
-            </script>";
         }
     }
 
