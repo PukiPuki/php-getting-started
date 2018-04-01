@@ -1,6 +1,5 @@
 <?php
-function makeBidInput($string)
-{
+function makeBidInput($string) {
     return
         '
             <form action="index.php" method="POST">
@@ -9,5 +8,4 @@ function makeBidInput($string)
             </form>
         ';
 }
-
 ?>
