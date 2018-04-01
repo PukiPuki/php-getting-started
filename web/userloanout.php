@@ -97,8 +97,8 @@ echo '<div>
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
                 <form name="display" action="userloanout.php" method="POST">
-                <td>' . $index . '</td>
                 <input type="hidden" name="newtransactionid" value="' . $row["transactionid"] . '">
+                <td>' . $index . '</td>
                 <td>' . $row["itemid"] . '</td>
                 <td><input type="text" name = "newitemname" value="' . $row["itemname"] . '"/></td>
                 <td><input type="text" name = "newcategory" value="' . $row["category"] . '"/></td>
@@ -130,7 +130,7 @@ echo '<div>
     }
 
     if (isset($_POST['biddername'])) {
-        $query = 'SELECT * FROM accept_loan('.$_POST[newtransactionid].',\''.$_POST[biddername].'\')';
+        $query = 'SELECT * FROM accept_loan('.$_POST['newtransactionid'].','.$_POST['biddername'].')';
         $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
