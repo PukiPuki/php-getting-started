@@ -157,7 +157,7 @@ $DEBUG = false;
                 <td>' . $row["minbid"] . '</td>
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["highbid"] . '</td>
-                <td>' . makeBidInput() . '</td>
+                <td>' . makeBidInput($row["tid"]) . '</td>
                 </tr>';
                 $index++;
             }
@@ -185,13 +185,13 @@ $DEBUG = false;
     #    }
     #}
 
-    function makeBidInput() {
+    function makeBidInput($string) {
         return
-            '<form action="index.php" method="POST">
-                     <input type="text" placeholder="99" name="bid" required>
-                     <button type="submit" name="bid">Bid</button>
+            "<form action=\"index.php\" method=\"POST\">
+                     <input type=\"text\" placeholder=\"'$string'\" name=\"bid\" required>
+                     <button type=\"submit\" name=\"bid\" value=\"'$string'\">Bid</button>
                 </form>
-            ';
+            ";
 }
 
 ?>
