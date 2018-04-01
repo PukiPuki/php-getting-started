@@ -114,13 +114,23 @@ $username = $_SESSION[user];
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="submit">' . Update . '</button> </td>
+                <td><button type="submit" name="itemid" value=" '. $row["itemid"]. '">Update</button> </td>
                 </form>
                 </tr>';
             $index++;
         }
         echo '</table>';
     }
+
+    if (isset($_POST['display'])) {
+        echo "<script type='text/javascript'>alert('$_POST[itemid]');</script>";
+        $query = "SELECT * FROM edit_transactions('$_POST[itemid]', '$_POST[newpickupdate]', '$_POST[newreturndate]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+
+        $query = "SELECT * FROM edit_items('$_POST[itemid]', '$_POST[newcategory]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+    }
+
     ?>
 
     <script type="text/javascript">
