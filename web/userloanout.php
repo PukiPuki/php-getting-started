@@ -134,7 +134,7 @@ $username = $_SESSION[user];
 
     noEcho();
     echo addBidUI();
-    endArrow();
+    echo endArrow();
 
     ?>
 
