@@ -38,17 +38,29 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
 
     if(!$result) {
-    	echo '<p>You have nothing loaned out!</p>';
+        $message = '<p>You have nothing loaned out!</p>';
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
-    while($row = pg_fetch_assoc($result)) {
-    	//echo '<p>1</p>';
-    	echo '<div class="panel panel-info">
-    			<div class="panel-body">
-    				Item: '.$row["itemname"].'</br>
-    				BidderName: '.$row["biddername"].'</br>
-    				ReturnDate: '.$row["returndate"].'</br>
-    			</div>
-    		</div>';
+    else {
+        $index = 1;
+        echo '
+            <table class="striped responsive-table centered highlight", style="width:100%">
+            <tr>
+            <th>S/N</th>
+            <th>Item</th>
+            <th>Bidder</th>
+            <th>Return Date</th>
+            </tr>';
+        while($row = pg_fetch_assoc($result)) {
+    	   echo '<tr align = "center">
+                <td>'.$index.'</td>
+    			<td>'.$row["itemname"].'</td>
+                <td>'.$row["biddername"].'</td>
+                <td>'.$row["returndate"].'</td>
+    		';
+            $index++;
+        }
+        echo '</table>';
     }
 ?>
 
