@@ -143,7 +143,6 @@ $DEBUG = false;
                         <th>Automatic Bid</th>
                         <th>Current Bid</th>
                         <th>Make Bid</th>
-                        <th>test rubbish</th>
                         </tr>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
@@ -159,7 +158,6 @@ $DEBUG = false;
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["highbid"] . '</td>
                 <td>' . makeBidInput() . '</td>
-                <td><form><input type="text" placeholder="test" name="test"><button type="submit" name="nice"></form></td>
                 </tr>';
                 $index++;
             }
@@ -172,12 +170,10 @@ $DEBUG = false;
 <?php
 function makeBidInput()
 {
-    echo '
-             <form action="index.php" method="POST">
+    return '<form action="index.php" method="POST">
                      <input type="text" placeholder="99" name="bid" required>
                      <button type="submit" name="bid">Bid</button>
-             </form>
-    ';
+             </form>';
 }
 
 ?>
