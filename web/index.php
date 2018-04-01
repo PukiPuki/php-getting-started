@@ -115,7 +115,7 @@ function makeBidInput()
     echo '
         <div>
              <form action="index.php" method="POST">
-                 <div class="input-field col s6">
+                 <div>
                      <input type="text" placeholder="99" name="bid" required>
                      <button type="submit" name="bid">bid</button>
                  </div>
