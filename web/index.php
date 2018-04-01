@@ -177,6 +177,8 @@ $DEBUG = false;
 #or die('Could not connect:' . pg_last_error());
 
 if (isset($_POST['bid'])) {
+    echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
+    echo "<script type='text/javascript'>alert('$_POST[bid]');</script>";
     $query = "SELECT * FROM filter_transactions('$_POST[category]')";
     $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
     if (!$result) {
