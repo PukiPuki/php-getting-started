@@ -122,7 +122,7 @@ $username = $_SESSION[user];
         echo '</table>';
     }
 
-    if (isset($_POST['display'])) {
+    if (isset($_POST['itemid'])) {
         echo "<script type='text/javascript'>alert('$_POST[itemid]');</script>";
         $query = "SELECT * FROM edit_transactions('$_POST[itemid]', '$_POST[newpickupdate]', '$_POST[newreturndate]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
