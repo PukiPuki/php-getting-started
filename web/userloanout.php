@@ -139,11 +139,14 @@ echo '<div>
             </script>";
         } else {
         echo "<script type='text/javascript'>
-                alert('Hi?' + '$query' + $query2);
+                alert('Hi?');
             </script>";
         echo "<script type='text/javascript'>
-            alert('Loan status modified successfully');
-        </script>";
+                alert('$query');
+            </script>";
+        echo "<script type='text/javascript'>
+                alert('$query2');
+            </script>";
         }
     }
 
