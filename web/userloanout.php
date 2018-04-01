@@ -145,7 +145,7 @@ $username = $_SESSION[user];
 
                   if ($state == 0) {
                       echo "<script type='text/javascript'>
-                          alert('Loan accepted!');
+                          alert('Loan accepted!' + '$_POST[newtransationid]' + '$_POST[biddername]');
                           </script>";
                   } else if ($state == 23505) {
                       $message = "Loan already exists";
@@ -163,8 +163,8 @@ $username = $_SESSION[user];
                           </script>";
           } else {
 
-        echo "<script type='text/javascript'>
-              alert('Loan status modified successfully');
+             echo "<script type='text/javascript'>
+              alert('Accept failed!');
             </script>";
         }
     }
