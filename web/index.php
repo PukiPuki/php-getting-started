@@ -11,16 +11,35 @@ session_start();
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+<link rel="stylesheet" href="./style/css/materialize.css"
 <style>
     html, body, h1, h2, h3, h4, h5, h6 {
         font-family: "Roboto", sans-serif;
     }
 </style>
+<?php
+$DEBUG = true;
+?>
+
+
 <body>
+
 <div>
 <?php
 include 'navbar.php';
+?>
+</div>
+
+<div>
+<?php
+
+function sex() {
+    echo '<h1>sex</h1>';
+}
+
+if ($DEBUG) {
+    echo '<h1>sex</h1><h1>asd</h1>' . sex();
+}
 ?>
 </div>
 
@@ -57,14 +76,14 @@ if (!$result) {
         echo "<script type='text/javascript'>alert('$message');</script>";
 
     } else {
-    $index = 1;
+        $index = 1;
         echo '<div> 
-          <form action="index.php" method="POST">
-          <label for"filter"><b> Filter: </b></label>
-          <input type="text" placeholder="Category" name=
-          "category" required> 
-          <button type="submit" name="filter">Filter</button>
-          </form>';
+            <form action="index.php" method="POST">
+            <label for"filter"><b> Filter: </b></label>
+            <input type="text" placeholder="Category" name=
+            "category" required> 
+            <button type="submit" name="filter">Filter</button>
+            </form>';
         echo '
             <table style = "width:100%", align="center">
                     <tr>
@@ -80,8 +99,8 @@ if (!$result) {
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
                     </tr>';
-            while($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
-                echo '<tr align = "center">
+        while($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+            echo '<tr align = "center">
                 <td>'.$index.'</td>
                 <td>'.$row["tid"].'</td>
                 <td>'.$row["itemname"].'</td>
@@ -94,9 +113,9 @@ if (!$result) {
                 <td>'.$row["autobuy"].'</td>
                 <td>'.$row["highbid"].'</td>
                 </tr>';
-                $index++;
-          }
-          echo '</table>';
+        $index++;
+        }
+        echo '</table>';
     }
 } else {
     $index = 1;
@@ -108,7 +127,7 @@ if (!$result) {
         <button type="submit" name="filter">Filter</button>
         </form>
         </div>';
-    echo '
+        echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -124,33 +143,51 @@ if (!$result) {
                         <th>Current Bid</th>
                         <th>Make Bid</th>
                         </tr>';
-    while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
-        echo '<tr align = "center">
-            <td>' . $index . '</td>
-            <td>' . $row["tid"] . '</td>
-            <td>' . $row["itemname"] . '</td>
-            <td>' . $row["location"] . '</td>
-            <td>' . $row["pickupdate"] . '</td>
-            <td>' . $row["returndate"] . '</td>
-            <td>' . $row["owner"] . '</td>
-            <td>' . $row["category"] . '</td>
-            <td>' . $row["minbid"] . '</td>
-            <td>' . $row["autobuy"] . '</td>
-            <td>' . $row["highbid"] . '</td>
-            </tr>';
-    $index++;
-    }
-    echo '</table>';
+        while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+            echo '<tr align = "center">
+                <td>' . $index . '</td>
+                <td>' . $row["tid"] . '</td>
+                <td>' . $row["itemname"] . '</td>
+                <td>' . $row["location"] . '</td>
+                <td>' . $row["pickupdate"] . '</td>
+                <td>' . $row["returndate"] . '</td>
+                <td>' . $row["owner"] . '</td>
+                <td>' . $row["category"] . '</td>
+                <td>' . $row["minbid"] . '</td>
+                <td>' . $row["autobuy"] . '</td>
+                <td>' . $row["highbid"] . '</td>
+                <td>' . makeBidInput() . '</td>
+                </tr>';
+        $index++;
+        }
+        echo '</table>';
 }
     }
 ?>
 </div>
 
-    <script>
+<?php
+    function makeBidInput()
+    {
+        echo '
+        <div>
+             <form action="index.php" method="POST">
+                 <div>
+                     <input type="text" placeholder="99" name="bid" required>
+                     <button type="submit" name="bid">bid</button>
+                 </div>
+             </form>
+        </div>
+    ';
+    }
 
+?>
+</div>
+
+
+    <script>
     // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
-
     </script>
 
 </body>

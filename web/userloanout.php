@@ -34,8 +34,12 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     $pg_conn = pg_connect(pg_connection_string_from_database_url())
         or die('Could not connect:' . pg_last_error());
     $query = "SELECT * FROM all_current_loans_accepted('$username')";
-    //$query = "SELECT * FROM bids";
     $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
+
+    echo '<div>
+    <div class="w3-container">
+        <h2 class="w3-text-teal">Successful Loans</h2>
+    </div>';
 
     if(!$result) {
         $message = '<p>You have nothing loaned out!</p>';
@@ -58,6 +62,54 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
                 <td>'.$row["biddername"].'</td>
                 <td>'.$row["returndate"].'</td>
     		';
+            $index++;
+        }
+        echo '</table>';
+    }
+
+    echo '<div>
+    <div class="w3-container">
+        <h2 class="w3-text-teal">Pending Loans</h2>
+    </div>';
+
+    $query = "SELECT * FROM all_current_loans_pending('$username')";
+    $result = pg_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
+
+    if(!$result) {
+        $message = '<p>You have no pending loans!</p>';
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
+    else {
+        $index = 1;
+        echo '
+            <table class="striped responsive-table centered highlight", style="width:100%">
+            <tr>
+            <th>S/N</th>
+            <th>ItemID</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Min Bid</th>
+            <th>Automatic Bid</th>
+            <th>Location</th>
+            <th>Loan Date</th>
+            <th>Return Date</th>
+            <th>Bidder Name</th>
+            <th>Current Bid</th>
+            </tr>';
+        while($row = pg_fetch_assoc($result)) {
+           echo '<tr align = "center">
+                <td>'.$index.'</td>
+                <td>'.$row["itemid"].'</td>
+                <td>'.$row["itemname"].'</td>
+                <td>'.$row["category"].'</td>
+                <td>'.$row["minbid"].'</td>
+                <td>'.$row["autobuy"].'</td>
+                <td>'.$row["location"].'</td>
+                <td>'.$row["pickupdate"].'</td>
+                <td>'.$row["returndate"]'</td>
+                <td>'.$row["biddername"].'</td>
+                <td>'.$row["maxbid"].'</td>
+            ';
             $index++;
         }
         echo '</table>';
