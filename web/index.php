@@ -38,7 +38,7 @@ session_start();
         }
 
         if ($DEBUG) {
-            echo '<h1>sex</h1>';
+            echo '<h1>sex</h1><h1>asd</h1>' . sex();
         }
     ?>
 </div>
@@ -99,6 +99,7 @@ session_start();
                     <td>' . $row["minbid"] . '</td>
                     <td>' . $row["autobuy"] . '</td>
                     <td>' . $row["highbid"] . '</td>
+                    <td>' . makeBidInput() . '</td>
                     </tr>';
                 $index++;
             }
