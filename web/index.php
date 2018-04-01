@@ -11,7 +11,7 @@ session_start();
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+<link rel="stylesheet" href="./style/css/materialize.css"
 <style>
     html, body, h1, h2, h3, h4, h5, h6 {
         font-family: "Roboto", sans-serif;
@@ -126,10 +126,8 @@ function makeBidInput()
 
 
 <script>
-
     // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
-
 </script>
 
 </body>
