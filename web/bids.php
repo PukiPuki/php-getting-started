@@ -46,7 +46,7 @@ session_start();
             $message = ' <p>You have no active bids!</p> </div> </div> </div>';
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else if (isset($_POST['retract'])) {
-            $query = "SELECT * FROM retract_bid('$_POST[retract]')";
+            $query = "SELECT * FROM retract_bid('$_SESSION[user]','$_POST[retract]')";
             $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         } else {
             $index = 1;
