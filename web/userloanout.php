@@ -138,10 +138,35 @@ $username = $_SESSION[user];
 
     if (isset($_POST['biddername'])){
         $query = "SELECT * FROM accept_loan('$_POST[newtransactionid]', '$_POST[biddername]')";
-        $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        pg_send_query($pg_conn, $query);
+        $result = pg_get_result($pg_conn);
+        if ($result) {
+                $state = pg_result_error_field($result, PGSQL_DIAG_SQLSTATE);
+
+                  if ($state == 0) {
+                      echo "<script type='text/javascript'>
+                          alert('Loan accepted!');
+                          </script>";
+                  } else if ($state == 23505) {
+                      $message = "Loan already exists";
+                      echo "<script type='text/javascript'>
+                          alert('$message');
+                          </script>";
+                  } else if ($state == 23502) {
+                      $message = "You have somehow entered a null value!";
+                      echo "<script type='text/javascript'>
+                          alert('$message');
+                          </script>";
+                  } else
+                      echo "<script type='text/javascript'>
+                            alert('$state');
+                          </script>";
+          } else {
+
         echo "<script type='text/javascript'>
               alert('Loan status modified successfully');
             </script>";
+        }
     }
 
         echo addBidUI();
