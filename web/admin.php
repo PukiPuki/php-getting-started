@@ -2,7 +2,6 @@
 <?php
 session_start();
 include 'pgconnect.php';
-include 'adminuser.php';
 ?>
 
 <html>
@@ -179,11 +178,137 @@ if (isset($_POST['add_user'])) {
 ?>
 
 <div style="margin-top:43px">
-<?php
- echo '<div>
-	<h1 class="w3-text-teal" a href='.showUser().'> User Control </h1>
-</div>';
-?>
+    <div>
+        <h1 class="w3-text-teal"> User Control </h1>
+
+        <div class="container">
+            <h2 class="w3-text-teal"> Add User </h2>
+            <form action="admin.php" method="POST">
+                <div class="container">
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <label for="phone"><b>Phone Number</b></label>
+                    <input type="text" placeholder="Enter Phone Number" name="phone" required>
+                    <label for="isAdmin"><b>Admin Privileges</b></label>
+                    <input type="hidden" name="isAdmin" value="0"> </input>
+                    <input type="checkbox" name="isAdmin" value="1"> Admin </input>
+                    <button type="submit" name="add_user">Add User</button>
+                </div>
+            </form>
+        </div>
+
+        <form action="admin.php" method="POST">
+            <div class="container">
+                <h2 class="w3-text-teal"> Edit User </h2>
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter User to Edit" name="username" required>
+
+                <label for="newphone"><b>New Phone Number</b></label>
+                <input type="text" placeholder="Enter New Phone Number" name="newphone" required>
+
+                <label for="isAdmin"><b>Admin Privileges</b></label>
+                <input type="hidden" name="isAdmin" value="0"> </input>
+                <input type="checkbox" name="isAdmin" value="1"> Admin </input>
+                <button type="submit" name="edit_user">Edit User</button>
+            </div>
+        </form>
+
+        <div class="container">
+            <h2 class="w3-text-teal"> Remove User </h2>
+            <form action="admin.php" method="POST">
+                <div class="container">
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter User to Remove" name="username" required>
+                    <button type="submit" name="remove_user">Remove User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<!-- For bids--> 
+    <div>
+        <h1 class="w3-text-teal"> Bids </h1>
+     
+        <div class="container">
+
+            <?php 
+                $query = "SELECT * FROM bids";
+               $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+                $index = 1;
+                echo '
+                <table class="striped responsive-table centered highlight", style="width:100%">
+                        <tr>
+                        <th>tID</th>
+                        <th>Bidder Name</th>
+                        <th>Bid Price</th>
+                        <th>Bidding status</th>
+                        </tr>';
+            while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                echo '<tr align = "center">
+                    <td>'.$index.'</td>
+                    <td>'.$row["tid"].'</td>
+                    <td>'.$row["biddername"].'</td>
+                    <td>'.$row["biddingprice"].'</td>
+                    <td>'.$row["biddingstatus"].'</td>
+                    </tr>';
+                    $index++;
+            }
+
+            ?>
+            
+            <h2 class="w3-text-teal"> Add Bid </h2>
+            <form action="admin.php" method="POST">
+                <div class="container">
+                    <label for="bidstatus"><b>Bid Status</b></label>
+                    <input type="text" placeholder="Status" name="bidstatus" required>
+                    <label for="bidprice"><b>Bid Price</b></label>
+                    <input type="text" placeholder="Price" name="bidprice" required>
+                    <label for="biddername"><b>Bidder Name</b></label>
+                    <input type="text" placeholder="Bidder Name" name="biddername" required>
+                    <button type="submit" name="add_bid">Add Bid</button>
+                </div>
+            </form>
+        </div>
+        <?php 
+            if (isset($_POST['add_bid'])) {
+                  $query = "SELECT * FROM admin_add_bids('$_POST[bidstatus]', '$_POST[bidprice]', '$_POST[biddername]')";
+                  pg_send_query($pg_conn, $query);
+                  $result = pg_get_result($pg_conn);
+
+                  if ($result) {
+                      $state = pg_result_error_field($result, PGSQL_DIAG_SQLSTATE);
+
+                  if ($state == 0) {
+                      echo "<script type='text/javascript'>
+                          alert('Bid added!');
+                          </script>";
+                  } else if ($state == 23505) {
+                      $message = "Bid already exists";
+                      echo "<script type='text/javascript'>
+                          alert('$message');
+                          </script>";
+                  } else if ($state == 23502) {
+                      $message = "You have somehow entered a null value!";
+                      echo "<script type='text/javascript'>
+                          alert('$message');
+                          </script>";
+                  } else
+                      echo "<script type='text/javascript'>
+                            alert('$state');
+                          </script>";
+          } else {
+              echo "<script>
+                    alert('Update failed!');
+                  </script>";
+          }
+        }
+
+        ?>
+
+        <form action="admin.php" method="POST">
+        </div>
+    </div>
 </div>
 </body>
 </html>
