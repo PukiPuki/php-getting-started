@@ -168,6 +168,8 @@ if (isset($_POST['new_bid'])) {
         echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
     }
     header("Refresh: 0");
+
+    echo "<script>window.location.reload(true)</script>"
 }
 
 ?>

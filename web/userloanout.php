@@ -131,6 +131,7 @@ $username = $_SESSION[user];
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
 
         header("Refresh: 0");
+        echo "<script>window.location.reload(true)</script>"
     }
 
     ?>
