@@ -45,6 +45,9 @@ session_start();
         if (!$result) {
             $message = ' <p>You have no active bids!</p> </div> </div> </div>';
             echo "<script type='text/javascript'>alert('$message');</script>";
+        } else if (isset($_POST['retract'])) {
+            $query = "SELECT * FROM retract_bid('$_POST[retract]')";
+            $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         } else {
             $index = 1;
             echo '
@@ -63,6 +66,7 @@ session_start();
                         <th>My Bid</th>
                         <th>Highest Bid</th>
                         <th>Bid Status</th>
+                        <th>Retract Bid</th>
                         </tr>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
@@ -79,6 +83,7 @@ session_start();
                     <td>' . $row["userbiddingprice"] . '</td>
                     <td>' . $row["maxbiddingprice"] . '</td>
                     <td>' . $row["biddingstatus"] . '</td>
+                    <td>' . retractBid('$row["tid"]') . '</td>
                     </tr>';
                 $index++;
             }
@@ -86,6 +91,17 @@ session_start();
         }
     }
     ?>
+</div>
+
+<?php
+function retractBid($string)
+{
+    return '<form action="bids.php" method="POST">
+                     <button type="submit" name="retract" value="'.$string.'">Retract</button>
+             </form>';
+}
+
+?>
 </div>
 
 <script>
