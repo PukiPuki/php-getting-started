@@ -38,7 +38,7 @@ session_start();
         }
 
         if ($DEBUG) {
-            echo '<h1>sex</h1>' . $sex();
+            echo '<h1>sex</h1>';
         }
     ?>
 </div>
