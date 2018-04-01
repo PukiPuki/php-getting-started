@@ -137,11 +137,8 @@ $username = $_SESSION[user];
     }
 
     if (isset($_POST['biddername'])){
-        echo "<script type='text/javascript'>
-              alert('$_POST[newtransactionid], $_POST[biddername]');
-            </script>";
         $query = "SELECT * FROM accept_loan('$_POST[newtransactionid]', '$_POST[biddername]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         echo "<script type='text/javascript'>
               alert('Loan status modified successfully');
             </script>";
@@ -157,9 +154,6 @@ $username = $_SESSION[user];
 
 </div>
 <?php
-function addBid($string) {
-
-}
 function addBidUI($index) {
     return <<<END
         <tr align = "center">
