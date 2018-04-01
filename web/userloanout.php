@@ -130,7 +130,8 @@ echo '<div>
     }
 
     if (isset($_POST['biddername'])) {
-        $query = 'SELECT * FROM accept_loan('.$_POST['newtransactionid'].','.$_POST['newtransactionid'].')';
+        /* $query = 'SELECT * FROM accept_loan('.$_POST['newtransactionid'].','.$_POST['newtransactionid'].')'; */
+        $query = 'SELECT * FROM accept_loan(11,\'im new\'';
         $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
@@ -138,7 +139,7 @@ echo '<div>
             </script>";
         } else {
         echo "<script type='text/javascript'>
-                alert('$result' + '$query');
+                alert('$query');
             </script>";
         }
     }
