@@ -116,6 +116,7 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
+                <td><button type="submit" name="itemid" value=" '. $row["itemid"]. '">Update</button></td>
                 <td><button type="submit" name="biddername" value=" '. $row["biddername"]. '">Accept</button></td>
                 </form>
                 </tr>';
@@ -136,7 +137,7 @@ echo '<div>
     }
 
     if (isset($_POST['biddername'])){
-        $query = "SELECT * FROM accept_loan('$_POST[newtransactionid]', '$_POST[biddername]')";
+        $query = 'SELECT * FROM accept_loan('.$_POST[newtransactionid].', '.$_POST[biddername].')';
         $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
@@ -144,7 +145,7 @@ echo '<div>
             </script>";
         } else {
         echo "<script type='text/javascript'>
-            alert('Loan status modified successfully');
+            alert('$result' + 'Loan status modified successfully');
         </script>";
         }
     }
