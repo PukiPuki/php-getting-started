@@ -245,8 +245,8 @@ if (isset($_POST['add_user'])) {
                         <th>Bidder Name</th>
                         <th>Bid Price</th>
                         <th>Bidding status</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Action</th>
+                        <th>Action</th>
                         </tr>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
@@ -264,6 +264,19 @@ if (isset($_POST['add_user'])) {
                     </tr>';
                     $index++;
             }
+                echo '<tr align = "center">
+                    <form action="admin.php" method="POST">
+                    <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
+                    <td>'.$index.'</td>
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" name="biddername" placeholder="Name"/></td>
+                    <td><input type="text" name="bidprice" placeholder="0.0"/></td>
+                    <td><input type="text" name="bidstatus" placeholder="STATUS"/></td>
+                    <td><button type="submit" name="add_bid" >Add</button></td>
+                    </form>
+                    </tr>';
+                    $index++;
 
 ?>
 
@@ -295,6 +308,7 @@ if (isset($_POST['add_user'])) {
                       echo "<script type='text/javascript'>
                           alert('Bid added!');
                           </script>";
+                      echo "<meta http-equiv='refresh' content='0'>";
                   } else if ($state == 23505) {
                       $message = "Bid already exists";
                       echo "<script type='text/javascript'>
@@ -326,6 +340,7 @@ if (isset($_POST['add_user'])) {
         echo "<script type='text/javascript'>
                 alert('Bid modified!');
             </script>";
+        echo "<meta http-equiv='refresh' content='0'>";
 
         }
         }
@@ -341,6 +356,7 @@ if (isset($_POST['add_user'])) {
         echo "<script type='text/javascript'>
                 alert('Bid deleted!');
             </script>";
+        echo "<meta http-equiv='refresh' content='0'>";
 
         }
         }
