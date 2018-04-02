@@ -2,6 +2,7 @@
 <?php
 session_start();
 include 'pgconnect.php';
+include 'refresh.php';
 ?>
 
 <html>
@@ -281,18 +282,6 @@ if (isset($_POST['add_user'])) {
 
             </div>
             
-            <h2 class="w3-text-teal"> Add Bid </h2>
-            <form action="admin.php" method="POST">
-                <div class="container">
-                    <label for="bidstatus"><b>Bid Status</b></label>
-                    <input type="text" placeholder="Status" name="bidstatus" required>
-                    <label for="bidprice"><b>Bid Price</b></label>
-                    <input type="text" placeholder="Price" name="bidprice" required>
-                    <label for="biddername"><b>Bidder Name</b></label>
-                    <input type="text" placeholder="Bidder Name" name="biddername" required>
-                    <button type="submit" name="add_bid">Add Bid</button>
-                </div>
-            </form>
         </div>
         <?php 
             if (isset($_POST['add_bid'])) {
@@ -307,7 +296,7 @@ if (isset($_POST['add_user'])) {
                       echo "<script type='text/javascript'>
                           alert('Bid added!');
                           </script>";
-                      echo "<meta http-equiv='refresh' content='0'>";
+                      refresh();
                   } else if ($state == 23505) {
                       $message = "Bid already exists";
                       echo "<script type='text/javascript'>
@@ -339,7 +328,7 @@ if (isset($_POST['add_user'])) {
         echo "<script type='text/javascript'>
                 alert('Bid modified!');
             </script>";
-        echo "<meta http-equiv='refresh' content='0'>";
+        refresh();
 
         }
         }
@@ -355,7 +344,7 @@ if (isset($_POST['add_user'])) {
         echo "<script type='text/javascript'>
                 alert('Bid deleted!');
             </script>";
-        echo "<meta http-equiv='refresh' content='0'>";
+        refresh();
 
         }
         }

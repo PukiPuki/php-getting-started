@@ -2,6 +2,7 @@
 <?php
 session_start();
 include "pgconnect.php";
+include 'refresh.php';
 $username = $_SESSION[user];
 ?>
 <html>
@@ -127,6 +128,9 @@ echo '<div>
 
         $query = "SELECT * FROM edit_items('$_POST[itemid]', '$_POST[newcategory]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if ($result) {
+            refresh();
+        }
     }
 
     if (isset($_POST['biddername'])) {
@@ -140,6 +144,7 @@ echo '<div>
         echo "<script type='text/javascript'>
                 alert('Loan status modified!');
             </script>";
+        refresh();
         }
     }
 
