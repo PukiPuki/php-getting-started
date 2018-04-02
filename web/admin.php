@@ -268,8 +268,7 @@ if (isset($_POST['add_user'])) {
                     <form action="admin.php" method="POST">
                     <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
                     <td>'.$index.'</td>
-                    <td></td>
-                    <td></td>
+                    <td><input type="text" name="tid" placeholder="tID"/></td>
                     <td><input type="text" name="biddername" placeholder="Name"/></td>
                     <td><input type="text" name="bidprice" placeholder="0.0"/></td>
                     <td><input type="text" name="bidstatus" placeholder="STATUS"/></td>
@@ -297,7 +296,7 @@ if (isset($_POST['add_user'])) {
         </div>
         <?php 
             if (isset($_POST['add_bid'])) {
-                  $query = "SELECT * FROM admin_add_bids('$_POST[bidstatus]', '$_POST[bidprice]', '$_POST[biddername]')";
+                  $query = "SELECT * FROM admin_add_bids('$_POST[bidstatus]', '$_POST[bidprice]', '$_POST[biddername]', '$_POST[tid]')";
                   pg_send_query($pg_conn, $query);
                   $result = pg_get_result($pg_conn);
 
