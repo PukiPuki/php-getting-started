@@ -1,6 +1,5 @@
 <?php 
 include 'pgconnect.php';
-include 'refresh.php';
 if (isset($_POST['add_bid'])) {
     $query = "SELECT * FROM admin_add_bids('$_POST[bidstatus]', '$_POST[bidprice]', '$_POST[biddername]', '$_POST[tid]')";
     pg_send_query($pg_conn, $query);
@@ -13,7 +12,7 @@ if (isset($_POST['add_bid'])) {
             echo "<script type='text/javascript'>
                 alert('Bid added!');
                           </script>";
-                      refresh();
+                    header("Location: admin.php");
                   } else if ($state == 23505) {
                       $message = "Bid already exists";
                       echo "<script type='text/javascript'>
@@ -45,8 +44,7 @@ if (isset($_POST['add_bid'])) {
         echo "<script type='text/javascript'>
             alert('Bid modified!');
         </script>";
-        refresh();
-
+        header("Location: admin.php");
         }
         }
 
@@ -61,7 +59,7 @@ if (isset($_POST['add_bid'])) {
         echo "<script type='text/javascript'>
             alert('Bid deleted!');
         </script>";
-        refresh();
+        header("Location: admin.php");
 
         }
         }
