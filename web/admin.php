@@ -184,7 +184,7 @@ if (isset($_POST['add_user'])) {
 
         <div class="container">
             <h2 class="w3-text-teal"> Add User </h2>
-            <form action="admin_bids.php" method="POST">
+            <form action="admin.php" method="POST">
                 <div class="container">
                     <label for="username"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="username" required>
@@ -200,7 +200,7 @@ if (isset($_POST['add_user'])) {
             </form>
         </div>
 
-        <form action="admin_bids.php" method="POST">
+        <form action="admin.php" method="POST">
             <div class="container">
                 <h2 class="w3-text-teal"> Edit User </h2>
                 <label for="username"><b>Username</b></label>
@@ -218,7 +218,7 @@ if (isset($_POST['add_user'])) {
 
         <div class="container">
             <h2 class="w3-text-teal"> Remove User </h2>
-            <form action="admin_bids.php" method="POST">
+            <form action="admin.php" method="POST">
                 <div class="container">
                     <label for="username"><b>Username</b></label>
                     <input type="text" placeholder="Enter User to Remove" name="username" required>
@@ -251,7 +251,7 @@ if (isset($_POST['add_user'])) {
                         </tr>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
-                    <form action="admin.php" method="POST">
+                    <form action="admin_bids.php" method="POST">
                     <input type="hidden" name="tid" value="'.$row["tid"].'"/>
                     <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
                     <td>'.$index.'</td>
@@ -266,7 +266,7 @@ if (isset($_POST['add_user'])) {
                     $index++;
             }
                 echo '<tr align = "center">
-                    <form action="admin.php" method="POST">
+                    <form action="admin_bids.php" method="POST">
                     <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
                     <td>'.$index.'</td>
                     <td><input type="text" name="tid" placeholder="tID"/></td>
