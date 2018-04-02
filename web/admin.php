@@ -331,7 +331,7 @@ if (isset($_POST['add_user'])) {
         }
 
         if (isset($_POST['delete_bid'])) {
-            $query = "SELECT * FROM admin_remove_bids('$_POST[bidstatus]','$_POST[bidprice]','$_POST[biddername]')";
+            $query = "SELECT * FROM admin_remove_bids('$_POST[tid]','$_POST[bidstatus]','$_POST[bidprice]','$_POST[biddername]')";
             $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                     if (!$result) {
             echo "<script type='text/javascript'>
