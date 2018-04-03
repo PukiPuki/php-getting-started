@@ -99,10 +99,10 @@ if (!$_SESSION[isAdmin]) {
 
 <div style="margin-top:43px">
     <div>
-        <h1 class="w3-text-teal"> User Control </h1>
+        <h2 class="w3-text-teal"> User Control </h2>
 
         <div class="container">
-            <h2 class="w3-text-teal"> Add User </h2>
+            <h3 class="w3-text-teal"> Add User </h3>
             <form action="admin_users.php" method="POST">
                 <div class="container">
                     <label for="username"><b>Username</b></label>
@@ -154,7 +154,7 @@ if (!$_SESSION[isAdmin]) {
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                 $index = 1;
                 echo '
-                <h1 class="w3-text-teal"> Bids </h1>
+                <h2 class="w3-text-teal"> Bids </h2>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -204,7 +204,7 @@ if (!$_SESSION[isAdmin]) {
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                 $index = 1;
                 echo '
-                <h1 class="w3-text-teal"> Transactions </h1>
+                <h2 class="w3-text-teal"> Transactions </h2>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -247,7 +247,7 @@ if (!$_SESSION[isAdmin]) {
 ?>
             </div>
             
-<!-- For itemss--> 
+<!-- For items-->
         <div class="container">
     
             <?php 
@@ -255,7 +255,7 @@ if (!$_SESSION[isAdmin]) {
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                 $index = 1;
                 echo '
-                <h1 class="w3-text-teal"> Items </h1>
+                <h2 class="w3-text-teal"> Items </h2>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -288,7 +288,6 @@ if (!$_SESSION[isAdmin]) {
                     <form action="admin_items.php" method="POST">
                     <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
                     <td>'.$index.'</td>
-                    <td></td>
                     <td><input type="text" name="itemid" placeholder="Item ID"/></td>
                     <td><input type="text" name="owner" placeholder="Owner"/></td>
                     <td><input type="text" name="category" placeholder="Category" /></td>
