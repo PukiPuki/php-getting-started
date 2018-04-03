@@ -94,6 +94,8 @@ echo '<div>
             <th>Current Bid</th>
             <th>Update</th>
             <th>Accept</th>
+            <th>Reject</th>
+            <th>Delete Item</th>
             </tr>';
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
@@ -112,6 +114,8 @@ echo '<div>
                 <td>' . $row["maxbid"] . '</td>
                 <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>
                 <td><button type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>
+                <td><button type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>
+                <td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete item</button></td>
                 </form>
                 </tr>';
         $index++;
@@ -143,6 +147,36 @@ echo '<div>
         } else {
         echo "<script type='text/javascript'>
                 alert('Loan status modified!');
+            </script>";
+        refresh();
+        }
+    }
+
+    if (isset($_POST['rejectbid'])) {
+        $query = "SELECT * FROM reject_loan('$_POST[newtransactionid]', '$_POST[rejectbid]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if (!$result) {
+            echo "<script type='text/javascript'>
+                alert('Error in rejecting loan!');
+            </script>";
+        } else {
+        echo "<script type='text/javascript'>
+                alert('Loan status modified!');
+            </script>";
+        refresh();
+        }
+    }
+
+    if (isset($_POST['deleteitem'])) {
+        $query = "SELECT * FROM delete_item('$_POST[deleteitem]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if (!$result) {
+            echo "<script type='text/javascript'>
+                alert('Error in deleting item!');
+            </script>";
+        } else {
+        echo "<script type='text/javascript'>
+                alert('Item deleted!');
             </script>";
         refresh();
         }
