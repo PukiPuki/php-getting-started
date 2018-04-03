@@ -1,7 +1,7 @@
 <?php 
 include 'pgconnect.php';
 if (isset($_POST['add_transaction'])) {
-    $query = "SELECT * FROM admin_add_transaction('$_POST[tid]', '$_POST[location]', '$_POST[pickupdate]', '$_POST[returndate]', '$_POST[itemid]')";
+    $query = "SELECT * FROM admin_add_transaction('$_POST[location]', '$_POST[pickupdate]', '$_POST[returndate]', '$_POST[itemid]')";
     pg_send_query($pg_conn, $query);
     $result = pg_get_result($pg_conn);
 

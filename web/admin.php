@@ -146,7 +146,58 @@ if (!$_SESSION[isAdmin]) {
             </form>
         </div>
     </div>
+<!-- For bids-->
 
+    <div>
+            <?php
+                $query = "SELECT * FROM admin_select_bids()";
+               $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+                $index = 1;
+                echo '
+                <div>
+                <h1 class="w3-text-teal"> Bids </h1>
+                <table class="striped responsive-table centered highlight", style="width:100%">
+                        <tr>
+                        <th>S/N</th>
+                        <th>tID</th>
+                        <th>Bidder Name</th>
+                        <th>Bid Price</th>
+                        <th>Bidding status</th>
+                        <th>Action</th>
+                        <th>Action</th>
+                        </tr>';
+            while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                echo '<tr align = "center">
+                    <form action="admin_bids.php" method="POST">
+                    <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
+                    <td>'.$index.'</td>
+                    <td>'.$row["tid"].'</td>
+                    <td>'.$row["biddername"].'</td>
+                    <td><input type="text" name="bidprice" value="'.$row["biddingprice"].'"/></td>
+                    <td><input type="text" name="bidstatus" value="'.$row["biddingstatus"].'"/></td>
+                    <td><button type="submit" name="edit_bid" >Edit</button></td>
+                    <td><button type="submit" name="delete_bid" >Delete</button></td>
+                    </form>
+                    </tr>';
+                    $index++;
+            }
+                echo '<tr align = "center">
+                    <form action="admin_bids.php" method="POST">
+                    <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
+                    <td>'.$index.'</td>
+                    <td><input type="text" name="tid" placeholder="tID"/></td>
+                    <td><input type="text" name="biddername" placeholder="Name"/></td>
+                    <td><input type="text" name="bidprice" placeholder="0.0"/></td>
+                    <td><input type="text" name="bidstatus" placeholder="STATUS"/></td>
+                    <td><button type="submit" name="add_bid" >Add</button></td>
+                    </form>
+                    </tr>
+                    </div>';
+                    $index++;
+
+?>
+
+    </div>
 <!-- For transactions--> 
     <div>
     
