@@ -260,6 +260,8 @@ if (!$_SESSION[isAdmin]) {
                         <tr>
                         <th>S/N</th>
                         <th>Item ID</th>
+                        <th>Owner</th>
+                        <th>Category</th>
                         <th>Item Name</th>
                         <th>Minimum Bid </th>
                         <th>Auto Buy </th>
