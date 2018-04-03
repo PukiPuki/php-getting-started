@@ -147,9 +147,8 @@ if (!$_SESSION[isAdmin]) {
         </div>
     </div>
 <!-- For bids--> 
-    <div>
      
-        <div class="container">
+    <div class="container">
             <?php 
                 $query = "SELECT * FROM admin_select_bids()";
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
@@ -196,11 +195,8 @@ if (!$_SESSION[isAdmin]) {
 
 ?>
 
-        </div>
     </div>
 <!-- For transactions--> 
-    <div>
-     
         <div class="container">
     
             <?php 
@@ -248,12 +244,61 @@ if (!$_SESSION[isAdmin]) {
                     </form>
                     </tr>';
                     $index++;
-
 ?>
-
             </div>
             
-        </div>
+<!-- For itemss--> 
+        <div class="container">
+    
+            <?php 
+                $query = "SELECT * FROM admin_select_items()";
+               $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+                $index = 1;
+                echo '
+                <h1 class="w3-text-teal"> Items </h1>
+                <table class="striped responsive-table centered highlight", style="width:100%">
+                        <tr>
+                        <th>S/N</th>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Minimum Bid </th>
+                        <th>Auto Buy </th>
+                        <th>Action</th>
+                        <th>Action</th>
+                        </tr>';
+            while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                echo '<tr align = "center">
+                    <form action="admin_items.php" method="POST">
+                    <td>'.$index.'</td>
+                    <td><input type=text name=itemid value="'.$row["itemid"].'"/></td>
+                    <td><input type="text" name="owner" value="'.$row["owner"].'"/></td>
+                    <td><input type="text" name="category" value="'.$row["category"].'"/></td>
+                    <td><input type="text" name="itemname" value="'.$row["itemname"].'"/></td>
+                    <td><input type="text" name="minbid" value="'.$row["minbid"].'"/></td>
+                    <td><input type="text" name="autobuy" value="'.$row["autobuy"].'"/></td>
+                    <td><button type="submit" name="edit_item" >Edit</button></td>
+                    <td><button type="submit" name="delete_item" >Delete</button></td>
+                    </form>
+                    </tr>';
+                    $index++;
+            }
+                echo '<tr align = "center">
+                    <form action="admin_items.php" method="POST">
+                    <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
+                    <td>'.$index.'</td>
+                    <td></td>
+                    <td><input type="text" name="itemid" placeholder="Item ID"/></td>
+                    <td><input type="text" name="owner" placeholder="Owner"/></td>
+                    <td><input type="text" name="category" placeholder="Category" /></td>
+                    <td><input type="text" name="itemname" placeholder="Item Name" /></td>
+                    <td><input type="text" name="minbid" placeholder="0.0" /></td>
+                    <td><input type="text" name="autobuy" placeholder="0.0" /></td>
+                    <td><button type="submit" name="add_item" >Add</button></td>
+                    </form>
+                    </tr>';
+                    $index++;
+?>
+            </div>
 </div>
 </body>
 </html>
