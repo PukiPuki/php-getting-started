@@ -154,6 +154,7 @@ if (!$_SESSION[isAdmin]) {
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                 $index = 1;
                 echo '
+                <div>
                 <h1 class="w3-text-teal"> Bids </h1>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
@@ -190,21 +191,23 @@ if (!$_SESSION[isAdmin]) {
                     <td><input type="text" name="bidstatus" placeholder="STATUS"/></td>
                     <td><button type="submit" name="add_bid" >Add</button></td>
                     </form>
-                    </tr>';
+                    </tr>
+                    </div>';
                     $index++;
 
 ?>
 
     </div>
 <!-- For transactions--> 
-        <div>
+    <div>
     
             <?php 
                 $query = "SELECT * FROM admin_select_transaction()";
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                 $index = 1;
                 echo '
-                <h2 class="w3-text-teal"> Transactions </h2>
+                <div>
+                <h1 class="w3-text-teal"> Transactions </h1>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -242,20 +245,22 @@ if (!$_SESSION[isAdmin]) {
                     <td><input type="text" name="itemid" placeholder="Item ID"/></td>
                     <td><button type="submit" name="add_transaction" >Add</button></td>
                     </form>
-                    </tr>';
+                    </tr>
+                    </div>';
                     $index++;
 ?>
             </div>
             
 <!-- For items-->
-        <div>
+    <div>
     
             <?php 
                 $query = "SELECT * FROM admin_select_items()";
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                 $index = 1;
                 echo '
-                <h2 class="w3-text-teal"> Items </h2>
+                <div>
+                <h1 class="w3-text-teal"> Items </h1>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -281,7 +286,8 @@ if (!$_SESSION[isAdmin]) {
                     <td><button type="submit" name="edit_item" >Edit</button></td>
                     <td><button type="submit" name="delete_item" >Delete</button></td>
                     </form>
-                    </tr>';
+                    </tr>
+                    ';
                     $index++;
             }
                 echo '<tr align = "center">
@@ -296,7 +302,8 @@ if (!$_SESSION[isAdmin]) {
                     <td><input type="text" name="autobuy" placeholder="0.0" /></td>
                     <td><button type="submit" name="add_item" >Add</button></td>
                     </form>
-                    </tr>';
+                    </tr>
+                    </div>';
                     $index++;
 ?>
             </div>
