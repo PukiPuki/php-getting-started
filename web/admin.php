@@ -202,6 +202,7 @@ if (!$_SESSION[isAdmin]) {
             
         </div>
         </div>
+        </div>
 <!-- For transactions--> 
     <div>
         <h1 class="w3-text-teal"> Transactions </h1>
@@ -246,8 +247,8 @@ if (!$_SESSION[isAdmin]) {
                     <td>'.$index.'</td>
                     <td></td>
                     <td><input type="text" name="location" placeholder="Location"/></td>
-                    <td><input type="text" name="pickupdate" placeholder=YYYY-MM-DD"P"/></td>
-                    <td><input type="text" name="returndate" placeholder=YYYY-MM-DD"P"/></td>
+                    <td><input type="text" name="pickupdate" placeholder="YYYY-MM-DD" /></td>
+                    <td><input type="text" name="returndate" placeholder="YYYY-MM-DD" /></td>
                     <td><input type="text" name="itemid" placeholder="Item ID"/></td>
                     <td><button type="submit" name="add_transaction" >Add</button></td>
                     </form>
