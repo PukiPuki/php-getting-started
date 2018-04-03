@@ -153,8 +153,8 @@ echo '<div>
     }
 
     if (isset($_POST['rejectbid'])) {
-        $query = 'SELECT * FROM reject_loan('.$_POST['newtransactionid'].',\''.$_POST['biddername'].'\')';
-        $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $query = "SELECT * FROM reject_loan('$_POST[newtransactionid]', '$_POST[biddername]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in rejecting loan!');
@@ -168,8 +168,8 @@ echo '<div>
     }
 
     if (isset($_POST['deleteitem'])) {
-        $query = 'SELECT * FROM delete_item('.$_POST['itemid'].')';
-        $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $query = "SELECT * FROM delete_item('$_POST[itemid]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in deleting item!');
