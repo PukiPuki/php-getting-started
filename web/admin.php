@@ -171,7 +171,6 @@ if (!$_SESSION[isAdmin]) {
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
                     <form action="admin_bids.php" method="POST">
-                    <input type="hidden" name="tid" value="'.$row["tid"].'"/>
                     <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
                     <td>'.$index.'</td>
                     <td>'.$row["tid"].'</td>
@@ -193,6 +192,64 @@ if (!$_SESSION[isAdmin]) {
                     <td><input type="text" name="bidprice" placeholder="0.0"/></td>
                     <td><input type="text" name="bidstatus" placeholder="STATUS"/></td>
                     <td><button type="submit" name="add_bid" >Add</button></td>
+                    </form>
+                    </tr>';
+                    $index++;
+
+?>
+
+            </div>
+            
+        </div>
+        </div>
+<!-- For transactions--> 
+    <div>
+        <h1 class="w3-text-teal"> Transactions </h1>
+     
+        <div class="container">
+    
+            <div>
+            <?php 
+                $query = "SELECT * FROM admin_select_transaction()";
+               $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+                $index = 1;
+                echo '
+                <table class="striped responsive-table centered highlight", style="width:100%">
+                        <tr>
+                        <th>S/N</th>
+                        <th>tID</th>
+                        <th>Location</th>
+                        <th>Pickup Date</th>
+                        <th>Return Date</th>
+                        <th>Item ID</th>
+                        <th>Action</th>
+                        <th>Action</th>
+                        </tr>';
+            while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                echo '<tr align = "center">
+                    <form action="admin_transactions.php" method="POST">
+                    <td>'.$index.'</td>
+                    <td><input type=text name=tid value="'.$row["tid"].'"/></td>
+                    <td><input type="text" name="location" value="'.$row["location"].'"/></td>
+                    <td><input type="text" name="pickupdate" value="'.$row["pickupdate"].'"/></td>
+                    <td><input type="text" name="returndate" value="'.$row["returndate"].'"/></td>
+                    <td><input type="text" name="itemid" value="'.$row["itemid"].'"/></td>
+                    <td><button type="submit" name="edit_transaction" >Edit</button></td>
+                    <td><button type="submit" name="delete_transaction" >Delete</button></td>
+                    </form>
+                    </tr>';
+                    $index++;
+            }
+                echo '<tr align = "center">
+                    <form action="admin_transactions.php" method="POST">
+                    <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
+                    <td>'.$index.'</td>
+                    <td></td>
+                    <td><input type="text" name="location" placeholder="Location"/></td>
+                    <td><input type="text" name="pickupdate" placeholder=YYYY-MM-DD"P"/></td>
+                    <td><input type="text" name="returndate" placeholder=YYYY-MM-DD"P"/></td>
+                    <td><input type="text" name="itemid" placeholder="Item ID"/></td>
+                    <td><button type="submit" name="add_transaction" >Add</button></td>
                     </form>
                     </tr>';
                     $index++;
