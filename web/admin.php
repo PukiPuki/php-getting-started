@@ -155,7 +155,8 @@ if (!$_SESSION[isAdmin]) {
                 $index = 1;
                 echo '
                 <div>
-                <h1 class="w3-text-teal"> Bids </h1>
+                <h1 class="w3-text-teal"></h1>
+                 <h1 class="w3-text-teal">Bids</h1>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
