@@ -154,7 +154,7 @@ if (!$_SESSION[isAdmin]) {
     
             <div>
             <?php 
-                $query = "SELECT * FROM bids";
+                $query = "SELECT * FROM admin_select_bids()";
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                 $index = 1;
                 echo '
