@@ -153,7 +153,7 @@ echo '<div>
     }
 
     if (isset($_POST['rejectbid'])) {
-        $query = "SELECT * FROM reject_loan('$_POST[newtransactionid]', '$_POST[biddername]')";
+        $query = "SELECT * FROM reject_loan('$_POST[newtransactionid]', '$_POST[rejectbid]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
@@ -168,7 +168,7 @@ echo '<div>
     }
 
     if (isset($_POST['deleteitem'])) {
-        $query = "SELECT * FROM delete_item('$_POST[itemid]')";
+        $query = "SELECT * FROM delete_item('$_POST[deleteitem]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
