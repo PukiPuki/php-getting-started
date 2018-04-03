@@ -1,7 +1,7 @@
 <?php 
 include 'pgconnect.php';
 if (isset($_POST['add_item'])) {
-    $query = "SELECT * FROM admin_add_items('$_POST[itemid]','$_POST[owner]', $_POST[category]', '$_POST[itemname]', '$_POST[minbid]', '$_POST[autobuy]')";
+    $query = "SELECT * FROM admin_add_items('$_POST[itemid]','$_POST[owner]', '$_POST[category]', '$_POST[itemname]', '$_POST[minbid]', '$_POST[autobuy]')";
     pg_send_query($pg_conn, $query);
     $result = pg_get_result($pg_conn);
 
