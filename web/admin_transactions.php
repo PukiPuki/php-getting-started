@@ -47,7 +47,7 @@ if (isset($_POST['add_transaction'])) {
         }
 
         if (isset($_POST['delete_transaction'])) {
-            $query = "SELECT * FROM admin_remove_transaction('$_POST[location]','$_POST[pickupdate]','$_POST[returndate]','$_POST[itemid]')";
+            $query = "SELECT * FROM admin_remove_transaction('$_POST[tid]', '$_POST[location]','$_POST[pickupdate]','$_POST[returndate]','$_POST[itemid]')";
             $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                     if (!$result) {
             echo "<script type='text/javascript'>
