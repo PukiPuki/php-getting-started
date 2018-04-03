@@ -99,7 +99,7 @@ if (!$_SESSION[isAdmin]) {
 
 <div style="margin-top:43px">
     <div>
-        <h2 class="w3-text-teal"> User Control </h2>
+        <h1 class="w3-text-teal"> User Control </h1>
 
         <div class="container">
             <h3 class="w3-text-teal"> Add User </h3>
@@ -148,13 +148,13 @@ if (!$_SESSION[isAdmin]) {
     </div>
 <!-- For bids--> 
      
-    <div class="container">
+    <div>
             <?php 
                 $query = "SELECT * FROM admin_select_bids()";
                $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
                 $index = 1;
                 echo '
-                <h2 class="w3-text-teal"> Bids </h2>
+                <h1 class="w3-text-teal"> Bids </h1>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -197,7 +197,7 @@ if (!$_SESSION[isAdmin]) {
 
     </div>
 <!-- For transactions--> 
-        <div class="container">
+        <div>
     
             <?php 
                 $query = "SELECT * FROM admin_select_transaction()";
@@ -248,7 +248,7 @@ if (!$_SESSION[isAdmin]) {
             </div>
             
 <!-- For items-->
-        <div class="container">
+        <div>
     
             <?php 
                 $query = "SELECT * FROM admin_select_items()";
