@@ -156,7 +156,6 @@ if (!$_SESSION[isAdmin]) {
                 echo '
                 <div>
                 <h1 class="w3-text-teal"></h1>
-                 <h1 class="w3-text-teal">Bids</h1>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -208,7 +207,7 @@ if (!$_SESSION[isAdmin]) {
                 $index = 1;
                 echo '
                 <div>
-                <h1 class="w3-text-teal"> Transactions </h1>
+                <h1 class="w3-text-teal"> Bids </h1>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -261,7 +260,7 @@ if (!$_SESSION[isAdmin]) {
                 $index = 1;
                 echo '
                 <div>
-                <h1 class="w3-text-teal"> Items </h1>
+                <h1 class="w3-text-teal"> Transactions </h1>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -304,7 +303,8 @@ if (!$_SESSION[isAdmin]) {
                     <td><button type="submit" name="add_item" >Add</button></td>
                     </form>
                     </tr>
-                    </div>';
+                    </div>
+                    <h1 class="w3-text-teal">Items</h1>';
                     $index++;
 ?>
             </div>
