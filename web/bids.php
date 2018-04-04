@@ -108,13 +108,15 @@ include 'makebids.php';
             $index = 1;
             echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
+                        <thead>
                         <tr>
                         <th>S/N</th>
                         <th>Item</th>
                         <th>Owner</th>
                         <th>Phone Number</th>
                         <th>Return Date</th>
-                        </tr>';
+                        </tr>
+                        </thead>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
                     <td>' . $index . '</td>
