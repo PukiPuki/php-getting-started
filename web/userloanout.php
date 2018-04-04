@@ -230,6 +230,8 @@ echo '<div>
                 <td><input type="text" name = "newlocation" placeholder="Location"/></td>
                 <td><input type="text" name = "newpickupdate" placeholder="YYYY-DD-MM"/></td>
                 <td><input type="text" name = "newreturndate" placeholder="YYYY-DD-MM"/></td>
+                <td></td>
+                <td></td>
                 <td><button type="submit" name="additem">Add</button></td>
             </form>
         </tr>;
