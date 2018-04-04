@@ -47,7 +47,7 @@ include 'makebids.php';
             $index = 1;
             echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
-                        <tr>
+                        <tr align = "center">
                         <th>S/N</th>
                         <th>tID</th>
                         <th>Item</th>
@@ -105,7 +105,7 @@ include 'makebids.php';
             $index = 1;
             echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
-                        <tr>
+                        <tr align = "center">
                         <th>S/N</th>
                         <th>Item</th>
                         <th>Owner</th>
