@@ -13,7 +13,7 @@ include 'makebids.php';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <style>
     html, body, h1, h2, h3, h4, h5, h6 {
         font-family: "Roboto", sans-serif;
@@ -47,7 +47,8 @@ include 'makebids.php';
             $index = 1;
             echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
-                        <tr align = "center">
+                        <thead>
+                        <tr>
                         <th>S/N</th>
                         <th>tID</th>
                         <th>Item</th>
@@ -62,9 +63,11 @@ include 'makebids.php';
                         <th>Highest Bid</th>
                         <th>Bid Status</th>
                         <th>Retract Bid</th>
-                        </tr>';
+                        </tr>
+                        </thead>
+                        <tbody>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
-                echo '<tr align = "center">
+                echo '<tr>
                     <td>' . $index . '</td>
                     <td>' . $row["tid"] . '</td>
                     <td>' . $row["itemname"] . '</td>
@@ -82,7 +85,7 @@ include 'makebids.php';
                     </tr>';
                 $index++;
             }
-            echo '</table>';
+            echo '</tbody></table>';
         }
     }
     ?>
@@ -105,7 +108,7 @@ include 'makebids.php';
             $index = 1;
             echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
-                        <tr align = "center">
+                        <tr>
                         <th>S/N</th>
                         <th>Item</th>
                         <th>Owner</th>

@@ -47,7 +47,7 @@ if (!$result) {
     $index = 1;
     echo '
             <table class="striped responsive-table centered highlight", style="width:100%">
-            <tr align = "center">
+            <tr>
             <th>S/N</th>
             <th>Item</th>
             <th>Bidder</th>
@@ -82,7 +82,7 @@ echo '<div>
         $index = 1;
         echo '
             <table class="striped responsive-table centered highlight", style="width:100%">
-            <tr align = "center">
+            <tr>
             <th>S/N</th>
             <th>ItemID</th>
             <th>Item Name</th>
