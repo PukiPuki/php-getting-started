@@ -47,8 +47,12 @@ if (!$result) {
     $index = 1;
     echo '
             <table class="striped responsive-table centered highlight", style="width:100%">
+<<<<<<< HEAD
             <thead>
             <tr>
+=======
+            <tr align = "center">
+>>>>>>> 24e8187be5657d0ffac78eb9b8a5b5ed1c21db2c
             <th>S/N</th>
             <th>Item</th>
             <th>Bidder</th>
@@ -97,12 +101,21 @@ echo '<div>
             <th>Return Date</th>
             <th>Bidder Name</th>
             <th>Current Bid</th>
+<<<<<<< HEAD
             <th>Update</th>
             <th>Accept</th>
             <th>Reject</th>
             <th>Delete Item</th>
             </tr>
             </thead>';
+=======
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Add
+            </tr>';
+>>>>>>> 24e8187be5657d0ffac78eb9b8a5b5ed1c21db2c
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
                 <form name="display" action="userloanout.php" method="POST">
@@ -118,26 +131,24 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>';
+                <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>
+                <td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete </button></td>';
 
             if ($row[maxbid])  {
                 echo '<td><button type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>';
             } else {
-                echo '<td></td>';
+                echo '<td><button type="button" disabled>Accept</button></td>';
             }
             if ($row[maxbid]) {
                echo ' <td><button type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>';
             } else {
-                echo '<td></td>';
+                echo '<td><button type="button" disabled>Reject</button></td>';
             }
-                 echo '<td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete </button></td>
-                </form>
+                echo '</form>
                 </tr>';
         $index++;
         }
-
-        echo addBidUI($index);
-
+        echo addBidUI();
         echo '</table>';
     }
 
@@ -197,7 +208,22 @@ echo '<div>
         }
     }
 
-        echo addBidUI();
+    if (isset($_POST['additem'])) {
+        $query = "SELECT * FROM add_item_for_bidding('$_SESSION[username]', '$_POST[category]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]', '$_POST[newlocation]', '$_POST[newpickupdate]', '$_POST[returndate]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if (!$result) {
+            echo "<script type='text/javascript'>
+                alert('Error in adding item!');
+            </script>";
+        } else {
+        echo "<script type='text/javascript'>
+                alert('Item added!');
+            </script>";
+        refresh();
+        }
+        
+    }
+
 
     ?>
 
@@ -207,18 +233,17 @@ echo '<div>
         return <<<END
         <tr align = "center">
             <form name="display" action="userloanout.php" method="POST">
+                <input type="hidden" name="newtransactionid" value="$row[transactionid]">
                 <td>$index</td>
-                <td></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
-                <td><input type="text" name="newstuff" placeholder="clap"></td>
+                <td>$row[itemid]</td>
+                <td><input type="text" name = "newitemname" placeholder="Item Name"</td>
+                <td><input type="text" name = "newcategory" placeholder="Category"/></td>
+                <td><input type="text" name = "newminbid" placeholder="0.0"/></td>
+                <td><input type="text" name = "newautobuy" placeholder="$0.0"/></td>
+                <td><input type="text" name = "newlocation" placeholder="Location"/></td>
+                <td><input type="text" name = "newpickupdate" placeholder="YYYY-DD-MM"/></td>
+                <td><input type="text" name = "newreturndate" placeholder="YYYY-DD-MM"/></td>
+                <td><button type="submit" name="additem">Add</button></td>
             </form>
         </tr>;
 END;
