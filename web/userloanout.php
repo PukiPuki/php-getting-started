@@ -118,8 +118,7 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>
-                <td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete </button></td>';
+                <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>';
 
             if ($row[maxbid])  {
                 echo '<td><button type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>';
@@ -131,7 +130,8 @@ echo '<div>
             } else {
                 echo '<td><button type="button" disabled>Reject</button></td>';
             }
-                echo '</form>
+                echo '<td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete Item</button></td>
+                </form>
                 </tr>';
         $index++;
         }
