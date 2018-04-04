@@ -114,11 +114,12 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td>' . $row["phonenumber"] . '</td>
                 <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>';
 
             if ($row[maxbid])  {
                 echo '<td><button type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>';
+            } else {
+                echo '<td></td>';
             }
                echo ' <td><button type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>
                 <td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete </button></td>
