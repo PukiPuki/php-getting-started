@@ -51,6 +51,7 @@ if (!$result) {
             <th>S/N</th>
             <th>Item</th>
             <th>Bidder</th>
+            <th>Bidder Phone Number</th>
             <th>Return Date</th>
             </tr>';
     while ($row = pg_fetch_assoc($result)) {
@@ -58,6 +59,7 @@ if (!$result) {
             <td>' . $index . '</td>
             <td>' . $row["itemname"] . '</td>
             <td>' . $row["biddername"] . '</td>
+            <td>' . $row["phonenumber"] . '</td>
             <td>' . $row["returndate"] . '</td>
             </tr>';
     $index++;
@@ -112,10 +114,14 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>
-                <td><button type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>
-                <td><button type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>
-                <td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete item</button></td>
+                <td>' . $row["phonenumber"] . '</td>
+                <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>';
+
+            if ($row[maxbid])  {
+                echo '<td><button type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>';
+            }
+               echo ' <td><button type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>
+                <td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete </button></td>
                 </form>
                 </tr>';
         $index++;
