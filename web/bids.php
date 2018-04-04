@@ -13,7 +13,7 @@ include 'makebids.php';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <style>
     html, body, h1, h2, h3, h4, h5, h6 {
         font-family: "Roboto", sans-serif;
@@ -47,6 +47,7 @@ include 'makebids.php';
             $index = 1;
             echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
+                        <thead>
                         <tr>
                         <th>S/N</th>
                         <th>tID</th>
@@ -62,9 +63,11 @@ include 'makebids.php';
                         <th>Highest Bid</th>
                         <th>Bid Status</th>
                         <th>Retract Bid</th>
-                        </tr>';
+                        </tr>
+                        </thead>
+                        <tbody>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
-                echo '<tr align = "center">
+                echo '<tr>
                     <td>' . $index . '</td>
                     <td>' . $row["tid"] . '</td>
                     <td>' . $row["itemname"] . '</td>
@@ -79,6 +82,48 @@ include 'makebids.php';
                     <td>' . $row["maxbiddingprice"] . '</td>
                     <td>' . $row["biddingstatus"] . '</td>
                     <td>' . retractBid($row["tid"]) . '</td>
+                    </tr>';
+                $index++;
+            }
+            echo '</tbody></table>';
+        }
+    }
+    ?>
+</div>
+
+<div class="container" style="width:100%">
+    <?php
+
+    if (isset($_SESSION[user])) {
+        echo '<div>
+    <div class="w3-container">
+        <h2 class="w3-text-teal">Successful transactions</h2>
+    </div>';
+        $query = "SELECT * FROM all_current_items_borrowed('$_SESSION[user]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if (!$result) {
+            $message = ' <p>You have no successful bids!</p> </div> </div> </div>';
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        } else {
+            $index = 1;
+            echo '
+                <table class="striped responsive-table centered highlight", style="width:100%">
+                        <thead>
+                        <tr>
+                        <th>S/N</th>
+                        <th>Item</th>
+                        <th>Owner</th>
+                        <th>Phone Number</th>
+                        <th>Return Date</th>
+                        </tr>
+                        </thead>';
+            while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                echo '<tr align = "center">
+                    <td>' . $index . '</td>
+                    <td>' . $row["itemname"] . '</td>
+					<td>' . $row["owner"] . '</td>
+					<td>' . $row["phonenumber"] . '</td>
+                    <td>' . $row["returndate"] . '</td>
                     </tr>';
                 $index++;
             }
