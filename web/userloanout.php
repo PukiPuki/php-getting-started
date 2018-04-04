@@ -121,8 +121,12 @@ echo '<div>
             } else {
                 echo '<td></td>';
             }
-               echo ' <td><button type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>
-                <td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete </button></td>
+            if ($row[maxbid]) {
+               echo ' <td><button type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>';
+            } else {
+                echo '<td></td>';
+            }
+                 echo '<td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete </button></td>
                 </form>
                 </tr>';
         $index++;
