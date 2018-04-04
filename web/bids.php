@@ -3,6 +3,7 @@
 session_start();
 include 'pgconnect.php';
 include 'makebids.php';
+include 'checklogin.php'
 ?>
 <html>
 <title>Stuff Sharing (CS2102 Project)</title>

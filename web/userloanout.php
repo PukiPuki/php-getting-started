@@ -3,6 +3,7 @@
 session_start();
 include "pgconnect.php";
 include 'refresh.php';
+include 'checklogin.php';
 $username = $_SESSION[user];
 ?>
 <html>

@@ -1,5 +1,6 @@
 <?php
 include 'pgconnect.php';
+include 'checkadmin.php';
 if (isset($_POST['add_user'])) {
     $password = password_hash($_POST[password], PASSWORD_DEFAULT);
     $query = "SELECT * FROM admin_add_user('$_POST[username]', '$password', '$_POST[phone]', '$_POST[isAdmin]')";

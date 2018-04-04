@@ -1,5 +1,6 @@
 <?php 
 include 'pgconnect.php';
+include 'checkadmin.php';
 if (isset($_POST['add_bid'])) {
     $query = "SELECT * FROM admin_add_bids('$_POST[bidstatus]', '$_POST[bidprice]', '$_POST[biddername]', '$_POST[tid]')";
     pg_send_query($pg_conn, $query);

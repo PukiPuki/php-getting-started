@@ -91,10 +91,6 @@ include 'refresh.php';
 <?php
 include 'navbar.php';
 
-if (!$_SESSION[isAdmin]) {
-    header('Location:index.php');
-}
-
 ?>
 
 <div style="margin-top:43px">

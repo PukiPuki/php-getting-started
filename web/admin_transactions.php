@@ -1,5 +1,6 @@
 <?php 
 include 'pgconnect.php';
+include 'checkadmin.php';
 if (isset($_POST['add_transaction'])) {
     $query = "SELECT * FROM admin_add_transaction('$_POST[location]', '$_POST[pickupdate]', '$_POST[returndate]', '$_POST[itemid]')";
     pg_send_query($pg_conn, $query);
