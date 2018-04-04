@@ -47,12 +47,8 @@ if (!$result) {
     $index = 1;
     echo '
             <table class="striped responsive-table centered highlight", style="width:100%">
-<<<<<<< HEAD
             <thead>
             <tr>
-=======
-            <tr align = "center">
->>>>>>> 24e8187be5657d0ffac78eb9b8a5b5ed1c21db2c
             <th>S/N</th>
             <th>Item</th>
             <th>Bidder</th>
@@ -101,21 +97,12 @@ echo '<div>
             <th>Return Date</th>
             <th>Bidder Name</th>
             <th>Current Bid</th>
-<<<<<<< HEAD
-            <th>Update</th>
-            <th>Accept</th>
-            <th>Reject</th>
-            <th>Delete Item</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
+            <th>Action</th>
             </tr>
             </thead>';
-=======
-            <th>Action</th>
-            <th>Action</th>
-            <th>Action</th>
-            <th>Action</th>
-            <th>Add
-            </tr>';
->>>>>>> 24e8187be5657d0ffac78eb9b8a5b5ed1c21db2c
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
                 <form name="display" action="userloanout.php" method="POST">
@@ -148,7 +135,7 @@ echo '<div>
                 </tr>';
         $index++;
         }
-        echo addBidUI();
+        echo addBidUI($index);
         echo '</table>';
     }
 
