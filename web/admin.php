@@ -170,6 +170,7 @@ if (!$_SESSION[isAdmin]) {
                 echo '<tr align = "center">
                     <form action="admin_bids.php" method="POST">
                     <input type="hidden" name="biddername" value="'.$row["biddername"].'"/>
+                    <input type="hidden" name="tid" value="'.$row["tid"].'"/>
                     <td>'.$index.'</td>
                     <td>'.$row["tid"].'</td>
                     <td>'.$row["biddername"].'</td>
