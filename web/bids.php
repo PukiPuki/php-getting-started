@@ -88,6 +88,46 @@ include 'makebids.php';
     ?>
 </div>
 
+<div class="container" style="width:100%">
+    <?php
+
+    if (isset($_SESSION[user])) {
+        echo '<div>
+    <div class="w3-container">
+        <h2 class="w3-text-teal">Successful transactions</h2>
+    </div>';
+        $query = "SELECT * FROM all_current_items_borrowed('$_SESSION[user]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if (!$result) {
+            $message = ' <p>You have no successful bids!</p> </div> </div> </div>';
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        } else {
+            $index = 1;
+            echo '
+                <table class="striped responsive-table centered highlight", style="width:100%">
+                        <tr>
+                        <th>S/N</th>
+                        <th>Item</th>
+                        <th>Owner</th>
+                        <th>Phone Number</th>
+                        <th>Return Date</th>
+                        </tr>';
+            while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                echo '<tr align = "center">
+                    <td>' . $index . '</td>
+                    <td>' . $row["itemname"] . '</td>
+					<td>' . $row["owner"] . '</td>
+					<td>' . $row["phonenumber"] . '</td>
+                    <td>' . $row["returndate"] . '</td>
+                    </tr>';
+                $index++;
+            }
+            echo '</table>';
+        }
+    }
+    ?>
+</div>
+
 <?php
 function retractBid($string)
 {
