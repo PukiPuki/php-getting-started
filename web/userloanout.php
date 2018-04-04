@@ -196,7 +196,7 @@ echo '<div>
     }
 
     if (isset($_POST['additem'])) {
-        $query = "SELECT * FROM add_item_for_bidding('$_SESSION[username]', '$_POST[category]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]', '$_POST[newlocation]', '$_POST[newpickupdate]', '$_POST[returndate]')";
+        $query = "SELECT * FROM add_item_for_bidding('$username', '$_POST[category]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]', '$_POST[newlocation]', '$_POST[newpickupdate]', '$_POST[returndate]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
@@ -228,8 +228,8 @@ echo '<div>
                 <td><input type="text" name = "newminbid" placeholder="0.0"/></td>
                 <td><input type="text" name = "newautobuy" placeholder="$0.0"/></td>
                 <td><input type="text" name = "newlocation" placeholder="Location"/></td>
-                <td><input type="text" name = "newpickupdate" placeholder="YYYY-DD-MM"/></td>
-                <td><input type="text" name = "newreturndate" placeholder="YYYY-DD-MM"/></td>
+                <td><input type="text" name = "newpickupdate" placeholder="YYYY-MM-DD"/></td>
+                <td><input type="text" name = "newreturndate" placeholder="YYYY-MM-DD"/></td>
                 <td></td>
                 <td></td>
                 <td><button type="submit" name="additem">Add</button></td>
