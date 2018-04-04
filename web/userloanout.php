@@ -47,13 +47,15 @@ if (!$result) {
     $index = 1;
     echo '
             <table class="striped responsive-table centered highlight", style="width:100%">
+            <thead>
             <tr>
             <th>S/N</th>
             <th>Item</th>
             <th>Bidder</th>
             <th>Bidder Phone Number</th>
             <th>Return Date</th>
-            </tr>';
+            </tr>
+            </thead>';
     while ($row = pg_fetch_assoc($result)) {
         echo '<tr align = "center">
             <td>' . $index . '</td>
@@ -82,6 +84,7 @@ echo '<div>
         $index = 1;
         echo '
             <table class="striped responsive-table centered highlight", style="width:100%">
+            <thead>
             <tr>
             <th>S/N</th>
             <th>ItemID</th>
@@ -98,7 +101,8 @@ echo '<div>
             <th>Accept</th>
             <th>Reject</th>
             <th>Delete Item</th>
-            </tr>';
+            </tr>
+            </thead>';
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
                 <form name="display" action="userloanout.php" method="POST">

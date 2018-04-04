@@ -63,6 +63,7 @@ include 'makebids.php';
             </form>';
                 echo '
             <table style = "width:100%", align="center">
+                    <thead>
                     <tr>
                     <th>S/N</th>
                     <th>tID</th>
@@ -76,7 +77,8 @@ include 'makebids.php';
                     <th>Automatic Bid</th>
                     <th>Current Bid</th>
                     <th>Make Bid</th>
-                    </tr>';
+                    </tr>
+                    </thead>';
                 while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                     echo '<tr align = "center">
                 <td>' . $index . '</td>
@@ -108,6 +110,7 @@ include 'makebids.php';
         </div>';
             echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
+                        <thead>
                         <tr>
                         <th>S/N</th>
                         <th>tID</th>
@@ -121,7 +124,8 @@ include 'makebids.php';
                         <th>Automatic Bid</th>
                         <th>Current Bid</th>
                         <th>Make Bid</th>
-                        </tr>';
+                        </tr>
+                        </thead>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
                 echo '<tr align = "center">
                 <td>' . $index . '</td>
