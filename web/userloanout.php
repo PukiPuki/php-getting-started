@@ -196,7 +196,7 @@ echo '<div>
     }
 
     if (isset($_POST['additem'])) {
-        $query = "SELECT * FROM add_item_for_bidding('$username', '$_POST[category]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]', '$_POST[newlocation]', '$_POST[newpickupdate]', '$_POST[returndate]')";
+        $query = "SELECT * FROM add_item_for_bidding('$username', '$_POST[category]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]', '$_POST[newlocation]', '$_POST[newpickupdate]', '$_POST[newreturndate]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
