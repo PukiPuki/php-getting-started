@@ -32,12 +32,12 @@ include 'makebids.php';
     <?php
     echo " <div style=margin-top:43px>
     <div class=\"w3-container\">
-    <h1 class=\"w3-text-teal\">Welcome {$_SESSION[user]}</h1>
     </div>";
 
     if (isset($_SESSION[user])) {
         echo '<div>
             <div class="w3-container">
+            <h1 class=\"w3-text-teal\">Welcome {$_SESSION[user]}</h1>
             <h2 class="w3-text-teal">Active transactions</h2>
             </div>';
         $query = "SELECT * FROM select_active_transactions()";
@@ -173,12 +173,50 @@ function homeScreen () {
         <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
       </div>
       <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+        <a href="https://radiant-forest-81050.herokuapp.com/signup.php" id="signup" class="btn-large waves-effect waves-light orange">Get Started/a>
+        <a href="https://radiant-forest-81050.herokuapp.com/login.php" id="signup" class="btn-large waves-effect waves-light orange">Login</a>
       </div>
       <br><br>
 
     </div>
-    </div>;
+    </div>
+    <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Share stuff quickly</h5>
+
+            <p class="light"> Our app allows you to quickly browse through available items, and easily share some of your own with no additional fees</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User Experience Focused</h5>
+
+            <p class="light"> We value your experience and privacy, and therefore the only personal information you will have to provide is your phone number</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">Our consistent layout enables a smooth user experience, where users are able to add and find items quickly in real time with ease</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+    ;
 END;
 }
 ?>
@@ -190,6 +228,30 @@ END;
     // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
 </script>
+
+ <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Bio</h5>
+          <p class="grey-text text-lighten-4">We are a group of NUS students, who did this app as part of a module project</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="https://github.com/pukipuki/php-getting-started">Github</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Credit to <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a> and <a class="orange-text text-lighten-3" href="https://www.w3schools.com/w3css/tryw3css_templates_webpage.htm">W3Schools</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
