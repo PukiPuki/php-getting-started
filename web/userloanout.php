@@ -54,16 +54,25 @@ if (!$result) {
             <th>Item</th>
             <th>Bidder</th>
             <th>Bidder Phone Number</th>
+            <th>Location</th>
+            <th>Pickup Date</th>
             <th>Return Date</th>
+            <th>Action</th>
             </tr>
             </thead>';
     while ($row = pg_fetch_assoc($result)) {
         echo '<tr align = "center">
+            <form name="display" action="userloanout.php" method="POST">
             <td>' . $index . '</td>
+            <input type="hidden" name="itemid" value="'.$row["itemid"].'" />
             <td>' . $row["itemname"] . '</td>
             <td>' . $row["biddername"] . '</td>
             <td>' . $row["phonenumber"] . '</td>
-            <td>' . $row["returndate"] . '</td>
+            <td><input type="text" name="location" value="' . $row["location"] . '" /></td>
+            <td><input type="text" name="pickupdate" value="' . $row["pickupdate"] . '" /></td>
+            <td><input type="text" name="returndate" value="' . $row["returndate"] . '" /></td>
+            <td><button type="submit" name="reloan">Loan Again</button> </td>
+            </form>
             </tr>';
     $index++;
     }
@@ -197,7 +206,7 @@ echo '<div>
     }
 
     if (isset($_POST['additem'])) {
-        $query = "SELECT * FROM add_item_for_bidding('$username', '$_POST[category]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]', '$_POST[newlocation]', '$_POST[newpickupdate]', '$_POST[newreturndate]')";
+        $query = "SELECT * FROM add_item_for_bidding('$username', '$_POST[newcategory]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]', '$_POST[newlocation]', '$_POST[newpickupdate]', '$_POST[newreturndate]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if (!$result) {
             echo "<script type='text/javascript'>
@@ -212,6 +221,21 @@ echo '<div>
         
     }
 
+    if (isset($_POST['reloan'])) {
+        $query = "SELECT * FROM add_transaction_on_existing_item('$location', '$_POST[pickupdate]', '$_POST[returndate]', '$_POST[itemid]')";
+        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        if (!$result) {
+            echo "<script type='text/javascript'>
+                alert('Error in reloaning item!');
+            </script>";
+        } else {
+        echo "<script type='text/javascript'>
+                alert('Item added for reloaning!');
+            </script>";
+        refresh();
+        }
+        
+    }
 
     ?>
 
