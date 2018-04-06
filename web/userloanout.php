@@ -128,7 +128,7 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="itemid" value="'. $row["itemid"]. '">Update</button></td>';
+                <td><button type="submit" name="edititem" value="'. $row["itemid"]. '">Update</button></td>';
 
             if ($row[maxbid])  {
                 echo '<td><button type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>';
@@ -149,11 +149,11 @@ echo '<div>
         echo '</table>';
     }
 
-    if (isset($_POST['itemid'])) {
+    if (isset($_POST['edititem'])) {
         $query = "SELECT * FROM edit_transactions('$_POST[newtransactionid]', '$_POST[newlocation]','$_POST[newpickupdate]', '$_POST[newreturndate]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
 
-        $query = "SELECT * FROM edit_items('$_POST[itemid]', '$_POST[newcategory]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]')";
+        $query = "SELECT * FROM edit_items('$_POST[edititem]', '$_POST[newcategory]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]')";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
         if ($result) {
             refresh();
