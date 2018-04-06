@@ -39,7 +39,7 @@ include 'makebids.php';
     if (isset($_SESSION[user])) {
         echo '<div>
             <div class="w3-container">
-            <h1 class=\"w3-text-teal\">Welcome '.$_SESSION[user].'</h1>
+            <h1 class="w3-text-teal">Welcome '.$_SESSION[user].'</h1>
             <h2 class="w3-text-teal">Active transactions</h2>
             </div>';
         $query = "SELECT * FROM select_active_transactions()";
