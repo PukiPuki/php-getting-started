@@ -29,6 +29,9 @@ include 'checklogin.php'
 
 <div class="container" style="width:100%">
     <?php
+    echo " <div style=margin-top:43px>
+    <div class=\"w3-container\">
+    </div>";
 
     if (isset($_SESSION[user])) {
         echo '<div>
