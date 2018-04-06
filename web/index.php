@@ -170,7 +170,7 @@ function homeScreen () {
       <br><br>
       <h1 class="header center orange-text">Starter Template</h1>
       <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <h5 class="header col s12 light">Your next loan is just a click away</h5>
       </div>
       <div class="row center">
         <a href="https://radiant-forest-81050.herokuapp.com/signup.php" id="signup" class="btn-large waves-effect waves-light orange">Get Started/a>
