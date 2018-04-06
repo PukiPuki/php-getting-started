@@ -223,7 +223,10 @@ echo '<div>
 
     if (isset($_POST['reloan'])) {
         $query = "SELECT * FROM add_transaction_on_existing_item('$_POST[location]', '$_POST[pickupdate]', '$_POST[returndate]', '$_POST[itemid]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_query($pg_conn, $query) or die(
+            "<script type='text/javascript'>
+                alert('Error in reloaning item!');
+            </script>");
         if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in reloaning item!');
