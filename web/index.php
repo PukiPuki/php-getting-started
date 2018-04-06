@@ -145,24 +145,41 @@ include 'makebids.php';
             }
             echo '</table>';
         }
+    } else {
+        echo homeScreen();
     }
     ?>
 </div>
 
 <?php
 if (isset($_POST['new_bid'])) {
-    #echo "<script type='text/javascript'>alert('$_POST[tid]');</script>";
-    #echo "<script type='text/javascript'>alert('$_POST[new_bid]');</script>";
-    #echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
-
     $query = "SELECT * FROM make_bid('$_POST[new_bid]', '$_POST[tid]', '$_SESSION[user]')";
-    $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+    $result = pg_query($pg_conn, $query);
     if (!$result) {
         $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
         echo "<script type='text/javascript'>alert('$_POST[tid]');</script>";
         echo "<script type='text/javascript'>alert('$_POST[new_bid]');</script>";
         echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
     }
+}
+
+function homeScreen () {
+    return <<< END
+     <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Starter Template</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+      </div>
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+      </div>
+      <br><br>
+
+    </div>
+    </div>;
+END;
 }
 ?>
 
