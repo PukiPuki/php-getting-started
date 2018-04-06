@@ -219,7 +219,6 @@ function homeScreen () {
     </div>
     <br><br>
   </div>
-    ;
 END;
 }
 ?>
