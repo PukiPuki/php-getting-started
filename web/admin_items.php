@@ -35,7 +35,7 @@ if (isset($_POST['add_item'])) {
         } 
         if (isset($_POST['edit_item'])) {
             $query = "SELECT * FROM admin_edit_items('$_POST[itemid]', '$_POST[category]', '$_POST[itemname]', '$_POST[minbid]', '$_POST[autobuy]', '$_POST[owner]')";
-            $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+            $result = pg_query($pg_conn, $query);
         if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in editing item!');
@@ -49,7 +49,7 @@ if (isset($_POST['add_item'])) {
 
         if (isset($_POST['delete_item'])) {
             $query = "SELECT * FROM admin_remove_items('$_POST[itemid]')";
-            $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+            $result = pg_query($pg_conn, $query);
                     if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in deleting item!');

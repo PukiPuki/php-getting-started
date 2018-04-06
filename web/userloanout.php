@@ -34,7 +34,7 @@ include 'navbar.php';
 
 <?php
 $query = "SELECT * FROM all_current_loans_accepted('$username')";
-$result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+$result = pg_query($pg_conn, $query);
 
 echo '<div>
     <div class="w3-container">
@@ -85,7 +85,7 @@ echo '<div>
     </div>';
 
     $query = "SELECT * FROM all_current_loans_pending('$username')";
-    $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+    $result = pg_query($pg_conn, $query);
 
     if (!$result) {
         $message = '<p>You have no pending loans!</p>';
@@ -151,18 +151,25 @@ echo '<div>
 
     if (isset($_POST['edititem'])) {
         $query = "SELECT * FROM edit_transactions('$_POST[newtransactionid]', '$_POST[newlocation]','$_POST[newpickupdate]', '$_POST[newreturndate]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_query($pg_conn, $query);
 
         $query = "SELECT * FROM edit_items('$_POST[edititem]', '$_POST[newcategory]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_query($pg_conn, $query);
         if ($result) {
+            echo "<script type='text/javascript'>
+                alert('Item edited!');
+            </script>";
             refresh();
+        } else {
+            echo "<script type='text/javascript'>
+                alert('Unable to edit item');
+            </script>";
         }
     }
 
     if (isset($_POST['biddername'])) {
         $query = 'SELECT * FROM accept_loan('.$_POST['newtransactionid'].',\''.$_POST['biddername'].'\')';
-        $result = pg_send_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_send_query($pg_conn, $query);
         if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in accepting loan!');
@@ -177,7 +184,7 @@ echo '<div>
 
     if (isset($_POST['rejectbid'])) {
         $query = "SELECT * FROM reject_loan('$_POST[newtransactionid]', '$_POST[rejectbid]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_query($pg_conn, $query);
         if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in rejecting loan!');
@@ -192,7 +199,7 @@ echo '<div>
 
     if (isset($_POST['deleteitem'])) {
         $query = "SELECT * FROM delete_item('$_POST[deleteitem]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_query($pg_conn, $query);
         if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in deleting item!');
@@ -207,7 +214,7 @@ echo '<div>
 
     if (isset($_POST['additem'])) {
         $query = "SELECT * FROM add_item_for_bidding('$username', '$_POST[newcategory]', '$_POST[newitemname]', '$_POST[newminbid]', '$_POST[newautobuy]', '$_POST[newlocation]', '$_POST[newpickupdate]', '$_POST[newreturndate]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_query($pg_conn, $query);
         if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in adding item!');

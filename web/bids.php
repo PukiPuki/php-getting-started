@@ -36,13 +36,17 @@ include 'checklogin.php'
         <h2 class="w3-text-teal">Active transactions</h2>
     </div>';
         $query = "SELECT * FROM check_bid_status('$_SESSION[user]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_query($pg_conn, $query);
         if (!$result) {
             $message = ' <p>You have no active bids!</p> </div> </div> </div>';
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else if (isset($_POST['retract'])) {
             $query = "SELECT * FROM retract_bid('$_SESSION[user]','$_POST[retract]')";
-            $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+            $result = pg_query($pg_conn, $query);
+            if (!$result) {
+                $message = 'Error retracting bid';
+                echo "<script type='text/javascript'>alert('$message');</script>";
+            }
             header('Location:bids.php');
         } else {
             $index = 1;

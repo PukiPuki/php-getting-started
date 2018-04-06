@@ -95,7 +95,7 @@ span.psw {
         if ($_POST[psw] == $_POST[cfmpsw]) {
             $password = password_hash($_POST[psw],PASSWORD_DEFAULT);
             $query = "SELECT * FROM admin_add_user('$_POST[uname]', '$password', '$_POST[phn]', 'False')";
-            pg_send_query($pg_conn, $query) or die('Query failed: '. pg_last_error());
+            pg_send_query($pg_conn, $query);
             $result = pg_get_result($pg_conn);
             
             if ($result) {
