@@ -14,6 +14,8 @@ include 'makebids.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="./style/css/materialize.css"
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
     html, body, h1, h2, h3, h4, h5, h6 {
         font-family: "Roboto", sans-serif;
@@ -173,8 +175,9 @@ function homeScreen () {
         <h5 class="header col s12 light">Your next loan is just a click away</h5>
       </div>
       <div class="row center">
-        <a href="https://radiant-forest-81050.herokuapp.com/signup.php" id="signup" class="btn-large waves-effect waves-light orange">Get Started/a>
-        <a href="https://radiant-forest-81050.herokuapp.com/login.php" id="signup" class="btn-large waves-effect waves-light orange">Login</a>
+        <a href="https://radiant-forest-81050.herokuapp.com/signup.php" id="signup" class="btn-large waves-effect waves-light orange">Get Started</a> 
+        <br>
+        <a href="https://radiant-forest-81050.herokuapp.com/login.php" id="signup" class="btn-large waves-effect waves-light blue">Login</a>
       </div>
       <br><br>
 
