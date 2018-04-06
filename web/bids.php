@@ -105,7 +105,7 @@ include 'checklogin.php'
         <h2 class="w3-text-teal">Successful transactions</h2>
     </div>';
         $query = "SELECT * FROM all_current_items_borrowed('$_SESSION[user]')";
-        $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+        $result = pg_query($pg_conn, $query);
         if (!$result) {
             $message = ' <p>You have no successful bids!</p> </div> </div> </div>';
             echo "<script type='text/javascript'>alert('$message');</script>";
