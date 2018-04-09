@@ -244,7 +244,7 @@ END;
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
+      <div>
       Credit to <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a> and <a class="orange-text text-lighten-3" href="https://www.w3schools.com/w3css/tryw3css_templates_webpage.htm">W3Schools</a>
       </div>
     </div>
