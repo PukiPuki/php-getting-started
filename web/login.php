@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- Compiled and minified CSS -->
 <link type="text/css" rel="stylesheet" href="./style/css/materialize.css"media="screen,projection" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
 </head>
 <body>
 <?php
@@ -59,10 +59,10 @@
     </div>
     <div class="row">
         <p>
-        <label>
             <input type="checkbox" name="remember" /> 
+            <label for="remember">
             <span> Remember me  </span>
-        </label>
+            </label>
         </p>
     </div>
 
@@ -70,8 +70,8 @@
   <button class="btn waves-effect waves-light" type="submit" name="login">Login</button>
     </div>
         
-    <div class="row container">
-    <button type="button" class="cancelbtn">Cancel</button>
+    <div class="row container center">
+    <button class="btn waves-effect waves-light red" type="button" class="cancelbtn">Cancel</button>
     </div>
 </div>
 </form> 
