@@ -66,7 +66,7 @@
         </p>
     </div>
 
-    <div class="row container">
+    <div class="row container center">
   <button class="btn waves-effect waves-light" type="submit" name="login">Login</button>
     </div>
         
