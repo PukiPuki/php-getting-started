@@ -6,7 +6,7 @@ include 'makebids.php';
 ?>
 <html>
 <title>Stuff Sharing (CS2102 Project)</title>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -227,7 +227,7 @@ END;
 </script>
 
  <footer class="page-footer orange">
-    <div class="container">
+    <div>
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Bio</h5>
