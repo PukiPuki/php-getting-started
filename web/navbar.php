@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
 <!-- Navbar -->
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo left">Stuffsharing</a>

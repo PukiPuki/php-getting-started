@@ -11,7 +11,7 @@ include 'makebids.php';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="./style/css/materialize.css"
+<link rel="stylesheet" href="./style/css/materialize.css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
@@ -25,10 +25,10 @@ include 'makebids.php';
     include 'navbar.php';
 ?>
 
-<div class="container" style="width:100%">
+<div style="width:100%">
     <?php
     echo " <div style=margin-top:43px>
-    <div class=\"w3-container\">
+    <div>
     </div>";
 
     if (isset($_SESSION[user])) {

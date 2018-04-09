@@ -59,9 +59,9 @@
     </div>
     <div class="row">
         <p>
-            <input type="checkbox" name="remember" /> 
+            <input type="checkbox" id="remember"> 
             <label for="remember">
-            <span> Remember me  </span>
+            <span> Remember me </span>
             </label>
         </p>
     </div>
