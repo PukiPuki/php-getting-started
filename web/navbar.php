@@ -10,22 +10,22 @@
         if (!isset($_SESSION['user'])) {
             echo '<ul class="right hide-on-med-and-down"> 
                     <li> <a href="login.php" >Login</a></li>
-                    /ul>
+                    </ul>
                 <ul class="right hide-on-med-and-down"> 
                     <li> <a href="signup.php"> Sign Up </a></li>
-                    /ul>';
+                    </ul>';
     } else {
             echo '<ul class="right hide-on-med-and-down"> 
                         <li> <a href="userloanout.php" >My Loans</a></li>
-                    /ul>
+                    </ul>
                     <ul class="right hide-on-med-and-down"> 
                         <li> <a href="bids.php">My Bids</a></li>
-                    /ul>
+                    </ul>
                     <ul class="right hide-on-med-and-down"> 
                         <li> <a href="logout.php">Logout</a></li>
-                    /ul>';
+                    </ul>';
     }
     ?>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
-  </nav>
+</nav>
