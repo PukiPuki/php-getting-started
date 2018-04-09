@@ -97,10 +97,10 @@ include 'navbar.php';
     <div>
         <h1 class="w3-text-teal"> User Control </h1>
 
-        <div class="container">
+        <div>
             <h3 class="w3-text-teal"> Add User </h3>
             <form action="admin_users.php" method="POST">
-                <div class="container">
+                <div>
                     <label for="username"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="username" required>
                     <label for="password"><b>Password</b></label>
@@ -116,7 +116,7 @@ include 'navbar.php';
         </div>
 
         <form action="admin_users.php" method="POST">
-            <div class="container">
+            <div>
                 <h2 class="w3-text-teal"> Edit User </h2>
                 <label for="username"><b>Username</b></label>
                 <input type="text" placeholder="Enter User to Edit" name="username" required>
@@ -131,10 +131,10 @@ include 'navbar.php';
             </div>
         </form>
 
-        <div class="container">
+        <div>
             <h2 class="w3-text-teal"> Remove User </h2>
             <form action="admin_users.php" method="POST">
-                <div class="container">
+                <div>
                     <label for="username"><b>Username</b></label>
                     <input type="text" placeholder="Enter User to Remove" name="username" required>
                     <button type="submit" name="remove_user">Remove User</button>
