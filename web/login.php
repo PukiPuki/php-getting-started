@@ -69,11 +69,11 @@
         </p>
     </div>
 
-    <div class="row">
+    <div class="row container">
   <button class="btn waves-effect waves-light" type="submit" name="login">Login</button>
     </div>
         
-    <div class="row">
+    <div class="row container">
     <button type="button" class="cancelbtn">Cancel</button>
     </div>
 </div>
