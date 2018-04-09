@@ -129,7 +129,7 @@ span.psw {
 <div style="margin-top:43px">
  <form action="login.php" method="POST">
 
-  <div class="container">
+  <div>
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
 
