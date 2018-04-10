@@ -109,7 +109,10 @@ include 'navbar.php';
                     <input type="text" placeholder="Enter Phone Number" name="phone" required>
                     <label for="isAdmin"><b>Admin Privileges</b></label>
                     <input type="hidden" name="isAdmin" value="0"> </input>
-                    <input type="checkbox" name="isAdmin" value="1"> Admin </input>
+                    <input type="checkbox" id="isAdmin" name="isAdmin" value="1"> 
+                        <label for="isAdmin" >
+                            <span> Admin </span>
+                        </label>
                     <button type="submit" name="add_user">Add User</button>
                 </div>
             </form>
