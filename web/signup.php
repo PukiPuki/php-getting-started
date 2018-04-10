@@ -85,6 +85,12 @@
         </div>
     </form> 
 </div>
+<div class="row">
+    <div class="input-field col s12">
+        <input id="test" type="text">
+            <label for="test"> Test </label>
+    </div>
+</div>
 <?php
     echo $message;
 ?>
