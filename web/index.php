@@ -8,17 +8,11 @@ include 'makebids.php';
 <title>Stuff Sharing (CS2102 Project)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="./style/css/materialize.css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<style>
-    html, body, h1, h2, h3, h4, h5, h6 {
-        font-family: "Roboto", sans-serif;
-    }
-</style>
 
 <body>
 <?php
@@ -27,15 +21,12 @@ include 'makebids.php';
 
 <div style="width:100%">
     <?php
-    echo " <div style=margin-top:43px>
-    <div>
-    </div>";
 
     if (isset($_SESSION[user])) {
         echo '<div>
-            <div class="w3-container">
-            <h1 class="w3-text-teal">Welcome '.$_SESSION[user].'</h1>
-            <h2 class="w3-text-teal">Active transactions</h2>
+            <div>
+            <h1>Welcome '.$_SESSION[user].'</h1>
+            <h2>Active transactions</h2>
             </div>';
         $query = "SELECT * FROM select_active_transactions()";
         $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
@@ -245,7 +236,7 @@ END;
     </div>
     <div class="footer-copyright">
       <div>
-      Credit to <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a> and <a class="orange-text text-lighten-3" href="https://www.w3schools.com/w3css/tryw3css_templates_webpage.htm">W3Schools</a>
+      Credit to <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
       </div>
     </div>
   </footer>
