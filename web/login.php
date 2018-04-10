@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Compiled and minified CSS -->
-<link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection" />
+<link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection">
 <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
 </head>
 <body>
@@ -58,8 +58,8 @@
     </div>
 
     <div class="row">
-            <input type="checkbox" id="remember"> 
             <label for="remember">
+            <input type="checkbox" id="remember" /> 
                 <span> Remember me </span>
             </label>
     </div>
@@ -71,8 +71,8 @@
     <div class="row container center">
     <button class="btn waves-effect waves-light red" type="button" class="cancelbtn">Cancel</button>
     </div>
-</div>
 </form> 
+</div>
 <?php
     echo $message;
 ?>
