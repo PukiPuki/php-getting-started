@@ -8,7 +8,6 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Compiled and minified CSS -->
-<link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection" />
 <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -45,10 +44,6 @@
         }
     }
 ?>
-<div class="input-field">
-    <input type="text" id="first_name" class="validate">
-        <label for="first_name"> First Name </label>
-</div>
 
 <div id="input" class="row">
     <form action="signup.php" method="POST" class="col s12">
