@@ -8,6 +8,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Compiled and minified CSS -->
+<link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection">
 <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
