@@ -45,6 +45,10 @@
         }
     }
 ?>
+<div class="input-field">
+    <input type="text" id="first_name" class="validate">
+        <label for="first_name"> First Name </label>
+</div>
 
 <div id="input" class="row">
     <form action="signup.php" method="POST" class="col s12">
