@@ -8,9 +8,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- Compiled and minified CSS -->
-<link type="text/css" rel="stylesheet" href="./style/css/materialize.css" media="screen,projection" />
+<link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection" />
 <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
 </head>
 <body>
@@ -46,8 +45,8 @@
     } 
 ?>
 
-<div class="row">
- <form class="col s12" action="login.php" method="POST">
+<div>
+ <form action="login.php" method="POST">
     <div class="row input-field col s12">
         <input type="text" id="uname" name="uname" class="validate">
         <label for="uname"><b>Username</b></label>
@@ -59,12 +58,10 @@
     </div>
 
     <div class="row">
-        <p>
             <input type="checkbox" id="remember"> 
             <label for="remember">
-            <span> Remember me </span>
+                <span> Remember me </span>
             </label>
-        </p>
     </div>
 
     <div class="row container center">
