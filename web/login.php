@@ -47,12 +47,12 @@
 
 <div class="container">
  <form action="login.php" method="POST">
-    <div class="row input-field col s12">
+    <div class="row input-field col s6">
         <input type="text" id="uname" name="uname" class="validate">
         <label for="uname"><b>Username</b></label>
     </div>
 
-    <div class="row input-field col s12">
+    <div class="row input-field col s6">
         <input type="password" id="psw" name="psw" class="validate">
         <label for="psw"><b>Password</b></label>
     </div>
