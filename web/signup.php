@@ -48,6 +48,12 @@
         }
     }
 ?>
+<div class="row">
+    <div class="input-field col s12">
+        <input id="test" type="text">
+            <label for="test"> Test </label>
+    </div>
+</div>
 
 <div id="input" class="row">
     <form action="signup.php" method="POST" class="col s12">
@@ -84,12 +90,6 @@
             <button class="btn waves-effect waves-light red" type="button" class="cancelbtn">Cancel</button>
         </div>
     </form> 
-</div>
-<div class="row">
-    <div class="input-field col s12">
-        <input id="test" type="text">
-            <label for="test"> Test </label>
-    </div>
 </div>
 <?php
     echo $message;
