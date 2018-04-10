@@ -15,6 +15,10 @@
 
 </head>
 <body>
+    <div class="input-field col s12">
+        <input id="test" type="text">
+            <label for="test"> Test </label>
+    </div>
 <?php
     include 'navbar.php';
 
@@ -48,12 +52,6 @@
         }
     }
 ?>
-<div class="row">
-    <div class="input-field col s12">
-        <input id="test" type="text">
-            <label for="test"> Test </label>
-    </div>
-</div>
 
 <div id="input" class="row">
     <form action="signup.php" method="POST" class="col s12">
@@ -95,6 +93,6 @@
     echo $message;
 ?>
  <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="./style/js/materialize.min.js"></script>
+<script type="text/javascript" src="./style/js/materialize.min.js"></script>
 </body>
 </html>
