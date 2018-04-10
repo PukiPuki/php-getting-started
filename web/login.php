@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- Compiled and minified CSS -->
-<link type="text/css" rel="stylesheet" href="./style/css/materialize.css"media="screen,projection" />
+<link type="text/css" rel="stylesheet" href="./style/css/materialize.css" media="screen,projection" />
 <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
 </head>
 <body>

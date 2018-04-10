@@ -8,10 +8,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="./style/css/materialize.css"
-<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="./style/css/materialize.css" media="screen,projection" />
+<link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
@@ -55,25 +56,25 @@
 
   <div>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
              <input id="username" type="text" name="uname "class="validate">
             <label for="username">Username</label>
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
              <input id="password" type="text" name="psw "class="validate">
             <label for="password">New Password</label>
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
              <input id="cfmpass" type="text" name="cfmpsw "class="validate">
             <label for="cfmpass">Confirm Password</label>
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
              <input id="phone" type="text" name="phn "class="validate">
             <label for="phone">Phone Number</label>
         </div>
