@@ -48,15 +48,16 @@
 
 <div class="row">
  <form class="col s12" action="login.php" method="POST">
-    <div class="row">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" class="validate">
+    <div class="row input-field col s12">
+        <input type="text" id="uname" name="uname" class="validate">
+        <label for="uname"><b>Username</b></label>
     </div>
 
-    <div class="row">
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" class="validate">
+    <div class="row input-field col s12">
+        <input type="password" id="psw" name="psw" class="validate">
+        <label for="psw"><b>Password</b></label>
     </div>
+
     <div class="row">
         <p>
             <input type="checkbox" id="remember"> 
