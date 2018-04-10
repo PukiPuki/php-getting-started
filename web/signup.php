@@ -45,35 +45,25 @@
         }
     }
 ?>
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Textarea</label>
-        </div>
-      </div>
-    </form>
-  </div><Paste>
 
 <div id="input" class="row">
     <form action="signup.php" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s12">
                  <input id="username" type="text" name="uname" class="validate">
-                <label for="username">Username</label>
+                <label class="active" for="username">Username</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                  <input id="password" type="password" name="psw" class="validate">
-                <label for="password">New Password</label>
+                <label class="active" for="password">New Password</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                  <input id="cfmpass" type="password" name="cfmpsw" class="validate">
-                <label for="cfmpass">Confirm Password</label>
+                <label class="active" for="cfmpass">Confirm Password</label>
             </div>
         </div>
         <div class="row">
