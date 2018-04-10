@@ -62,7 +62,7 @@
         <div class="row">
             <div class="input-field col s12">
                  <input id="password" type="password" name="psw "class="validate">
-                <label for="password">New Password</label>
+                <label class="active" for="password">New Password</label>
             </div>
         </div>
         <div class="row">
