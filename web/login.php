@@ -45,7 +45,7 @@
     } 
 ?>
 
-<div>
+<div class="container">
  <form action="login.php" method="POST">
     <div class="row input-field col s12">
         <input type="text" id="uname" name="uname" class="validate">
