@@ -45,7 +45,7 @@
     }
 ?>
 
-<div id="input" class="row">
+<div>
     <form action="signup.php" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s12">
