@@ -61,13 +61,13 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                 <input id="password" type="text" name="psw "class="validate">
+                 <input id="password" type="password" name="psw "class="validate">
                 <label for="password">New Password</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                 <input id="cfmpass" type="text" name="cfmpsw "class="validate">
+                 <input id="cfmpass" type="password" name="cfmpsw "class="validate">
                 <label for="cfmpass">Confirm Password</label>
             </div>
         </div>
