@@ -51,48 +51,42 @@
     }
 ?>
 
-<div style="margin-top:43px">
- <form action="signup.php" method="POST">
-
-  <div>
-    <div class="row">
-        <div class="input-field col s12">
-             <input id="username" type="text" name="uname "class="validate">
-            <label for="username">Username</label>
+<div id="input" class="row">
+    <form action="signup.php" method="POST">
+        <div class="row">
+            <div class="input-field col s12">
+                 <input id="username" type="text" name="uname "class="validate">
+                <label for="username">Username</label>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s12">
-             <input id="password" type="text" name="psw "class="validate">
-            <label for="password">New Password</label>
+        <div class="row">
+            <div class="input-field col s12">
+                 <input id="password" type="text" name="psw "class="validate">
+                <label for="password">New Password</label>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s12">
-             <input id="cfmpass" type="text" name="cfmpsw "class="validate">
-            <label for="cfmpass">Confirm Password</label>
+        <div class="row">
+            <div class="input-field col s12">
+                 <input id="cfmpass" type="text" name="cfmpsw "class="validate">
+                <label for="cfmpass">Confirm Password</label>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s12">
-             <input id="phone" type="text" name="phn "class="validate">
-            <label for="phone">Phone Number</label>
+        <div class="row">
+            <div class="input-field col s12">
+                 <input id="phone" type="text" name="phn "class="validate">
+                <label for="phone">Phone Number</label>
+            </div>
         </div>
-    </div>
-
-    <div class="row container center">
-        <button class="btn waves-effect waves-light" type="submit" name="signup">Sign Up</button>
-    </div>
-        
-    <div class="row container center">
-        <button class="btn waves-effect waves-light red" type="button" class="cancelbtn">Cancel</button>
-    </div>
-
-
-  </div>
-
+    
+        <div class="row container center">
+            <button class="btn waves-effect waves-light" type="submit" name="signup">Sign Up</button>
+        </div>
+            
+        <div class="row container center">
+            <button class="btn waves-effect waves-light red" type="button" class="cancelbtn">Cancel</button>
+        </div>
+    </form> 
 </div>
-</form> 
 <?php
     echo $message;
 ?>
