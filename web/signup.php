@@ -46,7 +46,7 @@
 ?>
 
 <div>
-    <form action="signup.php" method="POST" class="col s12">
+    <form action="signup.php" method="POST">
         <div class="row">
             <div class="input-field col s12">
                  <input id="username" type="text" name="uname" class="validate">
