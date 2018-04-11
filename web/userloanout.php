@@ -38,7 +38,7 @@ $username = $_SESSION[user];
     } else {
         $index = 1;
         echo '
-            <table class="striped responsive-table centered highlight", style="width:100%">
+            <table class="striped responsive-table centered highlight", style="width:100%, text-align:center">
             <thead>
             <tr>
             <th>S/N</th>
