@@ -145,7 +145,9 @@ $username = $_SESSION[user];
                 </tr>';
             $index++;
         }
+        echo 'before bid ui';
         echo addBidUI($index);
+        echo 'after bid ui';
         echo '</table>';
         echo 'end of table';
     }
