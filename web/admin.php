@@ -107,6 +107,7 @@ $index = 1;
 echo '
                 <div>
                 <table class="striped responsive-table centered highlight", style="width:100%">
+                        <thead>
                         <tr>
                         <th>S/N</th>
                         <th>tID</th>
@@ -115,7 +116,8 @@ echo '
                         <th>Bidding status</th>
                         <th>Action</th>
                         <th>Action</th>
-                        </tr>';
+                        </tr>
+                        </thead>';
 while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
     echo '<tr align = "center">
         <form action="admin_bids.php" method="POST">
@@ -160,6 +162,7 @@ $index++;
     echo '
                     <div>
                     <table class="striped responsive-table centered highlight", style="width:100%">
+                            <thead>
                             <tr>
                             <th>S/N</th>
                             <th>tID</th>
@@ -169,7 +172,8 @@ $index++;
                             <th>Item ID</th>
                             <th>Action</th>
                             <th>Action</th>
-                            </tr>';
+                            </tr>
+                            </thead>';
     while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
         echo '<tr align = "center">
             <form action="admin_transactions.php" method="POST">
@@ -213,6 +217,7 @@ $index++;
     echo '
                     <div>
                     <table class="striped responsive-table centered highlight", style="width:100%">
+                            <thead>
                             <tr>
                             <th>S/N</th>
                             <th>Item ID</th>
@@ -223,7 +228,8 @@ $index++;
                             <th>Auto Buy </th>
                             <th>Action</th>
                             <th>Action</th>
-                            </tr>';
+                            </tr>
+                            </thead>';
     while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
         echo '<tr align = "center">
             <form action="admin_items.php" method="POST">
