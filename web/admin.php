@@ -48,7 +48,7 @@ include 'navbar.php';
             </li>
         </ul>
         <div>
-            <h3 class="header green"> Add User </h3>
+            <h3 class="header"> Add User </h3>
             <form action="admin_users.php" method="POST">
                 <div>
                     <label for="username"><b>Username</b></label>
@@ -259,10 +259,7 @@ include 'navbar.php';
         ?>
     </div>
 </div>
-<<<<<<< HEAD
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-=======
->>>>>>> 65488a02c24738310906b90ac6f1043ebf3be8a4
 </body>
 </html>
