@@ -86,11 +86,11 @@ $username = $_SESSION[user];
 
     if (!$result) {
         $message = '<p>You have no pending loans!</p>';
-        echo "<script type='text/javascript'>alert('$message');</script>";
+        echo "<script type='text/javascript'>alert('$message')</script>";
     } else {
         $index = 1;
         echo '
-            <table class="striped responsive-table centered highlight", style="width:100%">
+            <table class="striped responsive-table centered highlight", style="width:120%">
             <thead>
             <tr>
             <th>S/N</th>

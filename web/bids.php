@@ -35,9 +35,8 @@ include 'checklogin.php'
 
     if (isset($_SESSION[user])) {
         echo '<div>
-    <div class="container">
         <h2 class="w3-text-teal">Active transactions</h2>
-    </div>';
+        </div>';
         $query = "SELECT * FROM check_bid_status('$_SESSION[user]')";
         $result = pg_query($pg_conn, $query);
         if (!$result) {
@@ -104,7 +103,6 @@ include 'checklogin.php'
 
     if (isset($_SESSION[user])) {
         echo '<div>
-    <div class="container">
         <h2 class="w3-text-teal">Successful transactions</h2>
     </div>';
         $query = "SELECT * FROM all_current_items_borrowed('$_SESSION[user]')";
