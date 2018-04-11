@@ -79,6 +79,7 @@ $username = $_SESSION[user];
 
     echo '<div>
     <h2 class="w3-text-teal">Pending Loans</h2>
+    HERE
     </div>';
 
     $query = "SELECT * FROM all_current_loans_pending('$username')";
@@ -86,9 +87,10 @@ $username = $_SESSION[user];
 
     if (!$result) {
         $message = '<p>You have no pending loans!</p>';
-        echo "<script type='text/javascript'>alert('$message')</script>";
+        echo "<script type='text/javascript'>alert('$message');</script>";
     } else {
         $index = 1;
+        echo 'i am here';
         echo '
             <table class="striped responsive-table centered highlight", style="width:120%">
             <thead>
