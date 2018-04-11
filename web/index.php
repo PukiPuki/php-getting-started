@@ -49,7 +49,8 @@ include 'makebids.php';
                 <label for="category">Category</label>
             </div>
             <button class="btn waves-effect waves-light green" type="submit" name="filter">Filter</button>
-            </form>';
+            </form>
+            </div>';
                 echo '
             <table style = "width:100%", align="center">
                     <thead>
@@ -90,13 +91,14 @@ include 'makebids.php';
         } else {
             $index = 1;
             echo '<div> 
-        <form action="index.php" method="POST">
-        <label for"filter"><b> Filter: </b></label>
-        <input type="text" placeholder="Category" name=
-        "category" required> 
-        <button type="submit" name="filter">Filter</button>
-        </form>
-        </div>';
+            <form action="index.php" method="POST">
+            <div class="input-field inline">
+                <input type="text" id="category" class="col s6" name="category" required> 
+                <label for="category">Category</label>
+            </div>
+            <button class="btn waves-effect waves-light green" type="submit" name="filter">Filter</button>
+            </form>
+            </div>';
             echo '
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <thead>
