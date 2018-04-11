@@ -12,6 +12,8 @@ include 'refresh.php';
     <!-- Compiled and minified CSS -->
     <link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection">
     <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
 <?php
@@ -21,7 +23,7 @@ include 'navbar.php';
 
 <div>
     <div class="container">
-        <h1 class="red"> User Control </h1>
+        <h1 class="header"> User Control </h1>
 
   <ul class="collapsible">
     <li>
