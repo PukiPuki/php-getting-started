@@ -270,7 +270,7 @@ function addBidUI($index)
                 <td></td>
                 <td><button class="btn waves-effect wave-light" type="submit" name="additem">Add</button></td>
             </form>
-        </tr>;
+        </tr>
 END;
 
 }
