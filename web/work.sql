@@ -28,8 +28,8 @@ CREATE TABLE bids(
 	biddingStatus VARCHAR(8) NOT NULL CHECK (biddingStatus IN ('REJECTED', 'PENDING', 'ACCEPTED')),
 	biddingPrice NUMERIC,
 	bidderName VARCHAR(64) references users(username) ON DELETE CASCADE,
-tid INTEGER references transaction(tid) ON DELETE CASCADE,
-PRIMARY KEY(biddername, tid)
+  tid INTEGER references transaction(tid) ON DELETE CASCADE,
+  PRIMARY KEY(biddername, tid)
 );
 
 CREATE OR REPLACE FUNCTION date_check() RETURNS trigger AS $$
@@ -333,7 +333,7 @@ CREATE OR REPLACE FUNCTION admin_edit_user (newUserName VARCHAR(64), newPhoneNum
 	WHERE userName = newUserName;
 END;
 $$ LANGUAGE plpgsql;
-
+
 CREATE OR REPLACE FUNCTION admin_add_items (itemID INTEGER, owner VARCHAR(64), category VARCHAR(64), itemName VARCHAR(64), minBid INTEGER, autobuy INTEGER)
 RETURNS void AS $$
 BEGIN
@@ -364,7 +364,6 @@ UPDATE items
 	END;
 $$ LANGUAGE plpgsql;
 
-
 CREATE OR REPLACE FUNCTION admin_add_bids (biddingStatus VARCHAR(8), biddingPrice NUMERIC, bidderName VARCHAR(64), tid INTEGER)
 RETURNS void AS $$
 BEGIN
@@ -391,7 +390,7 @@ CREATE OR REPLACE FUNCTION admin_edit_bids (newTID INTEGER, newBiddingStatus VAR
 	biddingPrice = newBiddingPrice
 	WHERE tID = newTID AND bidderName = newBidderName;
 END;
-$$ LANGUAGE plpgsql;
+$$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION admin_add_transaction (tid INTEGER, location VARCHAR(64), pickupDate DATE, returnDate DATE, itemID INTEGER)
 RETURNS void AS $$
 BEGIN
