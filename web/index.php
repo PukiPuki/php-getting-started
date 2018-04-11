@@ -148,7 +148,8 @@ if (isset($_POST['new_bid'])) {
     $query = "SELECT * FROM make_bid('$_POST[new_bid]', '$_POST[tid]', '$_SESSION[user]')";
     $result = pg_query($pg_conn, $query);
     if (!$result) {
-        $message = 'Bid failed';
+        
+        $message = 'Bid failed'.$_POST[new_bid].$_POST[tid].$_SESSION[user];
     } else {
         $message = 'Bid succeeded';
     }
