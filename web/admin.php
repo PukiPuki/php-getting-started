@@ -23,7 +23,7 @@ include 'navbar.php';
 ?>
 
 <div class="container">
-        <h1 class="header"> User Control </h1>
+    <h1 class="header"> User Control </h1>
 
         <ul class="collapsible" data-collapsible="accordion">
             <li>
@@ -98,7 +98,8 @@ include 'navbar.php';
 </div>
     <!-- For bids-->
 
-<div>
+<div class="container">
+<h1 class="header"> Bids </h1>
 <?php
 $query = "SELECT * FROM admin_select_bids()";
 $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
@@ -147,119 +148,117 @@ echo '<tr align = "center">
 $index++;
 
 ?>
-
-    </div>
+</div>
     <!-- For transactions-->
-    <div>
 
+<div class="container">
+<h1 class="header"> Transactions </h1>
 <?php
-$query = "SELECT * FROM admin_select_transaction()";
-$result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
-$index = 1;
-echo '
-                <div>
-                <h1 class="w3-text-teal"> Bids </h1>
-                <table class="striped responsive-table centered highlight", style="width:100%">
-                        <tr>
-                        <th>S/N</th>
-                        <th>tID</th>
-                        <th>Location</th>
-                        <th>Pickup Date</th>
-                        <th>Return Date</th>
-                        <th>Item ID</th>
-                        <th>Action</th>
-                        <th>Action</th>
-                        </tr>';
-while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+    $query = "SELECT * FROM admin_select_transaction()";
+    $result = pg_query($pg_conn, $query);
+    $index = 1;
+    echo '
+                    <div>
+                    <table class="striped responsive-table centered highlight", style="width:100%">
+                            <tr>
+                            <th>S/N</th>
+                            <th>tID</th>
+                            <th>Location</th>
+                            <th>Pickup Date</th>
+                            <th>Return Date</th>
+                            <th>Item ID</th>
+                            <th>Action</th>
+                            <th>Action</th>
+                            </tr>';
+    while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+        echo '<tr align = "center">
+            <form action="admin_transactions.php" method="POST">
+            <td>' . $index . '</td>
+            <td><input type=text name=tid value="' . $row["tid"] . '"/></td>
+            <td><input type="text" name="location" value="' . $row["location"] . '"/></td>
+            <td><input type="text" name="pickupdate" value="' . $row["pickupdate"] . '"/></td>
+            <td><input type="text" name="returndate" value="' . $row["returndate"] . '"/></td>
+            <td><input type="text" name="itemid" value="' . $row["itemid"] . '"/></td>
+            <td><button class="btn waves-effect wave-light" type="submit" name="edit_transaction" >Edit</button></td>
+            <td><button class="btn waves-effect wave-light" type="submit" name="delete_transaction" >Delete</button></td>
+            </form>
+            </tr>';
+    $index++;
+    }
     echo '<tr align = "center">
         <form action="admin_transactions.php" method="POST">
+        <input type="hidden" name="biddername" value="' . $row["biddername"] . '"/>
         <td>' . $index . '</td>
-        <td><input type=text name=tid value="' . $row["tid"] . '"/></td>
-        <td><input type="text" name="location" value="' . $row["location"] . '"/></td>
-        <td><input type="text" name="pickupdate" value="' . $row["pickupdate"] . '"/></td>
-        <td><input type="text" name="returndate" value="' . $row["returndate"] . '"/></td>
-        <td><input type="text" name="itemid" value="' . $row["itemid"] . '"/></td>
-        <td><button class="btn waves-effect wave-light" type="submit" name="edit_transaction" >Edit</button></td>
-        <td><button class="btn waves-effect wave-light" type="submit" name="delete_transaction" >Delete</button></td>
-        </form>
-        </tr>';
-$index++;
-}
-echo '<tr align = "center">
-    <form action="admin_transactions.php" method="POST">
-    <input type="hidden" name="biddername" value="' . $row["biddername"] . '"/>
-    <td>' . $index . '</td>
-    <td></td>
-    <td><input type="text" name="location" placeholder="Location"/></td>
-    <td><input type="text" name="pickupdate" placeholder="YYYY-MM-DD" /></td>
-    <td><input type="text" name="returndate" placeholder="YYYY-MM-DD" /></td>
-    <td><input type="text" name="itemid" placeholder="Item ID"/></td>
-    <td><button class="btn waves-effect wave-light" type="submit" name="add_transaction" >Add</button></td>
-    </form>
-    </tr>
-    </div>';
-$index++;
-?>
-    </div>
-
-    <!-- For items-->
-    <div>
-
-<?php
-$query = "SELECT * FROM admin_select_items()";
-$result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
-$index = 1;
-echo '
-                <div>
-                <h1 class="w3-text-teal"> Transactions </h1>
-                <table class="striped responsive-table centered highlight", style="width:100%">
-                        <tr>
-                        <th>S/N</th>
-                        <th>Item ID</th>
-                        <th>Owner</th>
-                        <th>Category</th>
-                        <th>Item Name</th>
-                        <th>Minimum Bid </th>
-                        <th>Auto Buy </th>
-                        <th>Action</th>
-                        <th>Action</th>
-                        </tr>';
-while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
-    echo '<tr align = "center">
-        <form action="admin_items.php" method="POST">
-        <td>' . $index . '</td>
-        <td><input type=text name=itemid value="' . $row["itemid"] . '"/></td>
-        <td><input type="text" name="owner" value="' . $row["owner"] . '"/></td>
-        <td><input type="text" name="category" value="' . $row["category"] . '"/></td>
-        <td><input type="text" name="itemname" value="' . $row["itemname"] . '"/></td>
-        <td><input type="text" name="minbid" value="' . $row["minbid"] . '"/></td>
-        <td><input type="text" name="autobuy" value="' . $row["autobuy"] . '"/></td>
-        <td><button class="btn waves-effect wave-light" type="submit" name="edit_item" >Edit</button></td>
-        <td><button class="btn waves-effect wave-light" type="submit" name="delete_item" >Delete</button></td>
+        <td></td>
+        <td><input type="text" name="location" placeholder="Location"/></td>
+        <td><input type="text" name="pickupdate" placeholder="YYYY-MM-DD" /></td>
+        <td><input type="text" name="returndate" placeholder="YYYY-MM-DD" /></td>
+        <td><input type="text" name="itemid" placeholder="Item ID"/></td>
+        <td><button class="btn waves-effect wave-light" type="submit" name="add_transaction" >Add</button></td>
         </form>
         </tr>
-';
-$index++;
-}
-echo '<tr align = "center">
-    <form action="admin_items.php" method="POST">
-    <input type="hidden" name="biddername" value="' . $row["biddername"] . '"/>
-    <td>' . $index . '</td>
-    <td><input type="text" name="itemid" placeholder="Item ID"/></td>
-    <td><input type="text" name="owner" placeholder="Owner"/></td>
-    <td><input type="text" name="category" placeholder="Category" /></td>
-    <td><input type="text" name="itemname" placeholder="Item Name" /></td>
-    <td><input type="text" name="minbid" placeholder="0.0" /></td>
-    <td><input type="text" name="autobuy" placeholder="0.0" /></td>
-    <td><button class="btn waves-effect wave-light" type="submit" name="add_item" >Add</button></td>
-    </form>
-    </tr>
-    </div>
-    <h1 class="w3-text-teal">Items</h1>';
-$index++;
+        </div>';
+    $index++;
+    ?>
+</div>
+
+    <!-- For items-->
+<div class="container">
+<h1 class="header">Items</h1>
+<?php
+    $query = "SELECT * FROM admin_select_items()";
+    $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+    $index = 1;
+    echo '
+                    <div>
+                    <table class="striped responsive-table centered highlight", style="width:100%">
+                            <tr>
+                            <th>S/N</th>
+                            <th>Item ID</th>
+                            <th>Owner</th>
+                            <th>Category</th>
+                            <th>Item Name</th>
+                            <th>Minimum Bid </th>
+                            <th>Auto Buy </th>
+                            <th>Action</th>
+                            <th>Action</th>
+                            </tr>';
+    while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+        echo '<tr align = "center">
+            <form action="admin_items.php" method="POST">
+            <td>' . $index . '</td>
+            <td><input type=text name=itemid value="' . $row["itemid"] . '"/></td>
+            <td><input type="text" name="owner" value="' . $row["owner"] . '"/></td>
+            <td><input type="text" name="category" value="' . $row["category"] . '"/></td>
+            <td><input type="text" name="itemname" value="' . $row["itemname"] . '"/></td>
+            <td><input type="text" name="minbid" value="' . $row["minbid"] . '"/></td>
+            <td><input type="text" name="autobuy" value="' . $row["autobuy"] . '"/></td>
+            <td><button class="btn waves-effect wave-light" type="submit" name="edit_item" >Edit</button></td>
+            <td><button class="btn waves-effect wave-light" type="submit" name="delete_item" >Delete</button></td>
+            </form>
+            </tr>
+    ';
+    $index++;
+    }
+    echo '<tr align = "center">
+        <form action="admin_items.php" method="POST">
+        <input type="hidden" name="biddername" value="' . $row["biddername"] . '"/>
+        <td>' . $index . '</td>
+        <td><input type="text" name="itemid" placeholder="Item ID"/></td>
+        <td><input type="text" name="owner" placeholder="Owner"/></td>
+        <td><input type="text" name="category" placeholder="Category" /></td>
+        <td><input type="text" name="itemname" placeholder="Item Name" /></td>
+        <td><input type="text" name="minbid" placeholder="0.0" /></td>
+        <td><input type="text" name="autobuy" placeholder="0.0" /></td>
+        <td><button class="btn waves-effect wave-light" type="submit" name="add_item" >Add</button></td>
+        </form>
+        </tr>
+        </div>';
+    $index++;
 ?>
     </div>
 </div>
+
 <!--JavaScript at end of body for optimized loading-->
       <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
       <script type="text/javascript" src="./style/js/materialize.min.js"></script>
