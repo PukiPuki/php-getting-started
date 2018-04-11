@@ -12,6 +12,8 @@ include 'refresh.php';
     <!-- Compiled and minified CSS -->
     <link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection">
     <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
 <?php
@@ -250,5 +252,7 @@ include 'navbar.php';
 ?>
             </div>
 </div>
+ <!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="./style/js/materialize.min.js"></script>
 </body>
 </html>
