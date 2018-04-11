@@ -57,13 +57,6 @@
         <label for="psw"><b>Password</b></label>
     </div>
 
-    <div class="row">
-            <label for="remember">
-            <input type="checkbox" id="remember" /> 
-                <span> Remember me </span>
-            </label>
-    </div>
-
     <div class="row container center">
   <button class="btn waves-effect waves-light" type="submit" name="login">Login</button>
     </div>
