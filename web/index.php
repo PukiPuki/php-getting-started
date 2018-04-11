@@ -115,6 +115,7 @@ include 'makebids.php';
                         </tr>
                         </thead>';
             while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                $curr = max($row["minbid"], $row["highbid"]);
                 echo '<tr align = "center">
                 <td>' . $index . '</td>
                 <td>' . $row["tid"] . '</td>
@@ -127,7 +128,7 @@ include 'makebids.php';
                 <td>' . $row["minbid"] . '</td>
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["highbid"] . '</td>
-                <td>' . makeBidInput($row["tid"]) . '</td>
+                <td>' . makeBidInput($curr) . '</td>
                 </tr>';
                 $index++;
             }
