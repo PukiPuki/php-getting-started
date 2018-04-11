@@ -112,6 +112,7 @@ $username = $_SESSION[user];
             <th>Action</th>
             </tr>
             </thead>';
+        echo 'this is ridiculous';
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
                 <form name="display" action="userloanout.php" method="POST">
