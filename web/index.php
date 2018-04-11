@@ -19,12 +19,11 @@ include 'makebids.php';
     include 'navbar.php';
 ?>
 
-<div style="width:100%">
+<div>
     <?php
 
     if (isset($_SESSION[user])) {
         echo '<div>
-            <div>
             <h1>Welcome '.$_SESSION[user].'</h1>
             <h2>Active transactions</h2>
             </div>';
@@ -35,7 +34,7 @@ include 'makebids.php';
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else if (isset($_POST['filter'])) {
             $query = "SELECT * FROM filter_transactions('$_POST[category]')";
-            $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+            $result = pg_query($pg_conn, $query);
             if (!$result) {
                 $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
                 echo "<script type='text/javascript'>alert('$message');</script>";
@@ -70,6 +69,7 @@ include 'makebids.php';
                     </tr>
                     </thead>';
                 while ($row = pg_fetch_assoc($result)) {   //Creates a loop to loop through results
+                $curr = max($row["minbid"], $row["highbid"]);
                     echo '<tr align = "center">
                 <td>' . $index . '</td>
                 <td>' . $row["tid"] . '</td>
@@ -82,7 +82,7 @@ include 'makebids.php';
                 <td>' . $row["minbid"] . '</td>
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["highbid"] . '</td>
-                <td>' . makeBidInput($row["tid"]) . '</td>
+                <td>' . makeBidInput($curr) . '</td>
                 </tr>';
                     $index++;
                 }
@@ -148,11 +148,11 @@ if (isset($_POST['new_bid'])) {
     $query = "SELECT * FROM make_bid('$_POST[new_bid]', '$_POST[tid]', '$_SESSION[user]')";
     $result = pg_query($pg_conn, $query);
     if (!$result) {
-        $message = ' <p>There are no transactions of that category</p> </div> </div> </div>';
-        echo "<script type='text/javascript'>alert('$_POST[tid]');</script>";
-        echo "<script type='text/javascript'>alert('$_POST[new_bid]');</script>";
-        echo "<script type='text/javascript'>alert('$_SESSION[user]');</script>";
+        $message = 'Bid failed';
+    } else {
+        $message = 'Bid succeeded';
     }
+        echo "<script type='text/javascript'>alert('$message');</script>";
 }
 
 function homeScreen () {
