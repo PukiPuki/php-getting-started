@@ -13,6 +13,11 @@ $username = $_SESSION[user];
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./style/css/materialize.css">
+<style>
+input {
+    text-align:center;
+}
+</style>
 <body>
 <div>
     <?php
@@ -57,7 +62,7 @@ $username = $_SESSION[user];
             <td>' . $row["itemname"] . '</td>
             <td>' . $row["biddername"] . '</td>
             <td>' . $row["phonenumber"] . '</td>
-            <td><input type="text" style="text-align:center" name="location" value="' . $row["location"] . '" /></td>
+            <td><input type="text" name="location" value="' . $row["location"] . '" /></td>
             <td><input type="text" name="pickupdate" value="' . $row["pickupdate"] . '" /></td>
             <td><input type="text" name="returndate" value="' . $row["returndate"] . '" /></td>
             <td><button class="btn waves-effect wave-light" type="submit" name="reloan">Loan Again</button> </td>
