@@ -82,7 +82,7 @@ $username = $_SESSION[user];
         </div>';
     }
 
-    echo '<div class = "container">
+    echo '<div class = "container" style="width:100%">
     <h2 class="w3-text-teal">Pending Loans</h2>
     </div>';
 
