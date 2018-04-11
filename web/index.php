@@ -82,7 +82,7 @@ include 'makebids.php';
                 <td>' . $row["minbid"] . '</td>
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["highbid"] . '</td>
-                <td>' . makeBidInput($curr) . '</td>
+                <td>' . makeBidInput($curr, $row["tid"]) . '</td>
                 </tr>';
                     $index++;
                 }
@@ -131,7 +131,7 @@ include 'makebids.php';
                 <td>' . $row["minbid"] . '</td>
                 <td>' . $row["autobuy"] . '</td>
                 <td>' . $row["highbid"] . '</td>
-                <td>' . makeBidInput($curr) . '</td>
+                <td>' . makeBidInput($curr, $row["tid"]) . '</td>
                 </tr>';
                 $index++;
             }
