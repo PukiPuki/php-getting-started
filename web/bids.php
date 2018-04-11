@@ -146,7 +146,7 @@ function retractBid($string)
 {
     return '
         <form action="bids.php" method="POST">
-            <button type="submit" name="retract" value="' . $string . '">Retract</button>
+            <button class="btn waves-effect light" type="submit" name="retract" value="' . $string . '">Retract</button>
         </form>';
 }
 ?>
