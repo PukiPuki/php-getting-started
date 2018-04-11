@@ -41,7 +41,7 @@ include 'navbar.php';
     </li>
   </ul>
         <div>
-            <h3 class="green"> Add User </h3>
+            <h3 class="header green"> Add User </h3>
             <form action="admin_users.php" method="POST">
                 <div>
                     <label for="username"><b>Username</b></label>
@@ -253,8 +253,7 @@ include 'navbar.php';
             </div>
 </div>
  <!--JavaScript at end of body for optimized loading-->
+<script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>    
 <script type="text/javascript" src="./style/js/materialize.min.js"></script>
-    <script type = "text/javascript"
-         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>    
 </body>
 </html>
