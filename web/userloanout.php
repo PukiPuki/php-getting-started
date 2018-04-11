@@ -22,31 +22,31 @@ $username = $_SESSION[user];
 </style>
 <body>
 <div>
-<?php
-include 'navbar.php';
-?>
+    <?php
+    include 'navbar.php';
+    ?>
 </div>
 
-<div style=margin-top:43px>
+<div class="container">
     <div class="container">
         <h1 class="w3-text-teal">Your Loan</h1>
     </div>
 
-<?php
-$query = "SELECT * FROM all_current_loans_accepted('$username')";
-$result = pg_query($pg_conn, $query);
+    <?php
+    $query = "SELECT * FROM all_current_loans_accepted('$username')";
+    $result = pg_query($pg_conn, $query);
 
-echo '<div>
+    echo '<div>
     <div class="container">
     <h2 class="w3-text-teal">Successful Loans</h2>
     </div>';
 
-if (!$result) {
-    $message = '<p>You have nothing loaned out!</p>';
-    echo "<script type='text/javascript'>alert('$message');</script>";
-} else {
-    $index = 1;
-    echo '
+    if (!$result) {
+        $message = '<p>You have nothing loaned out!</p>';
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    } else {
+        $index = 1;
+        echo '
             <table class="striped responsive-table centered highlight", style="width:100%">
             <thead>
             <tr>
@@ -60,11 +60,11 @@ if (!$result) {
             <th>Action</th>
             </tr>
             </thead>';
-    while ($row = pg_fetch_assoc($result)) {
-        echo '<tr align = "center">
+        while ($row = pg_fetch_assoc($result)) {
+            echo '<tr align = "center">
             <form name="display" action="userloanout.php" method="POST">
             <td>' . $index . '</td>
-            <input type="hidden" name="itemid" value="'.$row["itemid"].'" />
+            <input type="hidden" name="itemid" value="' . $row["itemid"] . '" />
             <td>' . $row["itemname"] . '</td>
             <td>' . $row["biddername"] . '</td>
             <td>' . $row["phonenumber"] . '</td>
@@ -74,12 +74,12 @@ if (!$result) {
             <td><button class="btn waves-effect wave-light" type="submit" name="reloan">Loan Again</button> </td>
             </form>
             </tr>';
-    $index++;
+            $index++;
+        }
+        echo '</table>';
     }
-    echo '</table>';
-}
 
-echo '<div>
+    echo '<div>
     <div class="container">
     <h2 class="w3-text-teal">Pending Loans</h2>
     </div>';
@@ -128,22 +128,22 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button class="btn waves-effect wave-light" type="submit" name="edititem" value="'. $row["itemid"]. '">Update</button></td>';
+                <td><button class="btn waves-effect wave-light" type="submit" name="edititem" value="' . $row["itemid"] . '">Update</button></td>';
 
-            if ($row[maxbid])  {
-                echo '<td><button class="btn waves-effect wave-light" type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>';
+            if ($row[maxbid]) {
+                echo '<td><button class="btn waves-effect wave-light" type="submit" name="biddername" value="' . $row["biddername"] . '">Accept</button></td>';
             } else {
                 echo '<td><button class="btn waves-effect wave-light" type="button" disabled>Accept</button></td>';
             }
             if ($row[maxbid]) {
-               echo ' <td><button class="btn waves-effect wave-light" type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>';
+                echo ' <td><button class="btn waves-effect wave-light" type="submit" name="rejectbid" value="' . $row["biddername"] . '">Reject</button></td>';
             } else {
                 echo '<td><button class="btn waves-effect wave-light" type="button" disabled>Reject</button></td>';
             }
-                echo '<td><button class="btn waves-effect wave-light" type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete Item</button></td>
+            echo '<td><button class="btn waves-effect wave-light" type="submit" name="deleteitem" value="' . $row["itemid"] . '">Delete Item</button></td>
                 </form>
                 </tr>';
-        $index++;
+            $index++;
         }
         echo addBidUI($index);
         echo '</table>';
@@ -168,17 +168,17 @@ echo '<div>
     }
 
     if (isset($_POST['biddername'])) {
-        $query = 'SELECT * FROM accept_loan('.$_POST['newtransactionid'].',\''.$_POST['biddername'].'\')';
+        $query = 'SELECT * FROM accept_loan(' . $_POST['newtransactionid'] . ',\'' . $_POST['biddername'] . '\')';
         $result = pg_send_query($pg_conn, $query);
         if (!$result) {
             echo "<script type='text/javascript'>
                 alert('Error in accepting loan!');
             </script>";
         } else {
-        echo "<script type='text/javascript'>
+            echo "<script type='text/javascript'>
                 alert('Loan status modified!');
             </script>";
-        refresh();
+            refresh();
         }
     }
 
@@ -190,10 +190,10 @@ echo '<div>
                 alert('Error in rejecting loan!');
             </script>";
         } else {
-        echo "<script type='text/javascript'>
+            echo "<script type='text/javascript'>
                 alert('Loan status modified!');
             </script>";
-        refresh();
+            refresh();
         }
     }
 
@@ -205,10 +205,10 @@ echo '<div>
                 alert('Error in deleting item!');
             </script>";
         } else {
-        echo "<script type='text/javascript'>
+            echo "<script type='text/javascript'>
                 alert('Item deleted!');
             </script>";
-        refresh();
+            refresh();
         }
     }
 
@@ -220,12 +220,12 @@ echo '<div>
                 alert('Error in adding item!');
             </script>";
         } else {
-        echo "<script type='text/javascript'>
+            echo "<script type='text/javascript'>
                 alert('Item added!');
             </script>";
-        refresh();
+            refresh();
         }
-        
+
     }
 
     if (isset($_POST['reloan'])) {
@@ -236,20 +236,21 @@ echo '<div>
                 alert('Error in reloaning item!');
             </script>";
         } else {
-        echo "<script type='text/javascript'>
+            echo "<script type='text/javascript'>
                 alert('Item added for reloaning!');
             </script>";
-        refresh();
+            refresh();
         }
-        
+
     }
 
     ?>
 
 </div>
 <?php
-    function addBidUI($index) {
-        return <<<END
+function addBidUI($index)
+{
+    return <<<END
         <tr align = "center">
             <form name="display" action="userloanout.php" method="POST">
                 <input type="hidden" name="newtransactionid" value="$row[transactionid]">
@@ -269,16 +270,17 @@ echo '<div>
         </tr>;
 END;
 
-    }
+}
+
 ?>
 
 
-    <script>
+<script>
 
     // Get the DIV with overlay effect
     var overlayBg = document.getElementById("myOverlay");
 
-    </script>
+</script>
 </body>
 </html>
 

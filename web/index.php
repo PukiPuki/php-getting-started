@@ -160,7 +160,7 @@ function homeScreen () {
      <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Stuffsharing</h1>
+      <h1 class="header center orange-text">Share Share</h1>
       <div class="row center">
         <h5 class="header col s12 light">Your next loan is just a click away</h5>
       </div>
