@@ -7,10 +7,13 @@ include 'refresh.php';
 
 <html>
 <head>
+    <<<<<<< HEAD
     <script>
         var elem = document.querySelector('.collapsible');
         var instance = M.Collapsible.init(elem, options);
     </script>
+    =======
+    >>>>>>> 65488a02c24738310906b90ac6f1043ebf3be8a4
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +21,9 @@ include 'refresh.php';
     <link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection">
     <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="./style/js/materialize.min.js"></script>
 
 </head>
 <body>
@@ -30,7 +36,7 @@ include 'navbar.php';
     <div class="container">
         <h1 class="header"> User Control </h1>
 
-        <ul class="collapsible">
+        <ul class="collapsible" data-collapsible="accordion">
             <li>
                 <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
                 <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -45,7 +51,7 @@ include 'navbar.php';
             </li>
         </ul>
         <div>
-            <h3 class="green"> Add User </h3>
+            <h3 class="header green"> Add User </h3>
             <form action="admin_users.php" method="POST">
                 <div>
                     <label for="username"><b>Username</b></label>
@@ -256,7 +262,10 @@ include 'navbar.php';
         ?>
     </div>
 </div>
+<<<<<<< HEAD
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="./style/js/materialize.min.js"></script>
+=======
+>>>>>>> 65488a02c24738310906b90ac6f1043ebf3be8a4
 </body>
 </html>
