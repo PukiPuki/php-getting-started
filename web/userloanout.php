@@ -74,10 +74,11 @@ $username = $_SESSION[user];
             </tr>';
             $index++;
         }
-        echo '</table>';
+        echo '</table>
+        </div>';
     }
 
-    echo '<div>
+    echo '<div class = "container">
     <h2 class="w3-text-teal">Pending Loans</h2>
     </div>';
 
@@ -90,7 +91,7 @@ $username = $_SESSION[user];
     } else {
         $index = 1;
         echo '
-            <table class="striped responsive-table centered highlight", style="width:120%">
+            <table class="striped responsive-table centered highlight", style="width:100%">
             <thead>
             <tr>
             <th>S/N</th>
