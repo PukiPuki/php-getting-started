@@ -56,7 +56,7 @@ include 'navbar.php';
                         <label for="isAdmin" >
                             <span> Admin </span>
                         </label>
-                    <button type="submit" name="add_user">Add User</button>
+                    <button class="btn waves-effect wave-light" type="submit" name="add_user">Add User</button>
                 </div>
             </form>
         </div>
@@ -73,7 +73,7 @@ include 'navbar.php';
                 <label for="isAdmin"><b>Admin Privileges</b></label>
                 <input type="hidden" name="isAdmin" value="0"> </input>
                 <input type="checkbox" name="isAdmin" value="1"> Admin </input>
-                <button type="submit" name="edit_user">Edit User</button>
+                <button class="btn waves-effect wave-light" type="submit" name="edit_user">Edit User</button>
             </div>
         </form>
 
@@ -83,7 +83,7 @@ include 'navbar.php';
                 <div>
                     <label for="username"><b>Username</b></label>
                     <input type="text" placeholder="Enter User to Remove" name="username" required>
-                    <button type="submit" name="remove_user">Remove User</button>
+                    <button class="btn waves-effect wave-light" type="submit" name="remove_user">Remove User</button>
                 </div>
             </form>
         </div>
@@ -118,8 +118,8 @@ include 'navbar.php';
                     <td>'.$row["biddername"].'</td>
                     <td><input type="text" name="bidprice" value="'.$row["biddingprice"].'"/></td>
                     <td><input type="text" name="bidstatus" value="'.$row["biddingstatus"].'"/></td>
-                    <td><button type="submit" name="edit_bid" >Edit</button></td>
-                    <td><button type="submit" name="delete_bid" >Delete</button></td>
+                    <td><button class="btn waves-effect wave-light" type="submit" name="edit_bid" >Edit</button></td>
+                    <td><button class="btn waves-effect wave-light" type="submit" name="delete_bid" >Delete</button></td>
                     </form>
                     </tr>';
                     $index++;
@@ -132,7 +132,7 @@ include 'navbar.php';
                     <td><input type="text" name="biddername" placeholder="Name"/></td>
                     <td><input type="text" name="bidprice" placeholder="0.0"/></td>
                     <td><input type="text" name="bidstatus" placeholder="STATUS"/></td>
-                    <td><button type="submit" name="add_bid" >Add</button></td>
+                    <td><button class="btn waves-effect wave-light" type="submit" name="add_bid" >Add</button></td>
                     </form>
                     </tr>
                     </div>';
@@ -171,8 +171,8 @@ include 'navbar.php';
                     <td><input type="text" name="pickupdate" value="'.$row["pickupdate"].'"/></td>
                     <td><input type="text" name="returndate" value="'.$row["returndate"].'"/></td>
                     <td><input type="text" name="itemid" value="'.$row["itemid"].'"/></td>
-                    <td><button type="submit" name="edit_transaction" >Edit</button></td>
-                    <td><button type="submit" name="delete_transaction" >Delete</button></td>
+                    <td><button class="btn waves-effect wave-light" type="submit" name="edit_transaction" >Edit</button></td>
+                    <td><button class="btn waves-effect wave-light" type="submit" name="delete_transaction" >Delete</button></td>
                     </form>
                     </tr>';
                     $index++;
@@ -186,7 +186,7 @@ include 'navbar.php';
                     <td><input type="text" name="pickupdate" placeholder="YYYY-MM-DD" /></td>
                     <td><input type="text" name="returndate" placeholder="YYYY-MM-DD" /></td>
                     <td><input type="text" name="itemid" placeholder="Item ID"/></td>
-                    <td><button type="submit" name="add_transaction" >Add</button></td>
+                    <td><button class="btn waves-effect wave-light" type="submit" name="add_transaction" >Add</button></td>
                     </form>
                     </tr>
                     </div>';
@@ -226,8 +226,8 @@ include 'navbar.php';
                     <td><input type="text" name="itemname" value="'.$row["itemname"].'"/></td>
                     <td><input type="text" name="minbid" value="'.$row["minbid"].'"/></td>
                     <td><input type="text" name="autobuy" value="'.$row["autobuy"].'"/></td>
-                    <td><button type="submit" name="edit_item" >Edit</button></td>
-                    <td><button type="submit" name="delete_item" >Delete</button></td>
+                    <td><button class="btn waves-effect wave-light" type="submit" name="edit_item" >Edit</button></td>
+                    <td><button class="btn waves-effect wave-light" type="submit" name="delete_item" >Delete</button></td>
                     </form>
                     </tr>
                     ';
@@ -243,7 +243,7 @@ include 'navbar.php';
                     <td><input type="text" name="itemname" placeholder="Item Name" /></td>
                     <td><input type="text" name="minbid" placeholder="0.0" /></td>
                     <td><input type="text" name="autobuy" placeholder="0.0" /></td>
-                    <td><button type="submit" name="add_item" >Add</button></td>
+                    <td><button class="btn waves-effect wave-light" type="submit" name="add_item" >Add</button></td>
                     </form>
                     </tr>
                     </div>
