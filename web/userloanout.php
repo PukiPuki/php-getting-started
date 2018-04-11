@@ -31,7 +31,7 @@ $username = $_SESSION[user];
     ?>
 </div>
 
-<div class="container">
+<div class="container" style="width:100%">
     <h1 class="w3-text-teal">Your Loan</h1>
 
     <?php
