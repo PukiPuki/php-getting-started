@@ -44,11 +44,11 @@ include 'makebids.php';
                 $index = 1;
                 echo '<div> 
             <form action="index.php" method="POST">
-            <div class="input-field inline"
+            <div class="input-field inline">
                 <input type="text" id="category" class="col s6" name="category" required> 
                 <label for="category">Category</label>
             </div>
-            <button type="submit" name="filter">Filter</button>
+            <button class="btn waves-effect waves-light green" type="submit" name="filter">Filter</button>
             </form>';
                 echo '
             <table style = "width:100%", align="center">
