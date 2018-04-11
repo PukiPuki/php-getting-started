@@ -7,12 +7,17 @@ include 'refresh.php';
 
 <html>
 <head>
+<script>
+var elem = document.querySelector('.collapsible');
+var instance = M.Collapsible.init(elem, options);
+</script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Compiled and minified CSS -->
     <link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection">
     <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
@@ -39,7 +44,6 @@ include 'navbar.php';
       <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
   </ul>
-        k
         <div>
             <h3 class="green"> Add User </h3>
             <form action="admin_users.php" method="POST">
