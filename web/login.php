@@ -47,7 +47,7 @@
 
 <div class="container">
  <form action="login.php" method="POST">
-    <div class="row input-field col s6">
+    <div class="row input-field col s2">
         <input type="text" id="uname" name="uname" class="validate">
         <label for="uname"><b>Username</b></label>
     </div>
