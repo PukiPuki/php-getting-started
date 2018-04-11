@@ -44,9 +44,10 @@ include 'makebids.php';
                 $index = 1;
                 echo '<div> 
             <form action="index.php" method="POST">
-            <label for"filter"><b> Filter: </b></label>
-            <input type="text" placeholder="Category" name=
-            "category" required> 
+            <div class="input-field inline"
+                <input type="text" id="category" class="col s6" name="category" required> 
+                <label for="category">Category</label>
+            </div>
             <button type="submit" name="filter">Filter</button>
             </form>';
                 echo '
