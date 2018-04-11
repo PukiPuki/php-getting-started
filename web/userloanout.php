@@ -79,7 +79,6 @@ $username = $_SESSION[user];
 
     echo '<div>
     <h2 class="w3-text-teal">Pending Loans</h2>
-    HERE
     </div>';
 
     $query = "SELECT * FROM all_current_loans_pending('$username')";
@@ -90,7 +89,6 @@ $username = $_SESSION[user];
         echo "<script type='text/javascript'>alert('$message');</script>";
     } else {
         $index = 1;
-        echo 'i am here';
         echo '
             <table class="striped responsive-table centered highlight", style="width:120%">
             <thead>
@@ -112,7 +110,6 @@ $username = $_SESSION[user];
             <th>Action</th>
             </tr>
             </thead>';
-        echo 'this is ridiculous';
         while ($row = pg_fetch_assoc($result)) {
             echo '<tr align = "center">
                 <form name="display" action="userloanout.php" method="POST">
@@ -145,11 +142,8 @@ $username = $_SESSION[user];
                 </tr>';
             $index++;
         }
-        echo 'before bid ui';
         echo addBidUI($index);
-        echo 'after bid ui';
         echo '</table>';
-        echo 'end of table';
     }
 
     if (isset($_POST['edititem'])) {
