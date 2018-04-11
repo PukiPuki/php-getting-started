@@ -1,6 +1,6 @@
 <!-- Navbar -->
 <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper"><a id="logo-container" href="/" class="brand-logo left">Stuffsharing</a>
+    <div class="nav-wrapper"><a id="logo-container" href="/" class="brand-logo site-logo">Stuffsharing</a>
     <?php
         if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']) {
             echo '<ul class="right hide-on-med-and-down"> 
