@@ -7,13 +7,10 @@ include 'refresh.php';
 
 <html>
 <head>
-    <<<<<<< HEAD
     <script>
         var elem = document.querySelector('.collapsible');
         var instance = M.Collapsible.init(elem, options);
     </script>
-    =======
-    >>>>>>> 65488a02c24738310906b90ac6f1043ebf3be8a4
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
