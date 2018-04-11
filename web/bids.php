@@ -7,19 +7,13 @@ include 'checklogin.php'
 ?>
 <html>
 <title>Stuff Sharing (CS2102 Project)</title>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<style>
-    html, body, h1, h2, h3, h4, h5, h6 {
-        font-family: "Roboto", sans-serif;
-    }
-</style>
+<link rel="stylesheet" href="./style/css/materialize.css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <body>
 <div>
     <?php
@@ -27,14 +21,12 @@ include 'checklogin.php'
     ?>
 </div>
 
-<div class="container" style="width:100%">
+<div>
     <?php
-    echo '<div class="container">';
+    echo '<div class="container" style="width:100%">';
 
     if (isset($_SESSION[user])) {
-        echo '<div>
-        <h2 class="header">Active transactions</h2>
-        </div>';
+        echo '<h2 class="header">Active transactions</h2>';
         $query = "SELECT * FROM check_bid_status('$_SESSION[user]')";
         $result = pg_query($pg_conn, $query);
         if (!$result) {
@@ -90,7 +82,7 @@ include 'checklogin.php'
                     </tr>';
                 $index++;
             }
-            echo '</tbody></table>';
+            echo '</tbody></table></div>';
         }
     }
     ?>
@@ -100,9 +92,7 @@ include 'checklogin.php'
     <?php
 
     if (isset($_SESSION[user])) {
-        echo '<div>
-        <h2 class="w3-text-teal">Successful transactions</h2>
-    </div>';
+        echo '<h2 class="header">Successful transactions</h2>';
         $query = "SELECT * FROM all_current_items_borrowed('$_SESSION[user]')";
         $result = pg_query($pg_conn, $query);
         if (!$result) {

@@ -10,20 +10,9 @@ $username = $_SESSION[user];
 <title>Stuff Sharing (CS2102 Project)</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./style/css/materialize.css">
-<style>
-    html, body, h1, h2, h3, h4, h5, h6 {
-        font-family: "Roboto", sans-serif;
-    }
-
-    .tablependingloans {
-        padding: 15px;
-    }
-</style>
 <body>
 <div>
     <?php
@@ -32,7 +21,7 @@ $username = $_SESSION[user];
 </div>
 
 <div class="container" style="width:100%">
-    <h1 class="w3-text-teal">Your Loan</h1>
+    <h1 class="header">Your Loan</h1>
 
     <?php
     $query = "SELECT * FROM all_current_loans_accepted('$username')";
@@ -40,7 +29,7 @@ $username = $_SESSION[user];
 
     echo '
     <div>
-    <h2 class="w3-text-teal">Successful Loans</h2>
+    <h2 class="header">Successful Loans</h2>
     </div>';
 
     if (!$result) {
@@ -83,7 +72,7 @@ $username = $_SESSION[user];
     }
 
     echo '<div class = "container" style="width:100%">
-    <h2 class="w3-text-teal">Pending Loans</h2>';
+    <h2 class="header">Pending Loans</h2>';
 
     $query = "SELECT * FROM all_current_loans_pending('$username')";
     $result = pg_query($pg_conn, $query);
@@ -94,7 +83,7 @@ $username = $_SESSION[user];
     } else {
         $index = 1;
         echo '
-            <table class="striped responsive-table centered highlight tablependingloans" style="width:100%">
+            <table class="striped responsive-table centered highlight" style="width:100%">
             <thead>
             <tr>
             <th>S/N</th>
