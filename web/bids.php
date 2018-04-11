@@ -77,9 +77,12 @@ include 'checklogin.php'
                     <td>' . $row["autobuy"] . '</td>
                     <td>' . $row["userbiddingprice"] . '</td>
                     <td>' . $row["maxbiddingprice"] . '</td>
-                    <td>' . $row["biddingstatus"] . '</td>
-                    <td>' . retractBid($row["tid"]) . '</td>
-                    </tr>';
+                    <td>' . $row["biddingstatus"] . '</td>';
+                    if ($row["biddingstatus"] == "ACCEPTED") {
+                        echo '<td>' . noRetractBid() . '</td></tr>';
+                    } else {
+                        echo '<td>' . retractBid($row["tid"]) . '</td></tr>';
+                    }
                 $index++;
             }
             echo '</tbody></table></div>';
@@ -132,8 +135,12 @@ function retractBid($string)
 {
     return '
         <form action="bids.php" method="POST">
-            <button class="btn waves-effect light" type="submit" name="retract" value="' . $string . '">Retract</button>
+            <button class="btn waves-effect waves-light" type="submit" name="retract" value="' . $string . '">Retract</button>
         </form>';
+}
+function noRetractBid()
+{
+    return '<button class="btn waves-effect waves-light" type="button" disabled>Retract</button>';
 }
 ?>
 
