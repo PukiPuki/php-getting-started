@@ -20,10 +20,11 @@ include 'makebids.php';
 ?>
 
 <div>
+    <div class = "container">
     <?php
-
     if (isset($_SESSION[user])) {
-        echo '<div>
+        echo '
+            <div>
             <h1>Welcome '.$_SESSION[user].'</h1>
             <h2>Active transactions</h2>
             </div>';
@@ -141,6 +142,7 @@ include 'makebids.php';
         echo homeScreen();
     }
     ?>
+    </div>
 </div>
 
 <?php
