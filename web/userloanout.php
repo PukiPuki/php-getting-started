@@ -19,6 +19,10 @@ $username = $_SESSION[user];
     html, body, h1, h2, h3, h4, h5, h6 {
         font-family: "Roboto", sans-serif;
     }
+
+    .tablependingloans {
+        padding: 15px;
+    }
 </style>
 <body>
 <div>
@@ -91,7 +95,7 @@ $username = $_SESSION[user];
     } else {
         $index = 1;
         echo '
-            <table class="striped responsive-table centered highlight", style="width:100%">
+            <table class="striped responsive-table centered highlight tablependingloans" style="width:100%">
             <thead>
             <tr>
             <th>S/N</th>
