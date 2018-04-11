@@ -83,8 +83,7 @@ $username = $_SESSION[user];
     }
 
     echo '<div class = "container" style="width:100%">
-    <h2 class="w3-text-teal">Pending Loans</h2>
-    </div>';
+    <h2 class="w3-text-teal">Pending Loans</h2>';
 
     $query = "SELECT * FROM all_current_loans_pending('$username')";
     $result = pg_query($pg_conn, $query);
@@ -148,7 +147,7 @@ $username = $_SESSION[user];
             $index++;
         }
         echo addBidUI($index);
-        echo '</table>';
+        echo '</table></div>';
     }
 
     if (isset($_POST['edititem'])) {
