@@ -12,8 +12,6 @@ include 'refresh.php';
     <!-- Compiled and minified CSS -->
     <link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection">
     <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 </head>
 <body>
 <?php
@@ -25,30 +23,10 @@ include 'navbar.php';
     <div class="container">
         <h1 class="header"> User Control </h1>
 
-    <ul class="collapsible">
+  <ul class="collapsible">
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body">
-        <h3 class="green"> Add User </h3>
-             <form action="admin_users.php" method="POST">
-                 <div>
-                     <label for="username"><b>Username</b></label>
-                     <input type="text" placeholder="Enter Username" name="username" required>
-                     <label for="password"><b>Password</b></label>
-                     <input type="password" placeholder="Enter Password" name="password" required>
-                     <label for="phone"><b>Phone Number</b></label>
-                     <input type="text" placeholder="Enter Phone Number" name="phone" required>
-                     <label for="isAdmin"><b>Admin Privileges</b></label>
-                     <input type="hidden" name="isAdmin" value="0"> </input>
-                     <input type="checkbox" id="isAdmin" name="isAdmin" value="1"> 
-                         <label for="isAdmin" >
-                             <span> Admin </span>
-                         </label>
-                     <button type="submit" name="add_user">Add User</button>
-                 </div>
-             </form>
-        </div>
-      </div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
     <li>
       <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
@@ -58,33 +36,55 @@ include 'navbar.php';
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
       <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
-     </ul>
-         <form action="admin_users.php" method="POST">
-             <div>
-                 <h2 class="w3-text-teal"> Edit User </h2>
-                 <label for="username"><b>Username</b></label>
-                 <input type="text" placeholder="Enter User to Edit" name="username" required>
+  </ul>
+        k
+        <div>
+            <h3 class="green"> Add User </h3>
+            <form action="admin_users.php" method="POST">
+                <div>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                    <label for="phone"><b>Phone Number</b></label>
+                    <input type="text" placeholder="Enter Phone Number" name="phone" required>
+                    <label for="isAdmin"><b>Admin Privileges</b></label>
+                    <input type="hidden" name="isAdmin" value="0"> </input>
+                    <input type="checkbox" id="isAdmin" name="isAdmin" value="1"> 
+                        <label for="isAdmin" >
+                            <span> Admin </span>
+                        </label>
+                    <button type="submit" name="add_user">Add User</button>
+                </div>
+            </form>
+        </div>
 
-                 <label for="newphone"><b>New Phone Number</b></label>
-                 <input type="text" placeholder="Enter New Phone Number" name="newphone" required>
+        <form action="admin_users.php" method="POST">
+            <div>
+                <h2 class="w3-text-teal"> Edit User </h2>
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter User to Edit" name="username" required>
 
-                 <label for="isAdmin"><b>Admin Privileges</b></label>
-                 <input type="hidden" name="isAdmin" value="0"> </input>
-                 <input type="checkbox" name="isAdmin" value="1"> Admin </input>
-                 <button type="submit" name="edit_user">Edit User</button>
-             </div>
-         </form>
+                <label for="newphone"><b>New Phone Number</b></label>
+                <input type="text" placeholder="Enter New Phone Number" name="newphone" required>
 
-         <div>
-             <h2 class="w3-text-teal"> Remove User </h2>
-             <form action="admin_users.php" method="POST">
-                 <div>
-                     <label for="username"><b>Username</b></label>
-                     <input type="text" placeholder="Enter User to Remove" name="username" required>
-                     <button type="submit" name="remove_user">Remove User</button>
-                 </div>
-             </form>
-         </div>
+                <label for="isAdmin"><b>Admin Privileges</b></label>
+                <input type="hidden" name="isAdmin" value="0"> </input>
+                <input type="checkbox" name="isAdmin" value="1"> Admin </input>
+                <button type="submit" name="edit_user">Edit User</button>
+            </div>
+        </form>
+
+        <div>
+            <h2 class="w3-text-teal"> Remove User </h2>
+            <form action="admin_users.php" method="POST">
+                <div>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter User to Remove" name="username" required>
+                    <button type="submit" name="remove_user">Remove User</button>
+                </div>
+            </form>
+        </div>
     </div>
 <!-- For bids-->
 
@@ -250,7 +250,5 @@ include 'navbar.php';
 ?>
             </div>
 </div>
- <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="./style/js/materialize.min.js"></script>
 </body>
 </html>
