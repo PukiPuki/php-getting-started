@@ -102,7 +102,7 @@ include 'navbar.php';
 <h1 class="header"> Bids </h1>
 <ul class="collapsible">
     <li>
-        <div class="collapsible-header center"><i class="material-icons">arrow_drop_down</i>Show Bids</div>
+        <div class="collapsible-header center-align"><i class="material-icons">arrow_drop_down</i>Show Bids</div>
         <div class="collapsible-body">
 <?php
 $query = "SELECT * FROM admin_select_bids()";
