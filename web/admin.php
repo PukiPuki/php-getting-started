@@ -30,15 +30,15 @@ include 'navbar.php';
                 <div class="collapsible-header"><i class="material-icons">add</i>Add User</div>
                 <div class="collapsible-body">
                 <form action="admin_users.php" class="col s12" method="POST">
-                <div class="row input-field">
+                <div class="row input-field col s6">
                     <input type="text" id="username" name="username" required>
                     <label for="username"> Username</label>
                 </div>
-                <div class="row input-field">
+                <div class="row input-field col s6">
                     <input type="password" placeholder="Enter Password" name="password" required>
                     <label for="password">Password</label>
                 </div>
-                <div class="row input-field">
+                <div class="row input-field col s6">
                     <input type="text" id="phone" name="phone" required>
                     <label for="phone">Phone Number</label>
                 </div>
@@ -59,22 +59,22 @@ include 'navbar.php';
                 <div class="collapsible-header"><i class="material-icons">edit</i>Edit User</div>
                 <div class="collapsible-body">
                     <form action="admin_users.php" method="POST">
-                        <div class="row input-field">
+                        <div class="row input-field col s6">
                             <input type="text" id="username"  name="username" required>
                             <label for="username">Username</label>
                         </div>
-                        <div class="row input-field">
+                        <div class="row input-field col s6">
                             <input type="text" id="newphone" name="newphone" required>
                             <label for="newphone">New Phone Number</label>
                         </div>
-                          <div class="row">
+                        <div class="row input-field col s6">
                               <input type="hidden" name="isAdmin" value="0"> </input>
                               <label for="isAdmin_edit">
                               <input type="checkbox" id="isAdmin_edit" name="isAdmin" value="1" />
                               <span> Admin Privileges</span>
                               </label>
                           </div>
-                        <div class="row input-field">
+                        <div class="row input-field col s6">
                             <button class="right btn waves-effect wave-light" type="submit" name="edit_user">Edit User</button>
                         </div>
                    </form>
@@ -84,11 +84,11 @@ include 'navbar.php';
                 <div class="collapsible-header"><i class="material-icons">delete</i>Remove User</div>
                 <div class="collapsible-body">
                    <form action="admin_users.php" method="POST">
-                       <div class="row input-field">
+                        <div class="row input-field col s6">
                            <input type="text" id="username"  name="username" required>
                            <label for="username"><b>Username</b></label>
                         </div>
-                        <div class="row input-field">
+                        <div class="row input-field col s6">
                            <button class="right btn waves-effect wave-light" type="submit" name="remove_user">Remove User</button>
                        </div>
                    </form>
@@ -102,7 +102,7 @@ include 'navbar.php';
 <h1 class="header"> Bids </h1>
 <?php
 $query = "SELECT * FROM admin_select_bids()";
-$result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
+$result = pg_query($pg_conn, $query);
 $index = 1;
 echo '
                 <div>
