@@ -28,16 +28,14 @@ $username = $_SESSION[user];
 </div>
 
 <div class="container">
-    <div class="container">
-        <h1 class="w3-text-teal">Your Loan</h1>
-    </div>
+    <h1 class="w3-text-teal">Your Loan</h1>
 
     <?php
     $query = "SELECT * FROM all_current_loans_accepted('$username')";
     $result = pg_query($pg_conn, $query);
 
-    echo '<div>
-    <div class="container">
+    echo '
+    <div>
     <h2 class="w3-text-teal">Successful Loans</h2>
     </div>';
 
@@ -80,7 +78,6 @@ $username = $_SESSION[user];
     }
 
     echo '<div>
-    <div class="container">
     <h2 class="w3-text-teal">Pending Loans</h2>
     </div>';
 
