@@ -147,6 +147,7 @@ $username = $_SESSION[user];
         }
         echo addBidUI($index);
         echo '</table>';
+        echo 'end of table';
     }
 
     if (isset($_POST['edititem'])) {
