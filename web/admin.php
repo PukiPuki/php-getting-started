@@ -25,7 +25,7 @@ include 'navbar.php';
 <div class="container">
     <h1 class="header"> User Control </h1>
 
-        <ul class="collapsible" data-collapsible="accordion">
+        <ul class="collapsible">
             <li>
                 <div class="collapsible-header"><i class="material-icons">add</i>Add User</div>
                 <div class="collapsible-body">
@@ -100,12 +100,15 @@ include 'navbar.php';
 
 <div class="container">
 <h1 class="header"> Bids </h1>
+<ul class="collapsible">
+    <li>
+        <div class="collapsible-header center"><i class="material-icons">arrow_drop_down</i>Show Bids</div>
+        <div class="collapsible-body">
 <?php
 $query = "SELECT * FROM admin_select_bids()";
 $result = pg_query($pg_conn, $query);
 $index = 1;
 echo '
-                <div>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <thead>
                         <tr>
@@ -145,11 +148,11 @@ echo '<tr align = "center">
     <td><button class="btn waves-effect wave-light" type="submit" name="add_bid" >Add</button></td>
     </form>
     </tr>
-    </table>
-    </div>';
+    </table>';
 $index++;
 
 ?>
+</div>
 </div>
     <!-- For transactions-->
 
