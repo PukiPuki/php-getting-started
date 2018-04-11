@@ -7,85 +7,13 @@ include 'refresh.php';
 
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        form {
-            border: 3px solid #f1f1f1;
-        }
+    <!-- Compiled and minified CSS -->
+    <link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection">
+    <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        /* Full-width inputs */
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        /* Set a style for all buttons */
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        /* Add a hover effect for buttons */
-        button:hover {
-            opacity: 0.8;
-        }
-
-        /* Extra style for the cancel button (red) */
-        .cancelbtn {
-            width: auto;
-            padding: 10px 18px;
-            background-color: #f44336;
-        }
-
-        /* Center the avatar image inside this container */
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-        }
-
-        /* Avatar image */
-        img.avatar {
-            width: 40%;
-            border-radius: 50%;
-        }
-
-        /* Add padding to containers */
-        .container {
-            padding: 16px;
-        }
-
-        /* The "Forgot password" text */
-        span.psw {
-            float: right;
-            padding-top: 16px;
-        }
-
-        /* Change styles for span and cancel button on extra small screens */
-        @media screen and (max-width: 300px) {
-            span.psw {
-                display: block;
-                float: none;
-            }
-
-            .cancelbtn {
-                width: 100%;
-            }
-        }
-
-    </style>
 </head>
 <body>
 <?php
@@ -93,12 +21,27 @@ include 'navbar.php';
 
 ?>
 
-<div style="margin-top:43px">
-    <div>
-        <h1 class="w3-text-teal"> User Control </h1>
+<div>
+    <div class="container">
+        <h1 class="header"> User Control </h1>
 
+  <ul class="collapsible">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+  </ul>
+        k
         <div>
-            <h3 class="w3-text-teal"> Add User </h3>
+            <h3 class="green"> Add User </h3>
             <form action="admin_users.php" method="POST">
                 <div>
                     <label for="username"><b>Username</b></label>
@@ -309,5 +252,7 @@ include 'navbar.php';
 ?>
             </div>
 </div>
+ <!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="./style/js/materialize.min.js"></script>
 </body>
 </html>
