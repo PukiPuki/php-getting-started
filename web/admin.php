@@ -106,7 +106,6 @@ $result = pg_query($pg_conn, $query) or die('Query failed: ' . pg_last_error());
 $index = 1;
 echo '
                 <div>
-                <h1 class="w3-text-teal"></h1>
                 <table class="striped responsive-table centered highlight", style="width:100%">
                         <tr>
                         <th>S/N</th>
@@ -144,6 +143,7 @@ echo '<tr align = "center">
     <td><button class="btn waves-effect wave-light" type="submit" name="add_bid" >Add</button></td>
     </form>
     </tr>
+    </table>
     </div>';
 $index++;
 
@@ -197,6 +197,7 @@ $index++;
         <td><button class="btn waves-effect wave-light" type="submit" name="add_transaction" >Add</button></td>
         </form>
         </tr>
+        </table>
         </div>';
     $index++;
     ?>
@@ -253,6 +254,7 @@ $index++;
         <td><button class="btn waves-effect wave-light" type="submit" name="add_item" >Add</button></td>
         </form>
         </tr>
+        </table>
         </div>';
     $index++;
 ?>
