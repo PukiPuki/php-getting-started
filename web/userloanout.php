@@ -27,18 +27,15 @@ $username = $_SESSION[user];
     $query = "SELECT * FROM all_current_loans_accepted('$username')";
     $result = pg_query($pg_conn, $query);
 
-    echo '
-    <div>
-    <h2 class="header">Successful Loans</h2>
-    </div>';
+    echo '<h2 class="header">Successful Loans</h2>';
 
     if (!$result) {
         $message = '<p>You have nothing loaned out!</p>';
         echo "<script type='text/javascript'>alert('$message');</script>";
     } else {
         $index = 1;
-        echo '
-            <table class="striped responsive-table centered highlight", style="width:100%, text-align:center">
+        echo '<div style="text-align:center">
+            <table class="striped responsive-table centered highlight", style="width:100%">
             <thead>
             <tr>
             <th>S/N</th>
@@ -64,7 +61,8 @@ $username = $_SESSION[user];
             <td><input type="text" name="returndate" value="' . $row["returndate"] . '" /></td>
             <td><button class="btn waves-effect wave-light" type="submit" name="reloan">Loan Again</button> </td>
             </form>
-            </tr>';
+            </tr>
+            </div>';
             $index++;
         }
         echo '</table>
