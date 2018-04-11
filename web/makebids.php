@@ -7,7 +7,7 @@ function makeBidInput($string, $tid) {
                 <div class="input-field inline">
                  <input class="col s6" type="text" value="' . $string . '" name="new_bid" required>
                 </div>
-                 <button class="btn waves-effect wave-light" type="submit" name="tid" value="' . $string . '">Bid</button>
+                 <button class="btn waves-effect wave-light" type="submit" name="make_bid" >Bid</button>
             </form>
         ';
 }
