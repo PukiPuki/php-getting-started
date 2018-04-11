@@ -25,7 +25,7 @@ include 'navbar.php';
     <div class="container">
         <h1 class="header"> User Control </h1>
 
-  <ul class="collapsible">
+    <ul class="collapsible">
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
       <div class="collapsible-body">
@@ -47,6 +47,7 @@ include 'navbar.php';
                      <button type="submit" name="add_user">Add User</button>
                  </div>
              </form>
+        </div>
       </div>
     </li>
     <li>
@@ -57,6 +58,7 @@ include 'navbar.php';
       <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
       <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
+     </ul>
          <form action="admin_users.php" method="POST">
              <div>
                  <h2 class="w3-text-teal"> Edit User </h2>
@@ -83,7 +85,6 @@ include 'navbar.php';
                  </div>
              </form>
          </div>
-     </ul>
     </div>
 <!-- For bids-->
 
