@@ -18,9 +18,6 @@ include 'refresh.php';
     <link type="text/css" rel="stylesheet" href="./style/css/materialize.min.css" media="screen,projection">
     <link href="https://fonts.googleapis.com/icon?family=Inconsolata" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
 </head>
 <body>
@@ -260,6 +257,8 @@ include 'navbar.php';
     </div>
 </div>
 <!--JavaScript at end of body for optimized loading-->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+      <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+
 </body>
 </html>
