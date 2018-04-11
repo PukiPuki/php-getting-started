@@ -7,10 +7,6 @@ include 'refresh.php';
 
 <html>
 <head>
-<script>
-var elem = document.querySelector('.collapsible');
-var instance = M.Collapsible.init(elem, options);
-</script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -258,5 +254,7 @@ include 'navbar.php';
 </div>
  <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="./style/js/materialize.min.js"></script>
+    <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>    
 </body>
 </html>
