@@ -28,7 +28,7 @@ include 'navbar.php';
 </div>
 
 <div style=margin-top:43px>
-    <div class="w3-container">
+    <div class="container">
         <h1 class="w3-text-teal">Your Loan</h1>
     </div>
 
@@ -37,7 +37,7 @@ $query = "SELECT * FROM all_current_loans_accepted('$username')";
 $result = pg_query($pg_conn, $query);
 
 echo '<div>
-    <div class="w3-container">
+    <div class="container">
     <h2 class="w3-text-teal">Successful Loans</h2>
     </div>';
 
@@ -80,7 +80,7 @@ if (!$result) {
 }
 
 echo '<div>
-    <div class="w3-container">
+    <div class="container">
     <h2 class="w3-text-teal">Pending Loans</h2>
     </div>';
 

@@ -30,12 +30,12 @@ include 'checklogin.php'
 <div class="container" style="width:100%">
     <?php
     echo " <div style=margin-top:43px>
-    <div class=\"w3-container\">
+    <div class=\"container\">
     </div>";
 
     if (isset($_SESSION[user])) {
         echo '<div>
-    <div class="w3-container">
+    <div class="container">
         <h2 class="w3-text-teal">Active transactions</h2>
     </div>';
         $query = "SELECT * FROM check_bid_status('$_SESSION[user]')";
@@ -104,7 +104,7 @@ include 'checklogin.php'
 
     if (isset($_SESSION[user])) {
         echo '<div>
-    <div class="w3-container">
+    <div class="container">
         <h2 class="w3-text-teal">Successful transactions</h2>
     </div>';
         $query = "SELECT * FROM all_current_items_borrowed('$_SESSION[user]')";
