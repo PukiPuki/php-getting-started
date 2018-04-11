@@ -27,14 +27,15 @@ $username = $_SESSION[user];
     $query = "SELECT * FROM all_current_loans_accepted('$username')";
     $result = pg_query($pg_conn, $query);
 
-    echo '<h2 class="header">Successful Loans</h2>';
+    echo '
+    <h2 class="header">Successful Loans</h2>';
 
     if (!$result) {
         $message = '<p>You have nothing loaned out!</p>';
         echo "<script type='text/javascript'>alert('$message');</script>";
     } else {
         $index = 1;
-        echo '<div style="text-align:center">
+        echo '
             <table class="striped responsive-table centered highlight", style="width:100%">
             <thead>
             <tr>
@@ -56,13 +57,12 @@ $username = $_SESSION[user];
             <td>' . $row["itemname"] . '</td>
             <td>' . $row["biddername"] . '</td>
             <td>' . $row["phonenumber"] . '</td>
-            <td><input type="text" name="location" value="' . $row["location"] . '" /></td>
+            <td><input type="text" style="text-align:center" name="location" value="' . $row["location"] . '" /></td>
             <td><input type="text" name="pickupdate" value="' . $row["pickupdate"] . '" /></td>
             <td><input type="text" name="returndate" value="' . $row["returndate"] . '" /></td>
             <td><button class="btn waves-effect wave-light" type="submit" name="reloan">Loan Again</button> </td>
             </form>
-            </tr>
-            </div>';
+            </tr>';
             $index++;
         }
         echo '</table>
