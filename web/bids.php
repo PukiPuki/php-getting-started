@@ -29,13 +29,11 @@ include 'checklogin.php'
 
 <div class="container" style="width:100%">
     <?php
-    echo " <div style=margin-top:43px>
-    <div class=\"container\">
-    </div>";
+    echo '<div class="container">';
 
     if (isset($_SESSION[user])) {
         echo '<div>
-        <h2 class="w3-text-teal">Active transactions</h2>
+        <h2 class="header">Active transactions</h2>
         </div>';
         $query = "SELECT * FROM check_bid_status('$_SESSION[user]')";
         $result = pg_query($pg_conn, $query);
