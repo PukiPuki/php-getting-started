@@ -71,7 +71,7 @@ if (!$result) {
             <td><input type="text" name="location" value="' . $row["location"] . '" /></td>
             <td><input type="text" name="pickupdate" value="' . $row["pickupdate"] . '" /></td>
             <td><input type="text" name="returndate" value="' . $row["returndate"] . '" /></td>
-            <td><button type="submit" name="reloan">Loan Again</button> </td>
+            <td><button class="btn waves-effect wave-light" type="submit" name="reloan">Loan Again</button> </td>
             </form>
             </tr>';
     $index++;
@@ -128,19 +128,19 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" value="' . $row["returndate"] . '"/></td>
                 <td>' . $row["biddername"] . '</td>
                 <td>' . $row["maxbid"] . '</td>
-                <td><button type="submit" name="edititem" value="'. $row["itemid"]. '">Update</button></td>';
+                <td><button class="btn waves-effect wave-light" type="submit" name="edititem" value="'. $row["itemid"]. '">Update</button></td>';
 
             if ($row[maxbid])  {
-                echo '<td><button type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>';
+                echo '<td><button class="btn waves-effect wave-light" type="submit" name="biddername" value="'. $row["biddername"]. '">Accept</button></td>';
             } else {
-                echo '<td><button type="button" disabled>Accept</button></td>';
+                echo '<td><button class="btn waves-effect wave-light" type="button" disabled>Accept</button></td>';
             }
             if ($row[maxbid]) {
-               echo ' <td><button type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>';
+               echo ' <td><button class="btn waves-effect wave-light" type="submit" name="rejectbid" value="'. $row["biddername"]. '">Reject</button></td>';
             } else {
-                echo '<td><button type="button" disabled>Reject</button></td>';
+                echo '<td><button class="btn waves-effect wave-light" type="button" disabled>Reject</button></td>';
             }
-                echo '<td><button type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete Item</button></td>
+                echo '<td><button class="btn waves-effect wave-light" type="submit" name="deleteitem" value="'. $row["itemid"]. '">Delete Item</button></td>
                 </form>
                 </tr>';
         $index++;
@@ -264,7 +264,7 @@ echo '<div>
                 <td><input type="text" name = "newreturndate" placeholder="YYYY-MM-DD"/></td>
                 <td></td>
                 <td></td>
-                <td><button type="submit" name="additem">Add</button></td>
+                <td><button class="btn waves-effect wave-light" type="submit" name="additem">Add</button></td>
             </form>
         </tr>;
 END;
